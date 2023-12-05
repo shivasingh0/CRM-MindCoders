@@ -7915,12 +7915,11 @@ p {
   flex: 1; }
 
 #main-wrapper {
-  opacity: 0;
+  /* opacity: 0; */
   transition: all 0.25s ease-in;
-  overflow: hidden;
-  position: relative; }
-  #main-wrapper.show {
-    opacity: 1; }
+  /* overflow: hidden; */
+  /* position: relative;  */
+}
 
 .rounded-lg {
   border-radius: 0.625rem; }
