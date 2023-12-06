@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const NavbarHeader = () => {
   const [isHamburgerActive, setIsHamburgerActive] = useState(false);
@@ -18,9 +19,9 @@ const NavbarHeader = () => {
   return (
     <>
       <div className="nav-header">
-        <a href="index.html" className="brand-logo">
+        <Link to="/" className="brand-logo">
           <img src="images/logo.png" alt="img" />
-        </a>
+        </Link>
         <div className="nav-control">
           <div
             className={isHamburgerActive ? "hamburger is-active" : "hamburger"}
