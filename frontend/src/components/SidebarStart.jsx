@@ -17,7 +17,7 @@ const SidebarStart = () => {
               Student Management
             </li>
             <li className="mt-10">
-              <Link to="/enquery" aria-expanded="false">
+              <Link to="/enquiries" aria-expanded="false">
                 <i className="bi-person-lines-fill" />
                 <span className="nav-text"> Enquiries</span>
               </Link>

@@ -7,7 +7,7 @@ const NavbarHeader = () => {
     setIsHamburgerActive(!isHamburgerActive);
     let ele = document.getElementById("main-wrapper");
     let cls = ele.className;
-    console.log(cls);
+    // console.log(cls);
     if (cls === "show") {
       ele.classList.add("menu-toggle");
     } else {
