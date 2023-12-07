@@ -27,7 +27,7 @@ const Users = [
   },
   {
     id: 4,
-    selected: true,
+    selected: false,
     name: "Patricia Lebsack",
     email: "Julianne.OConner@kory.org",
     phone: "493-170-9623 x156",
@@ -78,7 +78,7 @@ const Table = () => {
 
   return (
     <div className="container">
-      <div className="row">
+      <div>
         <div className="col-md-12">
             {/* Table start */}
           <table className="table">

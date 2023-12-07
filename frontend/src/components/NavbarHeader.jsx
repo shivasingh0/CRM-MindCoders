@@ -20,7 +20,7 @@ const NavbarHeader = () => {
     <>
       <div className="nav-header">
         <Link to="/" className="brand-logo">
-          <img src="images/logo.png" alt="img" />
+          <img src="images/logo.webp" alt="img" />
         </Link>
         <div className="nav-control">
           <div

@@ -1,7 +1,7 @@
 import React from "react";
-import Table from "../components/Table";
+import Table from "../../components/Table";
 
-const TotalStudents = () => {
+const TotalEmpolyees = () => {
   return (
     <>
       <div className="container-fluid">
@@ -14,11 +14,11 @@ const TotalStudents = () => {
                     <div className="widget-heading p-2 d-flex justify-content-between align-items-center">
                       <h4>
                         <span className="badge badge-primary mr-2">
-                          Total Enquiries- 20 Students{" "}
+                          Total Employees - 20
                         </span>
-                        <span className="badge badge-secondary">
+                        {/* <span className="badge badge-secondary">
                           Today Enquiries- 5 Students{" "}
-                        </span>
+                        </span> */}
                       </h4>
                       <div>
                         <button
@@ -26,7 +26,7 @@ const TotalStudents = () => {
                           data-bs-toggle="modal"
                           data-bs-target="#enquiries"
                         >
-                          <i className="bi-person-lines-fill" /> add Enquiry
+                          <i className="bi-person-lines-fill" /> Add Employee
                         </button>
                       </div>
                     </div>
@@ -124,4 +124,4 @@ const TotalStudents = () => {
   );
 };
 
-export default TotalStudents;
+export default TotalEmpolyees;
