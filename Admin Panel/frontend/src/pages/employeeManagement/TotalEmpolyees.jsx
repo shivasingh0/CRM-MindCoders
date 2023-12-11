@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Table from "../../components/Table";
+import AddEmployees from "../../modals/AddEmployees";
 
 const TotalEmpolyees = () => {
+
+  const [modalShow, setModalShow] = useState(false);
+
   return (
     <>
       <div className="container-fluid">
@@ -25,6 +29,7 @@ const TotalEmpolyees = () => {
                           className="btn btn-secondary btn-sm mr-2"
                           data-bs-toggle="modal"
                           data-bs-target="#enquiries"
+                          onClick={() => setModalShow(true)}
                         >
                           <i className="bi-person-lines-fill" /> Add Employee
                         </button>
@@ -120,6 +125,9 @@ const TotalEmpolyees = () => {
           </div>
         </div>
       </div>
+
+      <AddEmployees show={modalShow} onHide={() => setModalShow(false)} />
+      {modalShow?<div class="modal-backdrop fade show"></div>:""}
     </>
   );
 };

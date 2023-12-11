@@ -76,7 +76,7 @@
 @import url(./../vendor/metismenu/css/metisMenu.min.css);
 :root {
   --primary: #3f8cff;
-  --secondary: #886ef9 !important;
+  --secondary: #164863 !important;
   --secondary-dark: #886ef9 !important;
   --primary-hover: #ff3c26;
   --primary-dark: #bf1400;
@@ -3367,7 +3367,9 @@ textarea.form-control-lg {
   .navbar-expand .navbar-nav {
     flex-direction: row; }
     .navbar-expand .navbar-nav .dropdown-menu {
-      position: absolute; }
+      position: absolute;
+      margin-left: 50px;
+    }
     .navbar-expand .navbar-nav .nav-link {
       padding-right: 0.5rem;
       padding-left: 0.5rem; }
@@ -3484,7 +3486,10 @@ textarea.form-control-lg {
 
 .card-link + .card-link {
   margin-left: 1rem /* rtl:ignore */; }
-
+.card-body img{
+  width: 55px;
+  background: transparent;
+}
 .card-header {
   padding: 0.5rem 1rem;
   margin-bottom: 0;
@@ -3862,7 +3867,7 @@ textarea.form-control-lg {
   border-radius: 0.75rem; }
 
   .text-th{
-    color: #00ffce;
+    color: #9BBEC8;
   }
 
 .progress-bar {
@@ -8083,7 +8088,8 @@ h1, .h1, .h1, h2, .h2, .h2, h3, .h3, .h3, h4, .h4, .h4, h5, .h5, .h5, h6, .h6, .
   white-space: nowrap; }
 
 .content-body .container {
-  margin-top: 2.5rem; }
+  margin-top: 2.5rem;
+}
 
 .content-body .container-fluid, .content-body .container-sm, .content-body .container-md, .content-body .container-lg, .content-body .container-xl, .content-body .container-xxl {
   padding-top: 1.5rem;
@@ -8717,9 +8723,13 @@ label {
 [data-header-position="fixed"] .nav-header {
   position: fixed; }
 
-.brand-logo img {
+.brand-logo .active-logo {
   height: 50px; 
   width: 150px;
+}
+.brand-logo .unActive-logo {
+  height: 50px; 
+  width: 50px;
 }
 
   @media (min-width: 768px) {
@@ -8944,7 +8954,7 @@ label {
   /*  background:var(--headerbg); */
   z-index: 3;
   padding-left: 18.563rem;
-  padding-right: 100px;
+  padding-right: 10px;
   padding-top: 0rem;
   transition: all .2s ease; }
   .header.is-fixed {
@@ -8956,7 +8966,7 @@ label {
   .header .header-content {
     height: 100%;
     padding-left: 2rem;
-    padding-right: 2.475rem;
+    /* padding-right: 2.475rem; */
     align-items: center;
     display: flex;
     position: relative; }
@@ -9271,7 +9281,9 @@ svg.pulse-svg {
   .header-right .nav-item {
     display: flex;
     justify-content: center;
-    position: unset; }
+    position: unset; 
+    margin-left: 25px;
+  }
     .header-right .nav-item .nav-link {
       color: #464a53;
       font-size: 1.125rem; }
@@ -9389,10 +9401,10 @@ svg.pulse-svg {
   border-width: 0;
   box-shadow: none;
   border-radius: 30px 0 0 30px;
-  right: calc(100% + -40px);
-  top: 0;
+  /* right: calc(100% + -40px); */
+  /* top: 10; */
   min-width: 23.375rem;
-  height: 100%;
+  height: 85vh;
   padding-right: 2.5rem;
   z-index: -3;
   margin-top: 0;
@@ -12029,9 +12041,11 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
         font-weight: 500;
         display: inline-block;
         font-size: 1rem;
-        color: #fff; }
+        color: #DDF2FD; 
+      }
         .dlabnav .metismenu > li > a i {
-          color: #00ffce; }
+          color: #DDF2FD; 
+        }
         .dlabnav .metismenu > li > a svg {
           max-width: 1rem;
           max-height: 1rem;
@@ -12044,16 +12058,29 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
           fill: #8088a1; }
       .dlabnav .metismenu > li:hover > a, .dlabnav .metismenu > li:focus > a {
         /*  background-color: lighten($color: $primary, $amount: 40%); */
-        color: #031c54; }
+        color: #164863;
+        background: #DDF2FD; 
+      }
         .dlabnav .metismenu > li:hover > a g [fill], .dlabnav .metismenu > li:focus > a g [fill] {
-          fill: #031c54; }
+          fill: #031c54; 
+        }
       .dlabnav .metismenu > li.mm-active > a {
-        color: #fff;
-        background: #f75a5b;
+        color: #427D9D;
+        background: #DDF2FD;
         font-weight: 500;
         box-shadow: 0px 20px 50px 0px #FF6A591A; }
+        .text-color{
+        color: #DDF2FD !important;
+        }
+        .dlabnav .metismenu > li:hover .text-color{
+        color: #427D9D !important;
+        }
+        .dlabnav .metismenu > li.mm-active .text-color{
+        color: #427D9D !important;
+        }
         .dlabnav .metismenu > li.mm-active > a i {
-          font-weight: 100; }
+          font-weight: 100;
+        }
         .dlabnav .metismenu > li.mm-active > a svg path {
           fill: #fff; }
         .dlabnav .metismenu > li.mm-active > a g [fill] {
@@ -13771,7 +13798,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 [data-sidebar-position="fixed"][data-layout="vertical"] .dlabnav {
   position: fixed; 
-  background: #886efa;
+  background: #164863;
 }
   [data-sidebar-position="fixed"][data-layout="vertical"] .dlabnav .dlabnav-scroll {
     border-top-left-radius: 0rem;
@@ -14538,7 +14565,8 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 :root {
   --nav-headbg: #FFFFFF;
   --sidebar-bg: #FFFFFF;
-  --headerbg: #E2E2E2; }
+  --headerbg: #E2E2E2; 
+}
 
 [data-nav-headerbg="color_2"][data-theme-version="dark"],
 [data-nav-headerbg="color_2"] {
@@ -27853,10 +27881,11 @@ margin-top: 60px;
     width: 3.125rem; } }
 
 .widget-courses.style-2 h4, .widget-courses.style-2 .h4 {
-  color: #fff; }
+  color: #DDF2FD; 
+}
 
 .widget-courses.style-2 span {
-  color: #fff; }
+  color: #DDF2FD; }
 
 .widget-courses.style-2:hover .peity {
   transform: scale(1.3);

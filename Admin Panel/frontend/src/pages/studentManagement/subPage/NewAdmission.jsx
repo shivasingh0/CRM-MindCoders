@@ -2,12 +2,11 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const NewAdmission = () => {
-
-  const Navigate = useNavigate()
+  const Navigate = useNavigate();
 
   const saveDetails = () => {
-    Navigate('/admissions')
-  }
+    Navigate("/admissions");
+  };
 
   return (
     <>
@@ -53,7 +52,7 @@ const NewAdmission = () => {
                   <strong>Mobile Number*</strong>
                 </label>
                 <input
-                  type="number"
+                  type="tel"
                   className="form-control mt-10"
                   placeholder="+91 | Mobile Number"
                 />
@@ -68,7 +67,7 @@ const NewAdmission = () => {
                   placeholder="email id"
                 />
               </div>
-              <div className="col-md-4 mb-2">
+              {/* <div className="col-md-4 mb-2">
                 <label className="mb-1  mt-2">
                   <strong>Father's Name*</strong>
                 </label>
@@ -107,7 +106,7 @@ const NewAdmission = () => {
                   className="form-control mt-10"
                   placeholder="father's occupation"
                 />
-              </div>
+              </div> */}
               <div className="col-md-4 mb-2">
                 <label className="mb-1  mt-2">
                   <strong>Academic Qualification*</strong>
@@ -128,7 +127,7 @@ const NewAdmission = () => {
                   placeholder="passing year"
                 />
               </div>
-              <div className="col-md-4 mb-2">
+              {/* <div className="col-md-4 mb-2">
                 <label className="mb-1  mt-2">
                   <strong>Marks Obtained*</strong>
                 </label>
@@ -137,7 +136,7 @@ const NewAdmission = () => {
                   className="form-control mt-10"
                   placeholder="marks"
                 />
-              </div>
+              </div> */}
               <div className="col-md-4 mb-2 mt-2">
                 <label className="mb-1">
                   <strong>City name</strong>
@@ -146,16 +145,6 @@ const NewAdmission = () => {
                   type="text"
                   className="form-control mt-10"
                   placeholder="city name"
-                />
-              </div>
-              <div className="col-md-8 mb-2 mt-2">
-                <label className="mb-1">
-                  <strong>Full Address*</strong>
-                </label>
-                <input
-                  type="text"
-                  className="form-control mt-10"
-                  placeholder="full address"
                 />
               </div>
               <div className="col-md-4 mb-2 mt-2">
@@ -176,6 +165,16 @@ const NewAdmission = () => {
                   type="text"
                   className="form-control mt-10"
                   placeholder="person name"
+                />
+              </div>
+              <div className="col-md-8 mb-2 mt-2">
+                <label className="mb-1">
+                  <strong>Full Address*</strong>
+                </label>
+                <input
+                  type="text"
+                  className="form-control mt-10"
+                  placeholder="full address"
                 />
               </div>
               <div className="col-md-4 mb-2 mt-2">
@@ -200,9 +199,13 @@ const NewAdmission = () => {
                   </label>
                   <select className="default-select  form-control wide">
                     <option disabled="">Select Course</option>
-                    <option>MPPSC MAINS Hindi Medium</option>
-                    <option>MPPSC MAINS English Medium</option>
-                    <option>MPPSC Prelims Bilingual</option>
+                    <option>Frontend Development Course</option>
+                    <option>Backend Development Course</option>
+                    <option>React JS Course</option>
+                    <option>MERN Stack Course</option>
+                    <option>Data Analytics Course</option>
+                    <option>Data Science Course</option>
+                    <option>Digital Marketing Course</option>
                   </select>
                 </div>
                 <div className="col-md-4 mb-2">
@@ -258,6 +261,7 @@ const NewAdmission = () => {
                     <option>UPI Payment</option>
                     <option>Cash</option>
                     <option>Cheque</option>
+                    <option>Net Banking</option>
                   </select>
                 </div>
                 <div className="col-md-4 mb-2">
@@ -292,7 +296,11 @@ const NewAdmission = () => {
                 </div>
               </div>
               <div className="mt-4">
-                <button type="submit" className="btn btn-secondary" onClick={saveDetails}>
+                <button
+                  type="submit"
+                  className="btn btn-secondary"
+                  onClick={saveDetails}
+                >
                   <i className="bi-binoculars-fill" /> Save Details
                 </button>
               </div>

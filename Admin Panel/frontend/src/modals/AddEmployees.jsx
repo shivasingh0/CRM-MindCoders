@@ -1,10 +1,10 @@
-import React from "react";
-import { Button, Modal } from "react-bootstrap";
+import React from 'react'
+import { Button, Modal } from 'react-bootstrap'
 
-const AddStudents = (props) => {
+const AddEmployees = (props) => {
   return (
     <>
-      <Modal
+        <Modal
         {...props}
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
@@ -12,7 +12,7 @@ const AddStudents = (props) => {
       >
         <div className="gradient-5">
           <Modal.Header closeButton>
-            <h5 className="text-white">Add New Student</h5>
+            <h5 className="text-white">Add New Employee</h5>
           </Modal.Header>
         </div>
         <Modal.Body>
@@ -33,13 +33,9 @@ const AddStudents = (props) => {
                   </label>
                   <select className="default-select  form-control wide">
                     <option disabled="">Select Course</option>
-                    <option>Frontend Development Course</option>
-                    <option>Backend Development Course</option>
-                    <option>React JS Course</option>
-                    <option>MERN Stack Course</option>
-                    <option>Data Analytics Course</option>
-                    <option>Data Science Course</option>
-                    <option>Digital Marketing Course</option>
+                    <option>MPPSC MAINS Hindi Medium</option>
+                    <option>MPPSC MAINS English Medium</option>
+                    <option>MPPSC Prelims Bilingual</option>
                   </select>
                 </div>
                 <div className="col-md-4 mb-2">
@@ -79,9 +75,9 @@ const AddStudents = (props) => {
                     <strong>Mobile Number*</strong>
                   </label>
                   <input
-                    type="tel"
+                    type="number"
                     className="form-control mt-10"
-                    placeholder="Mobile Number"
+                    placeholder="+91 | Mobile Number"
                   />
                 </div>
                 <div className="col-md-4 mb-2 mt-2">
@@ -94,7 +90,7 @@ const AddStudents = (props) => {
                     placeholder="email id"
                   />
                 </div>
-                {/* <div className="col-md-4 mb-2">
+                <div className="col-md-4 mb-2">
                   <label className="mb-1  mt-2">
                     <strong>Parent's Name*</strong>
                   </label>
@@ -123,7 +119,7 @@ const AddStudents = (props) => {
                     className="form-control mt-10"
                     placeholder="father's occupation"
                   />
-                </div> 
+                </div>
                 <div className="col-md-4 mb-2 mt-2">
                   <label className="mb-2 mt-2">
                     <strong>Monthly Income</strong>
@@ -134,7 +130,7 @@ const AddStudents = (props) => {
                     <option>4 Lac to 6 Lac</option>
                     <option>Above 6 Lac</option>
                   </select>
-                </div> */}
+                </div>
                 <div className="col-md-4 mb-2">
                   <label className="mb-1  mt-2">
                     <strong>Academic Qualification</strong>
@@ -155,7 +151,7 @@ const AddStudents = (props) => {
                     placeholder="passing yaer"
                   />
                 </div>
-                {/* <div className="col-md-4 mb-2">
+                <div className="col-md-4 mb-2">
                   <label className="mb-1  mt-2">
                     <strong>Marks Obtained</strong>
                   </label>
@@ -164,7 +160,7 @@ const AddStudents = (props) => {
                     className="form-control mt-10"
                     placeholder="marks"
                   />
-                </div> */}
+                </div>
                 <div className="col-md-4 mb-2 mt-2">
                   <label className="mb-1">
                     <strong>Source of Enquiry</strong>
@@ -216,7 +212,7 @@ const AddStudents = (props) => {
                     <option>No</option>
                   </select>
                 </div>
-                <div className=" col-md-8 mb-2 mb-2 mt-2">
+                <div className="mb-2 mt-2">
                   <label className="mb-1">
                     <strong>Full Address</strong>
                   </label>
@@ -226,7 +222,7 @@ const AddStudents = (props) => {
                     placeholder="full address"
                   />
                 </div>
-                {/* <div className="mb-2 mt-2">
+                <div className="mb-2 mt-2">
                   <label className="mb-1">
                     <strong>Followup Massage</strong>
                   </label>
@@ -235,7 +231,7 @@ const AddStudents = (props) => {
                     className="form-control mt-10"
                     placeholder=" followup massage"
                   />
-                </div> */}
+                </div>
               </div>
               <div className="mt-4">
                 <a
@@ -243,7 +239,7 @@ const AddStudents = (props) => {
                   type="submit"
                   className="btn btn-secondary"
                 >
-                  <i className="bi-binoculars-fill" /> Save Student Details
+                  <i className="bi-binoculars-fill" /> Save Employee Details
                 </a>
               </div>
             </form>
@@ -254,7 +250,7 @@ const AddStudents = (props) => {
         </Modal.Footer>
       </Modal>
     </>
-  );
-};
+  )
+}
 
-export default AddStudents;
+export default AddEmployees

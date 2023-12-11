@@ -3,7 +3,7 @@ import AddEnquiries from "../../modals/AddEnquiries";
 
 const Enquiries = () => {
 
-  const [modalShow, setModalShow] = useState(false);
+  // const [modalShow, setModalShow] = useState(false);
 
   return (
     <>
@@ -23,7 +23,7 @@ const Enquiries = () => {
                           Today Enquiries- 5 Students{" "}
                         </span>
                       </h4>
-                      <div>
+                      {/* <div>
                         <button
                           className="btn btn-secondary btn-sm mr-2"
                           data-bs-toggle="modal"
@@ -32,7 +32,7 @@ const Enquiries = () => {
                         >
                           <i className="bi-person-lines-fill" /> Add New Enquiry
                         </button>
-                      </div>
+                      </div> */}
                     </div>
                     <hr />
                     <div className="table-responsive">
@@ -351,8 +351,8 @@ const Enquiries = () => {
           </div>
         </div>
       </div>
-      <AddEnquiries show={modalShow} onHide={() => setModalShow(false)} />
-      {modalShow?<div class="modal-backdrop fade show"></div>:""}
+      {/* <AddEnquiries show={modalShow} onHide={() => setModalShow(false)} />
+      {modalShow?<div class="modal-backdrop fade show"></div>:""} */}
     </>
   );
 };
