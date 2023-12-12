@@ -291,7 +291,8 @@ body {
   color: #777777;
   background-color: #f4f4f4;
   -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important; }
@@ -3368,7 +3369,7 @@ textarea.form-control-lg {
     flex-direction: row; }
     .navbar-expand .navbar-nav .dropdown-menu {
       position: absolute;
-      margin-left: 50px;
+      margin-left: 125px;
     }
     .navbar-expand .navbar-nav .nav-link {
       padding-right: 0.5rem;
@@ -9542,7 +9543,9 @@ svg.pulse-svg {
 .header-profile img {
   width: 2.813rem;
   height: 2.813rem;
-  border-radius: 0.625rem; }
+  border-radius: 0.625rem; 
+  margin-right: 40px;
+}
   @media only screen and (max-width: 87.5rem) {
     .header-profile img {
       width: 2.4375rem;
@@ -12618,8 +12621,8 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
       border-radius: 0.625rem; }
       [data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .dlabnav .metismenu > li > a.has-arrow:after {
         display: none; }
-    [data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .dlabnav .metismenu > li.mm-active > a {
-      background: #031c54;
+    [data-sidebar-style="full"][data-lzayout="vertical"] .menu-toggle .dlabnav .metismenu > li.mm-active > a {
+      background: #DDF2FD;
       border-radius: 0.625rem; }
       [data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .dlabnav .metismenu > li.mm-active > a i {
         color: #fff;
@@ -12629,7 +12632,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
       top: auto; }
     [data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .dlabnav .metismenu > li:hover > a {
       border-radius: 0.625rem;
-      background: #031c54;
+      background: #DDF2FD;
       color: #fff; }
       [data-theme-version="dark"][data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .dlabnav .metismenu > li:hover > a {
         background: #292d4a; }
@@ -32913,7 +32916,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
       color: #fff; }
 
 
-      /* Manual CSS */
+      /*------------------------------------- Manual CSS ---------------------------------------*/
       .hover-btn {
         --color: #560bad;
         font-family: inherit;
@@ -32962,3 +32965,53 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
         background: #3a0ca3;
         transition: background 0s;
        }
+
+       /* Header start */
+       .crm-heading{
+        margin: 0 20px;
+        color: #1A4962;
+        font-weight: 700;
+       }
+       /* Header end */
+
+       /* Error page css start */
+       .errorPageContainer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 500px;
+        text-align: center;
+       }
+       /* Error page css end */
+
+       /* Team page card start */
+       .team-card {
+        box-sizing: border-box;
+        width: 190px;
+        height: 250px;
+        background: rgba(217, 217, 217, 0.58);
+        /* border: 1px solid white; */
+        /* box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22); */
+        backdrop-filter: blur(6px);
+        border-radius: 17px;
+        text-align: center;
+        /* cursor: pointer; */
+        transition: all 0.5s;
+        /* display: flex;
+        align-items: center;
+        justify-content: center; */
+        user-select: none;
+        font-weight: bolder;
+        color: black;
+        border: 1px solid black;
+      }
+      .team-card-text h3{
+        margin-top: 20px;
+      }
+      .team-card-text p{
+        margin-top: 30px;
+      }
+      .team-card-text span{
+        margin-top: 80px;
+      }
+       /* Team page card end */

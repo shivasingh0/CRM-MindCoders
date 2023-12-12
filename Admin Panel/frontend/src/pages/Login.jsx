@@ -12,12 +12,12 @@ const Login = () => {
   return (
     <>
       <div className="container">
-        <div className="row mt-6">
+        <div className="row mt-3">
           <div className="col-lg-7 mt-6">
             <img src="images/login.gif" alt="" height="auto" width={650} />
           </div>
           <div className="col-lg-5">
-            <div className="text-center mt-5">
+            <div className="text-center">
               <Link href="" className="brand-logo">
                 <img src="images/logo.webp" alt="logo" />
               </Link>

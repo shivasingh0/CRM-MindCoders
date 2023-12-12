@@ -7,9 +7,9 @@ const Header = () => {
   const Navigate = useNavigate();
 
   const Login = () => {
-    localStorage.removeItem('user')
-    Navigate('/login')
-  }
+    localStorage.removeItem("user");
+    Navigate("/login");
+  };
 
   return (
     <>
@@ -18,6 +18,7 @@ const Header = () => {
           <nav className="navbar navbar-expand">
             <div className="collapse navbar-collapse justify-content-between">
               <div className="header-left">
+                <h2 className="crm-heading"> CRM </h2>
                 <div className="dashboard_bar"> 11/04/2023 03:20 PM </div>
               </div>
               <div className="navbar-nav header-right">
@@ -46,87 +47,86 @@ const Header = () => {
                     /> 
                   </div> */}
                   <ul className="d-flex">
-                      <li className="nav-item dropdown notification_dropdown">
-                        <a
-                          className={
-                            isNotificationShow ? "nav-link show" : "nav-link"
-                          }
-                          href="/#"
-                          role="button"
-                          data-bs-toggle="dropdown"
-                          onClick={() => {
-                            setIsNotificationShow(!isNotificationShow);
-                          }}
-                        >
-                          <i class="fa-solid fa-bell fa-lg"></i>
-                        </a>
-                        <div
-                          className={
-                            isNotificationShow
-                              ? "dropdown-menu dropdown-menu-end show"
-                              : "dropdown-menu dropdown-menu-end"
-                          }
-                        >
-                          <div
-                            id="DZ_W_Notification1"
-                            className="widget-media dlab-scroll p-4"
-                            style={{ height: 380 }}
-                          >
-                            <ul className="timeline">
-                              <li>
-                                <div className="timeline-panel">
-                                  <div className="media me-2 media-info">
-                                    {" "}
-                                    KG{" "}
-                                  </div>
-                                  <div className="media-body">
-                                    <h6 className="mb-1">
-                                      Resport created successfully
-                                    </h6>
-                                    <small className="d-block">
-                                      29 July 2020 - 02:26 PM
-                                    </small>
-                                  </div>
-                                </div>
-                              </li>
-                            </ul>
-                          </div>
-                          <a
-                            className="all-notification"
-                            href="/#"
-                          >
-                            See all notifications <i className="ti-arrow-end" />
-                          </a>
-                        </div>
-                      </li>
-                      <li className="nav-item dropdown notification_dropdown">
-                        <a  href="/#"
-                          className="nav-link bell-link "
-                        >
-                          
-                          <i class="fa-solid fa-envelope fa-lg"></i>
-                        </a>
-                      </li>
-                    </ul>
-                  <ul>
-                    <li className="nav-item dropdown header-profile">
-                      <a
-                        className={isProfileShow ? "nav-link show" : "nav-link"}
-                        href="/#"
+                    <li className="nav-item dropdown notification_dropdown">
+                      <div
+                        className={
+                          isNotificationShow ? "nav-link show" : "nav-link"
+                        }
                         role="button"
                         data-bs-toggle="dropdown"
-                        onClick={()=>setIsProfileShow(!isProfileShow)}
+                        onClick={() => {
+                          setIsNotificationShow(!isNotificationShow);
+                        }}
+                      >
+                        <i class="fa-solid fa-bell fa-lg"></i>
+                      </div>
+                      <div
+                        className={
+                          isNotificationShow
+                            ? "dropdown-menu dropdown-menu-end show"
+                            : "dropdown-menu dropdown-menu-end"
+                        }
+                      >
+                        <div
+                          id="DZ_W_Notification1"
+                          className="widget-media dlab-scroll p-4"
+                          style={{ height: 380 }}
+                        >
+                          <ul className="timeline">
+                            <li>
+                              <div className="timeline-panel">
+                                <div className="media me-2 media-info">
+                                  {" "}
+                                  KG{" "}
+                                </div>
+                                <div className="media-body">
+                                  <h6 className="mb-1">
+                                    Resport created successfully
+                                  </h6>
+                                  <small className="d-block">
+                                    29 July 2020 - 02:26 PM
+                                  </small>
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                        <a className="all-notification" href="/#">
+                          See all notifications <i className="ti-arrow-end" />
+                        </a>
+                      </div>
+                    </li>
+                    <li className="nav-item dropdown notification_dropdown">
+                      {/* <a href="/#" className="nav-link bell-link "> */}
+                      <div className="nav-link bell-link">
+                        <i class="fa-solid fa-envelope fa-lg"></i>
+                        </div>
+                      {/* </a> */}
+                    </li>
+                  </ul>
+                  <ul>
+                    <li className="nav-item dropdown header-profile">
+                      <Link
+                        className={isProfileShow ? "nav-link show" : "nav-link"}
+                        // to=""
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        onClick={() => setIsProfileShow(!isProfileShow)}
                       >
                         <img src="images/profile.png" width={20} alt="" />
-                      </a>
-                      <div className={isProfileShow ? "dropdown-menu dropdown-menu-end show" : "dropdown-menu dropdown-menu-end"} data-bs-popper= {isProfileShow ? "none" : ""}>
-                        <a
-                          href="./app-profile.html"
-                          className="dropdown-item ai-icon"
-                        >
+                      </Link>
+                      <div
+                        className={
+                          isProfileShow
+                            ? "dropdown-menu dropdown-menu-end show"
+                            : "dropdown-menu dropdown-menu-end"
+                        }
+                        data-bs-popper={isProfileShow ? "none" : ""}
+                      >
+                        <Link to="/profile" className="dropdown-item ai-icon">
                           <i class="fa-regular fa-user"></i>
                           <span className="ms-2">Profile </span>
-                        </a>
+                        </Link>
                         <a
                           href="subscription.html"
                           className="dropdown-item ai-icon"

@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
-import AddTeam from '../../modals/AddTeam';
-
+import React, { useState } from "react";
+import AddTeam from "../../modals/AddTeam";
+import { Button } from "react-bootstrap";
 
 const Teams = () => {
-
   const [modalShow, setModalShow] = useState(false);
 
   return (
@@ -33,7 +32,47 @@ const Teams = () => {
                       </div>
                     </div>
                     <hr />
-                   
+                    {/* Teams Cards */}
+                    <div className="container">
+                      <div className="row justify-content-around">
+                        <div class="team-card col-lg-3 col-xl-3 col-md-6 col-sm-12">
+                          <div className="team-card-text">
+                            <h3>Team Spartan</h3>
+                            <p>Team Discription</p>
+                            <span className="btn btn-secondary btn-sm mr-2">
+                              More Info
+                            </span>
+                          </div>
+                        </div>
+                        <div class="team-card col-lg-3 col-xl-3 col-md-6 col-sm-12">
+                          <div className="team-card-text">
+                            <h3>Team Spartan</h3>
+                            <p>Team Discription</p>
+                            <span className="btn btn-secondary btn-sm mr-2">
+                              More Info
+                            </span>
+                          </div>
+                        </div>
+                        <div class="team-card col-lg-3 col-xl-3 col-md-6 col-sm-12">
+                          <div className="team-card-text">
+                            <h3>Team Spartan</h3>
+                            <p>Team Discription</p>
+                            <span className="btn btn-secondary btn-sm mr-2">
+                              More Info
+                            </span>
+                          </div>
+                        </div>
+                        <div class="team-card col-lg-3 col-xl-3 col-md-6 col-sm-12">
+                          <div className="team-card-text">
+                            <h3>Team Spartan</h3>
+                            <p>Team Discription</p>
+                            <span className="btn btn-secondary btn-sm mr-2">
+                              More Info
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -43,9 +82,9 @@ const Teams = () => {
       </div>
 
       <AddTeam show={modalShow} onHide={() => setModalShow(false)} />
-      {modalShow?<div class="modal-backdrop fade show"></div>:""}
+      {modalShow ? <div class="modal-backdrop fade show"></div> : ""}
     </>
-  )
-}
+  );
+};
 
 export default Teams;

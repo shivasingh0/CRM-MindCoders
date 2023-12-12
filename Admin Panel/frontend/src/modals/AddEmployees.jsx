@@ -1,10 +1,10 @@
-import React from 'react'
-import { Button, Modal } from 'react-bootstrap'
+import React from "react";
+import { Button, Modal } from "react-bootstrap";
 
 const AddEmployees = (props) => {
   return (
     <>
-        <Modal
+      <Modal
         {...props}
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
@@ -27,210 +27,101 @@ const AddEmployees = (props) => {
             </div>
             <form>
               <div className="row">
-                <div className="col-md-4 mb-2 mt-2">
-                  <label className="mb-2 mt-2">
-                    <strong>Mention the Course You Wish to Join*</strong>
-                  </label>
-                  <select className="default-select  form-control wide">
-                    <option disabled="">Select Course</option>
-                    <option>MPPSC MAINS Hindi Medium</option>
-                    <option>MPPSC MAINS English Medium</option>
-                    <option>MPPSC Prelims Bilingual</option>
-                  </select>
-                </div>
                 <div className="col-md-4 mb-2">
                   <label className="mb-1  mt-2">
-                    <strong>Course Fees*</strong>
+                    <strong>Name of Employee*</strong>
                   </label>
                   <input
                     type="text"
                     className="form-control mt-10"
-                    placeholder="INR.75000"
-                    defaultValue="INR.75000"
-                    disabled=""
+                    placeholder="Employee name"
                   />
                 </div>
                 <div className="col-md-4 mb-2">
                   <label className="mb-1  mt-2">
-                    <strong>Finalized Fees*</strong>
+                    <strong>Email ID*</strong>
                   </label>
                   <input
                     type="text"
                     className="form-control mt-10"
-                    placeholder="finalized fees"
+                    placeholder="Email"
                   />
                 </div>
                 <div className="col-md-4 mb-2">
                   <label className="mb-1  mt-2">
-                    <strong>Name of the Candidate*</strong>
+                    <strong>Mobile No.*</strong>
                   </label>
                   <input
                     type="text"
                     className="form-control mt-10"
-                    placeholder="student name"
-                  />
-                </div>
-                <div className="col-md-4 mb-2 mt-2">
-                  <label className="mb-1">
-                    <strong>Mobile Number*</strong>
-                  </label>
-                  <input
-                    type="number"
-                    className="form-control mt-10"
-                    placeholder="+91 | Mobile Number"
-                  />
-                </div>
-                <div className="col-md-4 mb-2 mt-2">
-                  <label className="mb-1">
-                    <strong>Email Id*</strong>
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control mt-10"
-                    placeholder="email id"
+                    placeholder="Mobile No."
                   />
                 </div>
                 <div className="col-md-4 mb-2">
                   <label className="mb-1  mt-2">
-                    <strong>Parent's Name*</strong>
+                    <strong>City*</strong>
                   </label>
                   <input
                     type="text"
                     className="form-control mt-10"
-                    placeholder="parent's name"
-                  />
-                </div>
-                <div className="col-md-4 mb-2 mt-2">
-                  <label className="mb-1">
-                    <strong>Parent's Mobile Number*</strong>
-                  </label>
-                  <input
-                    type="number"
-                    className="form-control mt-10"
-                    placeholder="+91 | Mobile Number"
-                  />
-                </div>
-                <div className="col-md-4 mb-2">
-                  <label className="mb-1  mt-2">
-                    <strong>Father's Occupation*</strong>
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control mt-10"
-                    placeholder="father's occupation"
+                    placeholder="City"
                   />
                 </div>
                 <div className="col-md-4 mb-2 mt-2">
                   <label className="mb-2 mt-2">
-                    <strong>Monthly Income</strong>
+                    <strong>Role*</strong>
                   </label>
                   <select className="default-select  form-control wide">
-                    <option disabled="">Select Income</option>
-                    <option>3 Lac to 4 Lac</option>
-                    <option>4 Lac to 6 Lac</option>
-                    <option>Above 6 Lac</option>
+                    <option disabled="">Select Role</option>
+                    <option>HR</option>
+                    <option>BDE</option>
+                    <option>ADMIN</option>
+                    <option>DEVELOPER</option>
                   </select>
                 </div>
                 <div className="col-md-4 mb-2">
                   <label className="mb-1  mt-2">
-                    <strong>Academic Qualification</strong>
+                    <strong>Last Company*</strong>
                   </label>
                   <input
                     type="text"
                     className="form-control mt-10"
-                    placeholder="qualification"
+                    placeholder="Last Company"
                   />
                 </div>
                 <div className="col-md-4 mb-2">
                   <label className="mb-1  mt-2">
-                    <strong>Year of Passing</strong>
+                    <strong>Experience*</strong>
                   </label>
                   <input
                     type="text"
                     className="form-control mt-10"
-                    placeholder="passing yaer"
+                    placeholder="Experience"
                   />
                 </div>
                 <div className="col-md-4 mb-2">
                   <label className="mb-1  mt-2">
-                    <strong>Marks Obtained</strong>
+                    <strong>Adder Name</strong>
                   </label>
                   <input
                     type="text"
                     className="form-control mt-10"
-                    placeholder="marks"
+                    placeholder="Adder Name"
+                    disabled
                   />
                 </div>
                 <div className="col-md-4 mb-2 mt-2">
                   <label className="mb-1">
-                    <strong>Source of Enquiry</strong>
+                    <strong>Discription</strong>
                   </label>
-                  <input
-                    type="text"
-                    className="form-control mt-10"
-                    placeholder="source name"
-                  />
-                </div>
-                <div className="col-md-4 mb-2 mt-2">
-                  <label className="mb-1">
-                    <strong>Referral Person Name</strong>
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control mt-10"
-                    placeholder="person name"
-                  />
-                </div>
-                <div className="col-md-4 mb-2 mt-2">
-                  <label className="mb-2 mt-2">
-                    <strong>Enquiry Status*</strong>
-                  </label>
-                  <select className="default-select  form-control wide">
-                    <option disabled="">Select Status</option>
-                    <option>Interested</option>
-                    <option>Call Back</option>
-                    <option>Not Interested</option>
-                  </select>
-                </div>
-                <div className="col-md-4 mb-2 mt-2">
-                  <label className="mb-1">
-                    <strong>City name</strong>
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control mt-10"
-                    placeholder="city name"
-                  />
-                </div>
-                <div className="col-md-4 mb-2 mt-2">
-                  <label className="mb-2 mt-2">
-                    <strong>Demo Class*</strong>
-                  </label>
-                  <select className="default-select  form-control wide">
-                    <option disabled="">Select Demo</option>
-                    <option>Yes</option>
-                    <option>No</option>
-                  </select>
-                </div>
-                <div className="mb-2 mt-2">
-                  <label className="mb-1">
-                    <strong>Full Address</strong>
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control mt-10"
-                    placeholder="full address"
-                  />
-                </div>
-                <div className="mb-2 mt-2">
-                  <label className="mb-1">
-                    <strong>Followup Massage</strong>
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control mt-10"
-                    placeholder=" followup massage"
-                  />
+                  <textarea
+                  className="form-control mt-10"
+                    name=""
+                    id=""
+                    cols="10"
+                    rows="1"
+                    placeholder="Discription"
+                  ></textarea>
                 </div>
               </div>
               <div className="mt-4">
@@ -250,7 +141,7 @@ const AddEmployees = (props) => {
         </Modal.Footer>
       </Modal>
     </>
-  )
-}
+  );
+};
 
-export default AddEmployees
+export default AddEmployees;

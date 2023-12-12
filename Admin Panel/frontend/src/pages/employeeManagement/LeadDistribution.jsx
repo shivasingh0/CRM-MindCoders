@@ -16,6 +16,7 @@ const LeadDistribution = () => {
                         <span className="badge badge-primary mr-2">
                           Total Lead - 20
                         </span>
+                        <input type="date" />
                         {/* <span className="badge badge-secondary">
                           Today Enquiries- 5 Students{" "}
                         </span> */}

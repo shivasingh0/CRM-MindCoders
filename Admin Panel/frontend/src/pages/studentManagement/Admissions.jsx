@@ -1,12 +1,7 @@
 import React from "react";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Admissions = () => {
-  const navigate = useNavigate();
-
-  const newAdmission = () => {
-    navigate("/newadmission");
-  };
 
   return (
     <>
@@ -28,9 +23,9 @@ const Admissions = () => {
                       </h4>
                       <div>
                         <Link
-                          to="/newadmission"
+                          to="/admissions/newadmission"
                           className="btn btn-primary btn-sm mr-2"
-                          onClick={newAdmission}
+                          // onClick={newAdmission}
                         >
                           <i className="bi-binoculars-fill" /> New Admission
                         </Link>
@@ -85,7 +80,7 @@ const Admissions = () => {
                             </td>
                             <td>
                               <a
-                                href=""
+                                href="/#"
                                 data-bs-toggle="modal"
                                 data-bs-target="#studentdetails"
                               >
@@ -95,7 +90,7 @@ const Admissions = () => {
                                 <i className="bi-pencil-square mr-2 text-danger" />
                               </a>
                               <a
-                                href=""
+                                href="/#"
                                 data-bs-toggle="modal"
                                 data-bs-target="#followup"
                               >

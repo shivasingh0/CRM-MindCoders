@@ -1,27 +1,20 @@
-import React, { useEffect, useState } from "react";
+
 import { Navigate, Outlet } from "react-router-dom";
+
+// Components
 import NavbarHeader from "../components/NavbarHeader";
-import SidebarStart from "../components/SidebarStart";
 import Header from "../components/Header";
+import SidebarBar from "../components/SidebarBar";
 
 function PrivateRoute() {
-//   const [auth, setAuth] = useState(false);
+
   let auth = localStorage.getItem('user')
-//   useEffect(()=>{
-//     function auth() {
-//         let is = localStorage.getItem('user')
-//         if (is) {
-//             setAuth(true)
-//         }
-//     }
-//     auth()
-//   },[])
 
   return auth ? (
     <>
       <NavbarHeader />
       <Header />
-      <SidebarStart />
+      <SidebarBar />
       <div className="content-body">
         <Outlet />
       </div>
