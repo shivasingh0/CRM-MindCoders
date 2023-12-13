@@ -25,7 +25,8 @@ const SidebarBar = () => {
             {/* Dashboard end */}
             {/* Students Management start */}
             <li className="nav-divider ng-scope mt-10 text-th" translate="">
-              <u>Student Management</u>
+              <u >Student Management</u>
+              <hr />
             </li>
             <li
               className={
@@ -41,7 +42,7 @@ const SidebarBar = () => {
               className={location.pathname === "/enquiries" ? "mm-active" : ""}
             >
               <Link to="/enquiries" aria-expanded="false">
-                <i className="bi-person-lines-fill text-color" />
+                <i class="bi bi-patch-question-fill text-color"></i>
                 <span className="nav-text"> Enquiries</span>
               </Link>
             </li>
@@ -62,6 +63,7 @@ const SidebarBar = () => {
             {/* Employees Management start */}
             <li className="nav-divider ng-scope mt-10 text-th" translate="">
               <u>Employees Management</u>
+              <hr />
             </li>
             <li
               className={
@@ -69,13 +71,13 @@ const SidebarBar = () => {
               }
             >
               <Link to="/employees" aria-expanded="false">
-                <i className="bi-person-lines-fill text-color" />
+                <i class="bi bi-briefcase-fill text-color"></i>
                 <span className="nav-text"> Total Employees</span>
               </Link>
             </li>
             <li className={location.pathname === "/teams" ? "mm-active" : ""}>
               <Link to="/teams" aria-expanded="false">
-                <i className="bi-person-lines-fill text-color" />
+                <i class="bi bi-people-fill text-color"></i>
                 <span className="nav-text">Teams</span>
               </Link>
             </li>
@@ -85,12 +87,13 @@ const SidebarBar = () => {
               }
             >
               <Link to="/lead-distribution" aria-expanded="false">
-                <i className="bi-person-lines-fill text-color" />
+                <i class="bi bi-diagram-3-fill text-color"></i>
                 <span className="nav-text">Lead Distribution</span>
               </Link>
             </li>
             <li className="nav-divider ng-scope text-th" translate="">
               <u>More</u>
+              <hr />
             </li>
             <li
               className={

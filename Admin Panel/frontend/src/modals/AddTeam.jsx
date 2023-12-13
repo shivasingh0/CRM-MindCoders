@@ -1,4 +1,4 @@
-// import Button from "react-bootstrap/Button";
+
 import { Modal, Button } from "react-bootstrap";
 
 function AddTeam(props) {
@@ -38,22 +38,7 @@ function AddTeam(props) {
                   rows="2"
                   placeholder="team discription"
                 ></textarea>
-                {/* <input
-                  type="text"
-                  className="form-control mt-10"
-                  placeholder="enter batch name"
-                /> */}
               </div>
-              {/* <div className="mb-4">
-                <label className="mb-1">
-                  <strong>Course Fees </strong>
-                </label>
-                <input
-                  type="text"
-                  className="form-control mt-10"
-                  placeholder="enter course fees"
-                />
-              </div> */}
               <div className="text-center mt-4">
                 <Button type="submit" className="btn-block">
                   Save Team

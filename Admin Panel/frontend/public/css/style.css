@@ -12069,7 +12069,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
         }
       .dlabnav .metismenu > li.mm-active > a {
         color: #427D9D;
-        background: #DDF2FD;
+        background: #DDF2FD !important;
         font-weight: 500;
         box-shadow: 0px 20px 50px 0px #FF6A591A; }
         .text-color{
@@ -12082,7 +12082,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
         color: #427D9D !important;
         }
         .dlabnav .metismenu > li.mm-active > a i {
-          font-weight: 100;
+          font-weight: 100; 
         }
         .dlabnav .metismenu > li.mm-active > a svg path {
           fill: #fff; }
@@ -12092,7 +12092,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
           border-top: 0.3125rem solid #fff;
           border-left: 0.3125rem solid #fff; }
       [data-sidebar-style="compact"] .dlabnav .metismenu > li.mm-active > a i {
-        background: #031c54;
+        /* background: #031c54; */
         color: #fff; }
       [data-sidebar-style="compact"] .dlabnav .metismenu > li.mm-active > a svg {
         background: #031c54; }
@@ -12563,6 +12563,12 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   position: absolute; }
   [data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .dlabnav .nav-text {
     display: none; }
+  [data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .dlabnav .nav-divider u{
+    display: none; }
+  [data-sidebar-style="full"][data-layout="vertical"] .dlabnav .nav-divider hr{
+    display: none; }
+  [data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .dlabnav .nav-divider hr{
+    display: block; }
   [data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .dlabnav .slimScrollDiv,
   [data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .dlabnav .dlabnav-scroll {
     overflow: visible !important; }
