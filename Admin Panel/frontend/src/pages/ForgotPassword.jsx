@@ -1,43 +1,37 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { axiosClient } from "../webServices/Getway";
-import { webURLs } from "../webServices/WebURLs";
+// import { axiosClient } from "../webServices/Getway";
+// import { webURLs } from "../webServices/WebURLs";
 
-const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
+const ForgotPassword = () => {
   const Navigate = useNavigate();
 
-  // Login API Integration
-  const handleLogin = async () => {
-    let result = await axiosClient.post(webURLs.LOGIN);
-    if (result.data) {
-      localStorage.setItem("user", JSON.stringify(result.data.user));
-      Navigate("/");
-    } else {
-      alert("Enter valid details");
-    }
-  };
+  function varifyOTP() {
+    Navigate("/varifyotp");
+  }
 
   return (
     <>
       <div className="container">
         <div className="row mt-3">
           <div className="text-center">
-            <Link href="" className="brand-logo">
+            <Link to="" className="brand-logo">
               <img src="images/logo.webp" alt="logo" width={250} />
               <h4 className="card-title mt-2">Welcome To Mind Coders</h4>
             </Link>
           </div>
-          <div className="row">
-            <div className="col-lg-6">
-              <img src="./images/login-img.webp" alt="login-img" height={450} />
+          <div className="row justify-content-center">
+            <div className="col-lg-4 mt-5">
+              <img
+                src="./images/forgot-password.webp"
+                alt="login-img"
+                height={350}
+              />
             </div>
-            <div className="col-lg-5 mt-4">
+            <div className="col-lg-5 mt-6">
               <div className="card rounded-3 effect2 h-auto mt-4">
                 <div className="card-header text-center">
-                  <h4 className="card-title">Login to Continue</h4>
+                  <h4 className="card-title">Reset your password</h4>
                 </div>
                 <div className="card-body">
                   <div className="basic-form">
@@ -70,12 +64,10 @@ const Login = () => {
                                 type="email"
                                 className="form-control"
                                 placeholder=" Email ID"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
                               />
                             </div>
                           </div>
-                          <div className="mb-3">
+                          {/* <div className="mb-3">
                             <label
                               className="text-label form-label"
                               htmlFor="dlab-password"
@@ -109,18 +101,18 @@ const Login = () => {
                                 )}
                               </span>
                             </div>
-                          </div>
+                          </div> */}
                           <div className=" m-2 d-flex justify-content-between">
-                            <Link to={'/forgotpassword'} >
-                              <u>Forgot password</u>
+                            <Link to={"/login"}>
+                              <u>Login</u>
                             </Link>
                           </div>
                           <button
                             type="submit"
                             className="btn me-2 btn-primary btn-block fs-15"
-                            onClick={handleLogin}
+                            onClick={varifyOTP}
                           >
-                            Login
+                            Send OTP
                           </button>
                         </div>
                       </div>
@@ -136,4 +128,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default ForgotPassword;

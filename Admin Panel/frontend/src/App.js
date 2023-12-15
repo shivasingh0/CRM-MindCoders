@@ -16,8 +16,12 @@ import Support from "./pages/Support";
 import ErrorPage from "./pages/ErrorPage";
 import MyProfile from "./pages/MyProfile";
 import Layout from "./components/Layout";
+import ForgotPassword from "./pages/ForgotPassword";
+import VarifyOtp from "./pages/VarifyOtp";
+
 
 function App() {
+
   return (
     <div className="App">
       <Routes>
@@ -45,7 +49,9 @@ function App() {
           {/* PageNot Found end */}
         </Route>
 
-        <Route path="login" element={<Login />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/forgotpassword" element={<ForgotPassword />} />
+        <Route path="/varifyotp" element={<VarifyOtp />} />
       </Routes>
     </div>
   );
