@@ -1,11 +1,28 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-// import { FullScreen, useFullScreenHandle } from "react-full-screen";
 
-const Header = () => {
+const Header = ({ fullscreenHandle }) => {
   const [isNotificationShow, setIsNotificationShow] = useState(false);
   const [isProfileShow, setIsProfileShow] = useState(false);
   const Navigate = useNavigate();
+  const [isFullScreen, setIsFullScreen] = useState(
+    !!document.fullscreenElement
+  );
+
+  const handleFullscreenToggle = () => {
+    if (isFullScreen) {
+      fullscreenHandle.exit();
+      document.removeEventListener("fullscreenchange", () => {
+        setIsFullScreen(!!document.fullscreenElement);
+      });
+    } else {
+      fullscreenHandle.enter();
+      document.addEventListener("fullscreenchange", () => {
+        setIsFullScreen(!!document.fullscreenElement);
+      });
+    }
+    setIsFullScreen(!isFullScreen);
+  };
 
   const Login = () => {
     localStorage.removeItem("user");
@@ -75,19 +92,21 @@ const Header = () => {
                       </div>
                     </li>
                     <li className="nav-item dropdown notification_dropdown">
-                      <div className="nav-link bell-link">
+                      <div className="nav-link bell-link" role="button">
                         <i class="fa-solid fa-envelope fa-lg"></i>
                       </div>
                     </li>
                     <li className="nav-item dropdown notification_dropdown">
-                      <div className="nav-link bell-link">
-                        <i class="fa-solid fa-expand" title="Fullscreen"></i>
-                        
-                        {/* <i
-                          class="fa-solid fa-compress"
-                          title="Exit fullscreen"
-                          onClick={screen2.enter}
-                        ></i> */}
+                      <div className="nav-link bell-link" role="button">
+                        {/* <i class={ isFullScreen ? "fa-solid fa-expand" title="Fullscreen" : ></i> */}
+                        <i
+                          class={
+                            isFullScreen
+                              ? "fa-solid fa-compress"
+                              : "fa-solid fa-expand"
+                          }
+                          onClick={handleFullscreenToggle}
+                        ></i>
                       </div>
                     </li>
                   </ul>

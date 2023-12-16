@@ -75,7 +75,7 @@ const AddEmployees = (props) => {
                     <option disabled="">Select Role</option>
                     <option>HR</option>
                     <option>BDE</option>
-                    <option>ADMIN</option>
+                    <option>Digital Marketing</option>
                     <option>DEVELOPER</option>
                   </select>
                 </div>

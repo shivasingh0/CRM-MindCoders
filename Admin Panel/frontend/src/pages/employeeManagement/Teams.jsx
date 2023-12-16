@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import AddTeam from "../../modals/AddTeam";
-import { Button } from "react-bootstrap";
+import AddTeam from "../../components/modals/AddTeam";
 
 const Teams = () => {
   const [modalShow, setModalShow] = useState(false);
-
+    
   return (
     <>
       <div className="container-fluid">

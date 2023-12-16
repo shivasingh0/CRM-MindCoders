@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { axiosClient } from "../webServices/Getway";
 import { webURLs } from "../webServices/WebURLs";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -9,14 +11,36 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const Navigate = useNavigate();
 
+  useEffect(() => {
+    localStorage.removeItem("user");
+  }, []);
+
   // Login API Integration
-  const handleLogin = async () => {
-    let result = await axiosClient.post(webURLs.LOGIN);
-    if (result.data) {
-      localStorage.setItem("user", JSON.stringify(result.data.user));
-      Navigate("/");
-    } else {
-      alert("Enter valid details");
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    if (!email || !password) {
+      toast.error("Please enter both email and password.",{
+        position: toast.POSITION.TOP_CENTER
+      });
+      return;
+    }
+    try {
+      let result = await axiosClient.post(webURLs.LOGIN, { email, password });
+
+      if (result.data.status) {
+        localStorage.setItem("user", JSON.stringify(result.data));
+        Navigate("/");
+      } else {
+        toast.error("Enter valid details",{
+          position: toast.POSITION.TOP_CENTER
+        });
+      }
+    } catch (error) {
+      console.error("Login failed:", error);
+      toast.error("Login failed. Please try again.",{
+        position: toast.POSITION.TOP_CENTER
+      });
     }
   };
 
@@ -111,7 +135,7 @@ const Login = () => {
                             </div>
                           </div>
                           <div className=" m-2 d-flex justify-content-between">
-                            <Link to={'/forgotpassword'} >
+                            <Link to={"/forgotpassword"}>
                               <u>Forgot password</u>
                             </Link>
                           </div>
@@ -122,6 +146,7 @@ const Login = () => {
                           >
                             Login
                           </button>
+                         
                         </div>
                       </div>
                     </form>
@@ -132,6 +157,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <ToastContainer limit={3}></ToastContainer>
     </>
   );
 };

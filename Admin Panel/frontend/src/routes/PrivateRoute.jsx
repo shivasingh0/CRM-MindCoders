@@ -1,5 +1,5 @@
-
 import { Navigate, Outlet } from "react-router-dom";
+import { FullScreen, useFullScreenHandle } from "react-full-screen";
 
 // Components
 import NavbarHeader from "../components/NavbarHeader";
@@ -7,17 +7,19 @@ import Header from "../components/Header";
 import SidebarBar from "../components/SidebarBar";
 
 function PrivateRoute() {
-
-  let auth = localStorage.getItem('user')
+  const handle = useFullScreenHandle();
+  let auth = localStorage.getItem("user");
 
   return auth ? (
     <>
-      <NavbarHeader />
-      <Header />
-      <SidebarBar />
-      <div className="content-body">
-        <Outlet />
-      </div>
+      <FullScreen handle={handle}>
+        <NavbarHeader />
+        <Header fullscreenHandle={handle} />
+        <SidebarBar />
+        <div className="content-body">
+          <Outlet />
+        </div>
+      </FullScreen>
     </>
   ) : (
     <Navigate to={"/login"} />

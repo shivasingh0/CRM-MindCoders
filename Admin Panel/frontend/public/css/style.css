@@ -3369,7 +3369,7 @@ textarea.form-control-lg {
     flex-direction: row; }
     .navbar-expand .navbar-nav .dropdown-menu {
       position: absolute;
-      margin-left: 125px;
+      margin-left: 250px;
     }
     .navbar-expand .navbar-nav .nav-link {
       padding-right: 0.5rem;
@@ -33163,3 +33163,26 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
   float: right!important;
 }
        /* My Profile page end */
+
+       /* SweetAlerts CSS start */
+       .custom-swal-container .swal-confirm-btn{
+        background: #0D99FF;
+        border: 1px solid #0D99FF;
+        padding: 3.5px 8px;
+        border-radius: 3px;
+        border-radius: 3px;
+        cursor: pointer;
+        color: #fff;
+        margin-right: 10px;
+       }
+       /* SweetAlerts CSS start */
+       .custom-swal-container .swal-cancel-btn{
+        background: #dc3545;
+        border: 1px solid #dc3545;
+        padding: 3.5px 8px;
+        border-radius: 3px;
+        border-radius: 3px;
+        cursor: pointer;
+        color: #fff;
+       }
+       /* SweetAlerts CSS start */

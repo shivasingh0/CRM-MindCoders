@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import AddEnquiries from "../../modals/AddEnquiries";
+import AddEnquiries from "../../components/modals/AddEnquiries";
 
 const Enquiries = () => {
 

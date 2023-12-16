@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const MyProfile = () => {
   return (
@@ -9,6 +10,12 @@ const MyProfile = () => {
             <div className="row">
               <div className=" widget-heading d-flex justify-content-between align-items-center">
                 <h3 className="mb-3"> View Profile </h3>
+                <Link
+                  to="/profile/editprofile"
+                  className="btn btn-primary btn-sm"
+                >
+                  Edit Profile
+                </Link>
               </div>
               <div className="d-flex gap-4">
                 <div className="col-md-4">
@@ -98,23 +105,23 @@ const MyProfile = () => {
                     <h5 className="mb-2 mt-4">Personal Skills</h5>
                     <ul className="list-unstyled mb-0">
                       <li className="mb-3">
-                      <i class="fa-regular fa-circle-check fa-xl text-primary mr-2"></i>
+                        <i class="fa-regular fa-circle-check fa-xl text-primary mr-2"></i>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       </li>
                       <li className="mb-3">
-                      <i class="fa-regular fa-circle-check fa-xl text-primary mr-2"></i>
+                        <i class="fa-regular fa-circle-check fa-xl text-primary mr-2"></i>
                         Aliquam ultrices tellus in auctor blandit.
                       </li>
                       <li className="mb-3">
-                      <i class="fa-regular fa-circle-check fa-xl text-primary mr-2"></i>
+                        <i class="fa-regular fa-circle-check fa-xl text-primary mr-2"></i>
                         Etiam tincidunt erat non ante sagittis bibendum.
                       </li>
                       <li className="mb-3">
-                      <i class="fa-regular fa-circle-check fa-xl text-primary mr-2"></i>
+                        <i class="fa-regular fa-circle-check fa-xl text-primary mr-2"></i>
                         Nunc malesuada massa ut nisl sollicitudin semper.
                       </li>
                       <li>
-                      <i class="fa-solid fa-circle-check fa-xl text-primary mr-2"></i>
+                        <i class="fa-solid fa-circle-check fa-xl text-primary mr-2"></i>
                         Fusce et arcu in dui feugiat finibus.
                       </li>
                     </ul>
