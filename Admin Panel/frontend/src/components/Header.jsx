@@ -119,7 +119,7 @@ const Header = ({ fullscreenHandle }) => {
                         data-bs-toggle="dropdown"
                         onClick={() => setIsProfileShow(!isProfileShow)}
                       >
-                        <img src="images/profile.png" width={20} alt="" />
+                        <img src="../../images/profile.png" width={20} alt="" />
                       </Link>
                       <div
                         className={

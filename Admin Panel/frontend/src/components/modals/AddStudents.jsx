@@ -67,83 +67,6 @@ const AddStudents = (props) => {
                     placeholder="Email id"
                   />
                 </div>
-                {/* <div className="col-md-4 mb-2 mt-2">
-                  <label className="mb-2 mt-2">
-                    <strong>Mention the Course You Wish to Join*</strong>
-                  </label>
-                  <select className="default-select  form-control wide">
-                    <option disabled="">Select Course</option>
-                    <option>Frontend Development Course</option>
-                    <option>Backend Development Course</option>
-                    <option>React JS Course</option>
-                    <option>MERN Stack Course</option>
-                    <option>Data Analytics Course</option>
-                    <option>Data Science Course</option>
-                    <option>Digital Marketing Course</option>
-                  </select>
-                </div> */}
-                {/* <div className="col-md-4 mb-2">
-                  <label className="mb-1  mt-2">
-                    <strong>Course Fees*</strong>
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control mt-10"
-                    placeholder="INR"
-                    disabled=""
-                  />
-                </div> */}
-                {/* <div className="col-md-4 mb-2">
-                  <label className="mb-1  mt-2">
-                    <strong>Finalized Fees*</strong>
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control mt-10"
-                    placeholder="finalized fees"
-                  />
-                </div> */}
-                {/* <div className="col-md-4 mb-2">
-                  <label className="mb-1  mt-2">
-                    <strong>Parent's Name*</strong>
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control mt-10"
-                    placeholder="parent's name"
-                  />
-                </div>
-                <div className="col-md-4 mb-2 mt-2">
-                  <label className="mb-1">
-                    <strong>Parent's Mobile Number*</strong>
-                  </label>
-                  <input
-                    type="number"
-                    className="form-control mt-10"
-                    placeholder="+91 | Mobile Number"
-                  />
-                </div>
-                <div className="col-md-4 mb-2">
-                  <label className="mb-1  mt-2">
-                    <strong>Father's Occupation*</strong>
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control mt-10"
-                    placeholder="father's occupation"
-                  />
-                </div> 
-                <div className="col-md-4 mb-2 mt-2">
-                  <label className="mb-2 mt-2">
-                    <strong>Monthly Income</strong>
-                  </label>
-                  <select className="default-select  form-control wide">
-                    <option disabled="">Select Income</option>
-                    <option>3 Lac to 4 Lac</option>
-                    <option>4 Lac to 6 Lac</option>
-                    <option>Above 6 Lac</option>
-                  </select>
-                </div> */}
                 <div className="col-md-4 mb-2">
                   <label className="mb-1  mt-2">
                     <strong>City*</strong>
@@ -184,26 +107,41 @@ const AddStudents = (props) => {
                     placeholder="Passing year"
                   />
                 </div>
-                {/* <div className="col-md-4 mb-2">
-                  <label className="mb-1  mt-2">
-                    <strong>Marks Obtained</strong>
+                <div className="col-md-4 mb-2 mt-2">
+                  <label className="mb-2 mt-2">
+                    <strong>Course Name*</strong>
                   </label>
-                  <input
-                    type="text"
-                    className="form-control mt-10"
-                    placeholder="marks"
-                  />
-                </div> */}
-                {/* <div className="col-md-4 mb-2 mt-2">
+                  <select className="default-select  form-control wide">
+                    <option disabled="">-Select Course-</option>
+                    <option>Frontend Development</option>
+                    <option>Backend Development</option>
+                    <option>MERN Stack</option>
+                    <option>Digital Marketing</option>
+                    <option>Data Analytics</option>
+                    <option>Data Science</option>
+                  </select>
+                </div>
+                <div className="col-md-4 mb-2 mt-2">
                   <label className="mb-1">
-                    <strong>Source of Enquiry</strong>
+                    <strong>Course Price</strong>
                   </label>
                   <input
                     type="text"
                     className="form-control mt-10"
-                    placeholder="source name"
+                    placeholder="Rs. 10000/-"
+                    disabled
                   />
-                </div> */}
+                </div>
+                <div className="col-md-4 mb-2 mt-2">
+                  <label className="mb-1">
+                    <strong>Final Course Price</strong>
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control mt-10"
+                    placeholder="Final Price"
+                  />
+                </div>
                 <div className="col-md-4 mb-2 mt-2">
                   <label className="mb-1">
                     <strong>Referral Person Name*</strong>
@@ -214,83 +152,40 @@ const AddStudents = (props) => {
                     placeholder="Referral person name"
                   />
                 </div>
-                <div className="col-md-4 mb-2 mt-2">
-                  <label className="mb-2 mt-2">
+                <div className="col-md-4">
+                  <label className="">
                     <strong>Counselor</strong>
                   </label>
-                  <select className="default-select  form-control wide">
-                    <option disabled="">Select Status</option>
-                    <option>Akhil</option>
-                    <option>Divyani</option>
-                    <option>Ritika</option>
-                    <option>Firoz Khan</option>
-                    <option>KK Sir</option>
-                  </select>
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Counselor name"
+                  />
                 </div>
-                <div className="col-md-4 mb-2 mt-2">
-                  <label className="mb-2 mt-2">
+                <div className="col-md-4 mb-2">
+                  <label className="mb-2">
                     <strong>Priority</strong>
                   </label>
                   <select className="default-select  form-control wide">
-                    <option disabled="">Select Status</option>
+                    <option disabled="">-Select Status-</option>
                     <option>High</option>
                     <option>Medium</option>
                     <option>Low</option>
                     <option>None</option>
                   </select>
                 </div>
-                <div className="col-md-4 mb-2 mt-2">
-                  <label className="mb-2 mt-2">
+                <div className="col-md-4 mb-2">
+                  <label className="mb-2">
                     <strong>Enquiry Status</strong>
                   </label>
                   <select className="default-select  form-control wide">
-                    <option disabled="">Select Status</option>
+                    <option disabled="">-Select Status-</option>
                     <option>Interested</option>
                     <option>Call Back</option>
                     <option>Confused</option>
                     <option>Not Interested</option>
                   </select>
                 </div>
-                {/* <div className="col-md-4 mb-2 mt-2">
-                  <label className="mb-1">
-                    <strong>City name</strong>
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control mt-10"
-                    placeholder="city name"
-                  />
-                </div> */}
-                {/* <div className="col-md-4 mb-2 mt-2">
-                  <label className="mb-2 mt-2">
-                    <strong>Demo Class*</strong>
-                  </label>
-                  <select className="default-select  form-control wide">
-                    <option disabled="">Select Demo</option>
-                    <option>Yes</option>
-                    <option>No</option>
-                  </select>
-                </div> */}
-                {/* <div className=" col-md-8 mb-2 mb-2 mt-2">
-                  <label className="mb-1">
-                    <strong>Full Address</strong>
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control mt-10"
-                    placeholder="full address"
-                  />
-                </div> */}
-                {/* <div className="mb-2 mt-2">
-                  <label className="mb-1">
-                    <strong>Followup Massage</strong>
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control mt-10"
-                    placeholder=" followup massage"
-                  />
-                </div> */}
               </div>
               <div className="mt-4">
                 <a

@@ -8089,7 +8089,7 @@ h1, .h1, .h1, h2, .h2, .h2, h3, .h3, .h3, h4, .h4, .h4, h5, .h5, .h5, h6, .h6, .
   white-space: nowrap; }
 
 .content-body .container {
-  margin-top: 2.5rem;
+  /* margin-top: 2.5rem; */
 }
 
 .content-body .container-fluid, .content-body .container-sm, .content-body .container-md, .content-body .container-lg, .content-body .container-xl, .content-body .container-xxl {
@@ -8725,8 +8725,8 @@ label {
   position: fixed; }
 
 .brand-logo .active-logo {
-  height: 50px; 
-  width: 150px;
+  height: 47px;
+  width: 165px;
 }
 .brand-logo .unActive-logo {
   height: 50px; 
@@ -25886,7 +25886,7 @@ code {
       clear: both; }
     .widget-timeline .timeline > li > .timeline-panel {
       border-radius: 0.625rem;
-      padding: 0.8375rem 1.25rem;
+      padding: 0.24rem 0.25rem;
       position: relative;
       display: block;
       margin-left: 2.5rem;
@@ -33186,3 +33186,113 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
         color: #fff;
        }
        /* SweetAlerts CSS start */
+
+       /* Invoice page css start */
+       .invoice-wrapper{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 50px 0;
+       }
+       .invoice-wrap{
+        width: 800px;
+        height: 100%;
+        border-radius: 10px;
+        background: white;
+       }
+       .invoice-head{
+        background: #F5F5F5;
+        padding: 50px 80px;
+        border-radius: 10px;
+        /* color: white; */
+        font-weight: 600;
+        font-size: 18px;
+       }
+       .invoice-head img{
+        margin-left: 280px;
+       }
+       .contact-info{
+        display: flex;
+        justify-content: space-between;
+
+       }
+       .invoice-main{
+        padding: 3rem 2rem;
+      }
+      .invoice-content{
+        display: flex;
+        justify-content: space-between;
+      }
+      .student-info h5{
+        background: #F5F5F5;
+        padding: 10px 7px;
+        border-radius: 10px 0 10px 0;
+      }
+      .invoice-table {
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 750px;
+        margin: 0 auto;
+        white-space: nowrap;
+        background-color: #ffffff;
+    }
+    .invoice-table thead th {
+      color: #12151C;
+      padding: 10px 0;
+  }
+  .invo-tb-body {
+    border-bottom: 2px solid #12151C;
+    border-top: 2px solid #12151C;
+}
+.invoice-table td {
+  color: #505050;
+  font-size: 14px;
+  line-height: 22px;
+  padding: 20px 0;
+}
+.total-price{
+  /* margin-left: 500px; */
+  display: flex;
+  justify-content: end;
+  
+}
+.total-price div{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.price{
+  font-size: 17px;
+  font-weight: 600;
+  color: #00aff0;
+}
+.invoice-btn{
+  display: flex;
+  justify-content: center;
+}
+.invoice-btn .btn-icon, .btn-text{
+  color: #D4EAF6;
+  margin: 0 4px;
+}
+/* #D4EAF6 */
+.invoice-btn .print-btn{
+  background-color: #164863;
+  padding: 5px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.invoice-bottom{
+  background: #F5F5F5;
+  padding: 50px 45px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 18px;
+}
+       /* Invoice page css end */
+
+       /* Modal css start   */
+       /* --view student details */
+       .view-student-profile{
+        width: fit-content !important;
+       }
+       /* Modal css end */

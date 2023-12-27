@@ -19,6 +19,11 @@ import Layout from "./components/Layout";
 import ForgotPassword from "./pages/ForgotPassword";
 import VarifyOtp from "./pages/VarifyOtp";
 import EditProfile from "./pages/profile/EditProfile";
+import Courses from "./pages/courses/Courses";
+import AddNewCourse from "./pages/courses/subPage/AddNewCourse";
+import FeeCollection from "./pages/studentManagement/FeeCollection";
+import Invoice from "./pages/Invoice";
+import DemoClasses from "./pages/courses/DemoClasses";
 
 function App() {
   return (
@@ -30,6 +35,7 @@ function App() {
             {/* Student management routes start */}
             <Route path="students" element={<TotalStudents />} />
             <Route path="enquiries" element={<Enquiries />} />
+            <Route path="feecollection" element={<FeeCollection />} />
             <Route path="admissions" element={<Layout />}>
               <Route index element={<Admissions />} />
               <Route path="newadmission" element={<NewAdmission />} />
@@ -40,6 +46,12 @@ function App() {
             <Route path="teams" element={<Teams />} />
             <Route path="lead-distribution" element={<LeadDistribution />} />
             {/* Employee management routes end */}
+            {/* Course routes start */}
+            <Route path="courses" element={<Courses/>} >
+              <Route path="addnewcourse" element={<AddNewCourse/>} />
+            </Route>
+            <Route path="democlass" element={<DemoClasses/>} />
+            {/* Course routes end */}
             {/* Other routes start */}
             <Route path="profile" element={<Layout />}>
               <Route index element={<MyProfile />} />
@@ -53,6 +65,7 @@ function App() {
             {/* PageNot Found end */}
           </Route>
 
+          <Route path="/invoice" element={<Invoice />} />
           <Route path="/login" element={<Login />} />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
           <Route path="/varifyotp" element={<VarifyOtp />} />

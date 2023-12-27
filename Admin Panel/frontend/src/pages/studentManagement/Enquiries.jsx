@@ -1,9 +1,13 @@
 import React, { useState } from "react";
-import AddEnquiries from "../../components/modals/AddEnquiries";
+// import AddEnquiries from "../../components/modals/AddEnquiries";
+import AddStudents from "../../components/modals/AddStudents";
+import ViewStudentDetails from "../../components/modals/ViewStudentDetails";
+import FollowUpActivity from "../../components/modals/FollowUpActivity";
 
 const Enquiries = () => {
-
-  // const [modalShow, setModalShow] = useState(false);
+  const [addStudentModalShow, setAddStudentModalShow] = useState(false);
+  const [viewStudentDetailsModalShow, setViewStudentDetailsModalShow] = useState(false);
+  const [followUpModalShow, setFollowUpModalShow] = useState(false);
 
   return (
     <>
@@ -23,16 +27,17 @@ const Enquiries = () => {
                           Today Enquiries- 5 Students{" "}
                         </span>
                       </h4>
-                      {/* <div>
+                      <div>
                         <button
                           className="btn btn-secondary btn-sm mr-2"
                           data-bs-toggle="modal"
                           data-bs-target="#enquiries"
-                          onClick={() => setModalShow(true)}
+                          onClick={() => setAddStudentModalShow(true)}
+                          variant="primary"
                         >
-                          <i className="bi-person-lines-fill" /> Add New Enquiry
+                          <i className="bi-person-lines-fill" /> Add Student
                         </button>
-                      </div> */}
+                      </div>
                     </div>
                     <hr />
                     <div className="table-responsive">
@@ -209,30 +214,25 @@ const Enquiries = () => {
                               </td>
                               <td>Rs.65000</td>
                               <td>
-                                <a
-                                  href=""
-                                  data-bs-toggle="modal"
-                                  data-bs-target="#studentdetails"
-                                >
-                                  <i className="bi-eye mr-2 text-dark" />
-                                </a>
-                                <a
-                                  href=""
-                                  data-bs-toggle="modal"
-                                  data-bs-target="#followup"
-                                >
+                                <i
+                                  className="bi-eye mr-2 text-dark pointer"
+                                  title="view details"
+                                  onClick={() =>
+                                    setViewStudentDetailsModalShow(true)
+                                  }
+                                />
                                   <i
-                                    className="bi-chat-right-dots text-primary mr-2"
+                                    className="bi-chat-right-dots text-primary mr-2 pointer"
                                     title="followup message"
+                                    onClick={()=> setFollowUpModalShow(true) }
                                   />
-                                </a>
-                                <a
+                                {/* <a
                                   href=""
                                   data-bs-toggle="modal"
                                   data-bs-target="#enquiries"
-                                >
+                                > */}
                                   <i className="bi-pencil-square mr-2 text-danger" />
-                                </a>
+                                {/* </a> */}
                                 <a href="add_enrollement.html">
                                   <i className="bi-binoculars-fill text-secondary mr-2" />
                                 </a>
@@ -264,23 +264,18 @@ const Enquiries = () => {
                               </td>
                               <td>Rs.65000</td>
                               <td>
-                                <a
-                                  href=""
-                                  data-bs-toggle="modal"
-                                  data-bs-target="#studentdetails"
-                                >
-                                  <i className="bi-eye mr-2 text-dark" />
-                                </a>
-                                <a
-                                  href=""
-                                  data-bs-toggle="modal"
-                                  data-bs-target="#followup"
-                                >
-                                  <i
-                                    className="bi-chat-right-dots text-primary mr-2"
+                                <i
+                                  className="bi-eye mr-2 text-dark pointer"
+                                  title="view details"
+                                  onClick={() =>
+                                    setViewStudentDetailsModalShow(true)
+                                  }
+                                />
+                                <i
+                                    className="bi-chat-right-dots text-primary mr-2 pointer"
                                     title="followup message"
+                                    onClick={()=> setFollowUpModalShow(true) }
                                   />
-                                </a>
                                 <a
                                   href=""
                                   data-bs-toggle="modal"
@@ -351,8 +346,25 @@ const Enquiries = () => {
           </div>
         </div>
       </div>
-      {/* <AddEnquiries show={modalShow} onHide={() => setModalShow(false)} />
-      {modalShow?<div class="modal-backdrop fade show"></div>:""} */}
+      {/* Add students modal */}
+      <AddStudents
+        show={addStudentModalShow}
+        onHide={() => setAddStudentModalShow(false)}
+      />
+      {addStudentModalShow ? <div class="modal-backdrop fade show"></div> : ""}
+      {/* View details modal */}
+      <ViewStudentDetails
+        show={viewStudentDetailsModalShow}
+        onHide={() => setViewStudentDetailsModalShow(false)}
+      />
+      {viewStudentDetailsModalShow ? (
+        <div class="modal-backdrop fade show"></div>
+      ) : (
+        ""
+      )}
+      {/* Follow-up message modal */}
+      <FollowUpActivity show={followUpModalShow} onHide={()=> setFollowUpModalShow(false) } />
+      {followUpModalShow ? <div class="modal-backdrop fade show"></div> : "" }
     </>
   );
 };

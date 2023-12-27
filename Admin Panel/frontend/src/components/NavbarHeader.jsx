@@ -21,9 +21,9 @@ const NavbarHeader = () => {
       <div className="nav-header">
         <Link to="/" className="brand-logo">
           {isHamburgerActive ? (
-            <img className="unActive-logo" src="./images/favicon.webp" alt="logo" />
+            <img className="unActive-logo" src="../../images/favicon.webp" alt="logo" />
           ) : (
-            <img className="active-logo" src="images/logo.webp" alt="logo" />
+            <img className="active-logo" src="../../images/logo.webp" alt="logo" />
           )}
         </Link>
         <div className="nav-control">

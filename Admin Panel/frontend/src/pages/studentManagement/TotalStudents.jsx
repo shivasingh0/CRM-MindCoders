@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import Table from "../../components/Table";
 import AddStudents from "../../components/modals/AddStudents";
 
 const TotalStudents = () => {
 
-  const [modalShow, setModalShow] = useState(false);
+  // const [modalShow, setModalShow] = useState(false);
 
   return (
     <>
@@ -24,7 +24,7 @@ const TotalStudents = () => {
                           Today Enquiries- 5 Students{" "}
                         </span>
                       </h4>
-                      <div>
+                      {/* <div>
                         <button
                           className="btn btn-secondary btn-sm mr-2"
                           data-bs-toggle="modal"
@@ -34,7 +34,7 @@ const TotalStudents = () => {
                         >
                           <i className="bi-person-lines-fill" /> Add Student
                         </button>
-                      </div>
+                      </div> */}
                     </div>
                     <hr />
                     <div className="table-responsive">
@@ -125,8 +125,8 @@ const TotalStudents = () => {
             </div>
           </div>
         </div>
-        <AddStudents show={modalShow} onHide={() => setModalShow(false)} />
-      {modalShow?<div class="modal-backdrop fade show"></div>:""}
+        {/* <AddStudents show={modalShow} onHide={() => setModalShow(false)} />
+      {modalShow?<div class="modal-backdrop fade show"></div>:""} */}
       </div>
     </>
   );

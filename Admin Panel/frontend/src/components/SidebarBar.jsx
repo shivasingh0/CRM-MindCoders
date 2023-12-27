@@ -28,7 +28,7 @@ const SidebarBar = () => {
               <u >Student Management</u>
               <hr />
             </li>
-            <li
+            {/* <li
               className={
                 location.pathname === "/students" ? "mt-10 mm-active" : "mt-10"
               }
@@ -37,7 +37,7 @@ const SidebarBar = () => {
                 <i className="bi-person-lines-fill text-color" />
                 <span className="nav-text">Total Students</span>
               </Link>
-            </li>
+            </li> */}
             <li
               className={location.pathname === "/enquiries" ? "mm-active" : ""}
             >
@@ -59,6 +59,16 @@ const SidebarBar = () => {
                 <span className="nav-text">Admissions</span>
               </Link>
             </li>
+            <li
+              className={
+                location.pathname === "/feecollection" ? "mm-active" : ""
+              }
+            >
+              <Link to="/feecollection" aria-expanded="false">
+                <i class="bi bi-diagram-3-fill text-color"></i>
+                <span className="nav-text">Fee Collection</span>
+              </Link>
+            </li>
             {/* Students Management end */}
             {/* Employees Management start */}
             <li className="nav-divider ng-scope mt-10 text-th" translate="">
@@ -75,12 +85,12 @@ const SidebarBar = () => {
                 <span className="nav-text"> Total Employees</span>
               </Link>
             </li>
-            <li className={location.pathname === "/teams" ? "mm-active" : ""}>
+            {/* <li className={location.pathname === "/teams" ? "mm-active" : ""}>
               <Link to="/teams" aria-expanded="false">
                 <i class="bi bi-people-fill text-color"></i>
                 <span className="nav-text">Teams</span>
               </Link>
-            </li>
+            </li> */}
             <li
               className={
                 location.pathname === "/lead-distribution" ? "mm-active" : ""
@@ -89,6 +99,32 @@ const SidebarBar = () => {
               <Link to="/lead-distribution" aria-expanded="false">
                 <i class="bi bi-diagram-3-fill text-color"></i>
                 <span className="nav-text">Lead Distribution</span>
+              </Link>
+            </li>
+            <li className="nav-divider ng-scope text-th" translate="">
+              <u>Course</u>
+              <hr />
+            </li>
+            <li
+              className={
+                location.pathname === "/courses" ||
+                location.pathname === "/courses/addnewcourse"
+                ? "mm-active" : ""
+              }
+            >
+              <Link to="/courses" aria-expanded="false">
+                <i class="bi bi-diagram-3-fill text-color"></i>
+                <span className="nav-text">Courses</span>
+              </Link>
+            </li>
+            <li
+              className={
+                location.pathname === "/add-democlass" ? "mm-active" : ""
+              }
+            >
+              <Link to="/democlass" aria-expanded="false">
+                <i class="bi-input-cursor-text text-color"></i>
+                <span className="nav-text">Demo Classes</span>
               </Link>
             </li>
             <li className="nav-divider ng-scope text-th" translate="">
