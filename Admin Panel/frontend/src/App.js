@@ -3,11 +3,11 @@ import "./App.css";
 
 // Pages
 import Dashboard from "./pages/Dashboard";
-import Enquiries from "./pages/studentManagement/Enquiries";
-import Admissions from "./pages/studentManagement/Admissions";
+import Enquiries from "./pages/enquiryPage/Enquiries";
+import Admissions from "./pages/admissionPage/Admissions";
 import TotalStudents from "./pages/studentManagement/TotalStudents";
-import NewAdmission from "./pages/studentManagement/subPage/NewAdmission";
-import TotalEmpolyees from "./pages/employeeManagement/TotalEmpolyees";
+import NewAdmission from "./pages/admissionPage/subPage/NewAdmission";
+import TotalEmpolyees from "./pages/totalEmployeePage/TotalEmpolyees";
 import Teams from "./pages/employeeManagement/Teams";
 import LeadDistribution from "./pages/employeeManagement/LeadDistribution";
 import Login from "./pages/Login";
@@ -19,11 +19,11 @@ import Layout from "./components/Layout";
 import ForgotPassword from "./pages/ForgotPassword";
 import VarifyOtp from "./pages/VarifyOtp";
 import EditProfile from "./pages/profile/EditProfile";
-import Courses from "./pages/courses/Courses";
-import AddNewCourse from "./pages/courses/subPage/AddNewCourse";
-import FeeCollection from "./pages/studentManagement/FeeCollection";
+import Courses from "./pages/coursesPage/Courses";
+import AddNewCourse from "./pages/coursesPage/subPage/AddNewCourse";
+import FeeCollection from "./pages/feesPage/FeeCollection";
 import Invoice from "./pages/Invoice";
-import DemoClasses from "./pages/courses/DemoClasses";
+import DemoClasses from "./pages/demoClassPage/DemoClasses";
 
 function App() {
   return (

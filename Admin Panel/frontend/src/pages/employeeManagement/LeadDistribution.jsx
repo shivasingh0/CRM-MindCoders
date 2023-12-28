@@ -12,15 +12,14 @@ const LeadDistribution = () => {
                 <div className="card">
                   <div className="card-body">
                     <div className="widget-heading p-2 d-flex justify-content-between align-items-center">
-                      <h4>
+                      {/* <h4>
                         <span className="badge badge-primary mr-2">
                           Total Lead - 20
                         </span>
-                        <input type="date" />
-                        {/* <span className="badge badge-secondary">
-                          Today Enquiries- 5 Students{" "}
-                        </span> */}
-                      </h4>
+                      </h4> */}
+                        <div>
+                        <input type="date" className='form-control mt-3' />
+                        </div>
                       <div>
                         <button
                           className="btn btn-secondary btn-sm mr-2"

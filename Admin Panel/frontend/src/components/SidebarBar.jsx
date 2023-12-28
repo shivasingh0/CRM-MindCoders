@@ -65,7 +65,7 @@ const SidebarBar = () => {
               }
             >
               <Link to="/feecollection" aria-expanded="false">
-                <i class="bi bi-diagram-3-fill text-color"></i>
+                <i class="bi-calendar2-event text-color"></i>
                 <span className="nav-text">Fee Collection</span>
               </Link>
             </li>
@@ -113,13 +113,13 @@ const SidebarBar = () => {
               }
             >
               <Link to="/courses" aria-expanded="false">
-                <i class="bi bi-diagram-3-fill text-color"></i>
+                <i class="bi-journals text-color"></i>
                 <span className="nav-text">Courses</span>
               </Link>
             </li>
             <li
               className={
-                location.pathname === "/add-democlass" ? "mm-active" : ""
+                location.pathname === "/democlass" ? "mm-active" : ""
               }
             >
               <Link to="/democlass" aria-expanded="false">

@@ -115,7 +115,7 @@ const Invoice = () => {
               </tbody>
             </table>
             <div className="total-price">
-              <div>
+              <div className="sub-total">
                 <h3>Sub Total:</h3> <span className="price"> Rs. 15000/-</span>{" "}
               </div>
             </div>
