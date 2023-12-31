@@ -25285,7 +25285,8 @@ code {
     font-weight: 100; }
 
 .modal-body {
-  padding: 1.875rem; }
+  /* padding: 1.875rem;  */
+}
 
 .modal-footer {
   padding: 1rem 1.875rem; }

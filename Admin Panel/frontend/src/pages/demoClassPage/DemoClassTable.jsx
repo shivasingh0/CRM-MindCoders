@@ -83,7 +83,7 @@ const DemoClassTable = () => {
               </div>
               <div className="modal-body">
                 <div className="widget-heading d-flex justify-content-between align-items-center">
-                  <h5 />
+                  {/* <h5 /> */}
                   <div>
                     <h5 className="datetime">Date: 27/12/2023 18:2:12</h5>
                   </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import EditBtnComponent from "./EditBtnComponent";
 
 const MyProfile = () => {
   return (
@@ -8,15 +8,7 @@ const MyProfile = () => {
         <div className="row">
           <div className="col-xl-12 col-xxl-12">
             <div className="row">
-              <div className=" widget-heading d-flex justify-content-between align-items-center">
-                <h3 className="mb-3"> View Profile </h3>
-                <Link
-                  to="/profile/editprofile"
-                  className="btn btn-primary btn-sm"
-                >
-                  Edit Profile
-                </Link>
-              </div>
+              <EditBtnComponent/>
               <div className="d-flex gap-4">
                 <div className="col-md-4">
                   <div className="panel profile-card">

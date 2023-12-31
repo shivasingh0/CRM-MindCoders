@@ -5,25 +5,24 @@ import "./App.css";
 import Dashboard from "./pages/Dashboard";
 import Enquiries from "./pages/enquiryPage/Enquiries";
 import Admissions from "./pages/admissionPage/Admissions";
-import TotalStudents from "./pages/studentManagement/TotalStudents";
 import NewAdmission from "./pages/admissionPage/subPage/NewAdmission";
 import TotalEmpolyees from "./pages/totalEmployeePage/TotalEmpolyees";
-import Teams from "./pages/employeeManagement/Teams";
-import LeadDistribution from "./pages/employeeManagement/LeadDistribution";
+import LeadDistribution from "./pages/leadDistributionPage/LeadDistribution";
 import Login from "./pages/Login";
 import PrivateRoute from "./routes/PrivateRoute";
 import Support from "./pages/Support";
 import ErrorPage from "./pages/ErrorPage";
-import MyProfile from "./pages/profile/MyProfile";
+import MyProfile from "./pages/profilePage/MyProfile";
 import Layout from "./components/Layout";
 import ForgotPassword from "./pages/ForgotPassword";
 import VarifyOtp from "./pages/VarifyOtp";
-import EditProfile from "./pages/profile/EditProfile";
+import EditProfile from "./pages/profilePage/subPage/EditProfile";
 import Courses from "./pages/coursesPage/Courses";
 import AddNewCourse from "./pages/coursesPage/subPage/AddNewCourse";
 import FeeCollection from "./pages/feesPage/FeeCollection";
 import Invoice from "./pages/Invoice";
 import DemoClasses from "./pages/demoClassPage/DemoClasses";
+import ChangePassword from "./pages/profilePage/subPage/ChangePassword";
 
 function App() {
   return (
@@ -33,7 +32,6 @@ function App() {
           <Route path="/" element={<PrivateRoute />}>
             <Route index element={<Dashboard />} />
             {/* Student management routes start */}
-            <Route path="students" element={<TotalStudents />} />
             <Route path="enquiries" element={<Enquiries />} />
             <Route path="feecollection" element={<FeeCollection />} />
             <Route path="admissions" element={<Layout />}>
@@ -43,7 +41,6 @@ function App() {
             {/* Student management routes end */}
             {/* Employee management routes start */}
             <Route path="employees" element={<TotalEmpolyees />} />
-            <Route path="teams" element={<Teams />} />
             <Route path="lead-distribution" element={<LeadDistribution />} />
             {/* Employee management routes end */}
             {/* Course routes start */}
@@ -56,8 +53,8 @@ function App() {
             <Route path="profile" element={<Layout />}>
               <Route index element={<MyProfile />} />
               <Route path="editprofile" element={<EditProfile />} />
+              <Route path="changepassword" element={<ChangePassword />} />
             </Route>
-
             <Route path="support" element={<Support />} />
             {/* Other routes end */}
             {/* PageNot Found start */}

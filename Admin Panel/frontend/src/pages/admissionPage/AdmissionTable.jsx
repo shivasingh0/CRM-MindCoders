@@ -67,19 +67,40 @@ const TableComponent = () => {
               </td>
               <td>
                 <a
-                  href="/#"
+                  href=""
                   data-bs-toggle="modal"
-                  data-bs-target="#studentdetails"
+                  data-bs-target="#studentdetails9987832522"
                 >
                   <i className="bi-eye mr-2 text-dark" />
                 </a>
-                <a href="add_enrollement.html">
-                  <i className="bi-pencil-square mr-2 text-danger" />
+                <a href="/update_enrollement/d7e3b2bb-b0b0-4a87-b1a1-36a2b970ed75">
+                  <i className="bi-pencil-square mr-2 text-secondary" />
                 </a>
-                <a href="/#" data-bs-toggle="modal" data-bs-target="#followup">
+                <a
+                  href=""
+                  data-bs-toggle="modal"
+                  data-bs-target="#paymenthistoryd7e3b2bb-b0b0-4a87-b1a1-36a2b970ed75"
+                >
                   <i className="bi-clipboard-data mr-2 text-primary" />
+                </a>{" "}
+                <br />
+                <a
+                  href=""
+                  data-bs-toggle="modal"
+                  data-bs-target="#passoutd7e3b2bb-b0b0-4a87-b1a1-36a2b970ed75"
+                >
+                  <i
+                    className="bi-layer-forward text-primary mr-2"
+                    title="Passout Student"
+                  />
                 </a>
-                <i className="bi-printer text-success" />
+                <a
+                  href=""
+                  data-bs-toggle="modal"
+                  data-bs-target="#deleted7e3b2bb-b0b0-4a87-b1a1-36a2b970ed75"
+                >
+                  <i className="bi-trash text-danger" />
+                </a>
               </td>
             </tr>
           </tbody>

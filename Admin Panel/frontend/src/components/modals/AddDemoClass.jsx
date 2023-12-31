@@ -6,7 +6,7 @@ const AddDemoClass = (props) => {
     <>
       <Modal
         {...props}
-        size="lg"
+        // size="lg"
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
