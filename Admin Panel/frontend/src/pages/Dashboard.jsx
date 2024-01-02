@@ -1,7 +1,6 @@
 import PieChart from "../components/charts/PieChart";
 import BarCharts from "../components/charts/BarCharts";
 import LineChart from "../components/charts/LineChart";
-import { SparkLineChart } from "@mui/x-charts";
 
 const Dashboard = () => {
   return (
@@ -10,7 +9,22 @@ const Dashboard = () => {
         <div className="row mt-4">
           <div className="col-xl-12 col-xxl-12">
             <div className="row">
-              <div className="col-xl-4 col-xxl-4 col-sm-4">
+            <div className="col-xl-4 col-xxl-4 col-sm-4">
+                <div className="card bg-secondary widget-courses style-2">
+                  <div className="card-body">
+                    <div className="lign-items-center d-flex justify-content-between flex-wrap">
+                      <div className="d-flex">
+                        <img src="./images/enquiry.webp" alt="enquiry" />
+                        <div className="ms-4">
+                          <h4 className="fs-18 font-w700">32 </h4>
+                          <span>Total Enquiries</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* <div className="col-xl-4 col-xxl-4 col-sm-4">
                 <div className="card bg-secondary widget-courses style-2">
                   <div className="card-body">
                     <div className="align-items-center d-flex justify-content-between flex-wrap">
@@ -24,7 +38,7 @@ const Dashboard = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
               <div className="col-xl-4 col-xxl-4 col-sm-4">
                 <div className="card bg-secondary widget-courses style-2">
                   <div className="card-body">
@@ -40,7 +54,7 @@ const Dashboard = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-xl-4 col-xxl-4 col-sm-4">
+              {/* <div className="col-xl-4 col-xxl-4 col-sm-4">
                 <div className="card bg-secondary widget-courses style-2">
                   <div className="card-body">
                     <div className="align-items-center d-flex justify-content-between flex-wrap">
@@ -54,7 +68,7 @@ const Dashboard = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
               <div className="col-xl-4 col-xxl-4 col-sm-4">
                 <div className="card bg-secondary widget-courses style-2">
                   <div className="card-body">
@@ -70,15 +84,16 @@ const Dashboard = () => {
                   </div>
                 </div>
               </div>
+              
               <div className="col-xl-4 col-xxl-4 col-sm-4">
                 <div className="card bg-secondary widget-courses style-2">
                   <div className="card-body">
                     <div className="lign-items-center d-flex justify-content-between flex-wrap">
                       <div className="d-flex">
-                        <img src="./images/enquiry.webp" alt="enquiry" />
+                        <img src="./images/lead.webp" alt="lead" />
                         <div className="ms-4">
-                          <h4 className="fs-18 font-w700">32 </h4>
-                          <span>Total Enquiries</span>
+                          <h4 className="fs-18 font-w700">20 </h4>
+                          <span>Lead Distribution</span>
                         </div>
                       </div>
                     </div>
@@ -90,10 +105,25 @@ const Dashboard = () => {
                   <div className="card-body">
                     <div className="lign-items-center d-flex justify-content-between flex-wrap">
                       <div className="d-flex">
-                        <img src="./images/lead.webp" alt="lead" />
+                        <img src="./images/courses.webp" alt="courses" />
                         <div className="ms-4">
                           <h4 className="fs-18 font-w700">20 </h4>
-                          <span>Lead Distribution</span>
+                          <span>Total Courses</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-xl-4 col-xxl-4 col-sm-4">
+                <div className="card bg-secondary widget-courses style-2">
+                  <div className="card-body">
+                    <div className="lign-items-center d-flex justify-content-between flex-wrap">
+                      <div className="d-flex">
+                        <img src="./images/demo.webp" alt="lead" />
+                        <div className="ms-4">
+                          <h4 className="fs-18 font-w700">20 </h4>
+                          <span>Demo Classes</span>
                         </div>
                       </div>
                     </div>

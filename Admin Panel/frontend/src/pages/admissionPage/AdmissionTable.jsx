@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import ViewAddmission from "../../components/modals/View/ViewAddmission";
 
 const TableComponent = () => {
+
+  const [viewAddmission, setViewAddmission] = useState(false)
+
   return (
     <>
       <div className="widget-heading p-2 d-flex justify-content-between align-items-center">
@@ -66,13 +70,8 @@ const TableComponent = () => {
                 <span className="badge badge-secondary">QR Code</span>
               </td>
               <td>
-                <a
-                  href=""
-                  data-bs-toggle="modal"
-                  data-bs-target="#studentdetails9987832522"
-                >
-                  <i className="bi-eye mr-2 text-dark" />
-                </a>
+                  <i className="bi-eye mr-2 text-dark pointer" onClick={()=>setViewAddmission(true)} />
+              
                 <a href="/update_enrollement/d7e3b2bb-b0b0-4a87-b1a1-36a2b970ed75">
                   <i className="bi-pencil-square mr-2 text-secondary" />
                 </a>
@@ -106,8 +105,13 @@ const TableComponent = () => {
           </tbody>
         </table>
       </div>
+      {/* --------------- Modals----------------- */}
+      <ViewAddmission show={viewAddmission}  onHide={() => setViewAddmission(false)} />
+      {viewAddmission ? <div class="modal-backdrop fade show"></div> : ""}
+      {/* <Outlet /> */}
     </>
   );
 };
 
 export default TableComponent;
+

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Range from "../../components/rangeForPayment/Range";
-import ViewFee from "../../components/modals/ViewFee";
+import ViewFee from "../../components/modals/View/ViewFee";
 
 const FeeTable = () => {
   const [modalShow, setModalShow] = useState(false);

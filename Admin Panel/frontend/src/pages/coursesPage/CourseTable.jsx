@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
-import EditCourse from "../../components/modals/EditCourse";
+import EditCourse from "../../components/modals/Edit/EditCourse";
 
 const CourseTable = () => {
   const [editModalShow, setEditModalShow] = useState(false);

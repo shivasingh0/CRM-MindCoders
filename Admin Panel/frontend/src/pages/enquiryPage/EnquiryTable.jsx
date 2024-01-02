@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import AddStudents from "../../components/modals/AddStudents";
-import ViewStudentDetails from "../../components/modals/ViewStudentDetails";
+import AddStudents from "../../components/modals/Add/AddStudents";
+import ViewStudentDetails from "../../components/modals/View/ViewStudentDetails";
 import FollowUpActivity from "../../components/modals/FollowUpActivity";
 
 const TableComponent = () => {

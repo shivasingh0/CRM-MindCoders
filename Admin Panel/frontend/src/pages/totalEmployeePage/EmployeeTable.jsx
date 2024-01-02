@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Table from "../../components/Table";
-import AddEmployees from "../../components/modals/AddEmployees";
+import AddEmployees from "../../components/modals/Add/AddEmployees";
 
 const EmployeeTable = () => {
     const [modalShow, setModalShow] = useState(false);

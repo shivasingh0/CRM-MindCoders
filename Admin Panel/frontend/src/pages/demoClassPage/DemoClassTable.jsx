@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import AddDemoClass from "../../components/modals/AddDemoClass";
+import AddDemoClass from "../../components/modals/Add/AddDemoClass";
 
 const DemoClassTable = () => {
   const [addDemoModelShow, setAddDemoModelShow] = useState(false);
