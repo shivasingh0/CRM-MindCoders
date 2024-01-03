@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import EditCourse from "../../components/modals/Edit/EditCourse";
+import { deleteAlert } from "../../components/alerts/deleteAlert";
 
 const CourseTable = () => {
   const [editModalShow, setEditModalShow] = useState(false);
+  
+  const handleDelete = async () => {   
+    await deleteAlert();
+  };
 
   return (
     <>
@@ -160,6 +165,7 @@ const CourseTable = () => {
                   className="btn btn-danger btn-xs"
                   data-bs-toggle="modal"
                   data-bs-target="#delete"
+                  onClick={handleDelete}
                 >
                   <i className="bi-trash" /> delete
                 </button>
@@ -188,6 +194,7 @@ const CourseTable = () => {
                   className="btn btn-danger btn-xs"
                   data-bs-toggle="modal"
                   data-bs-target="#delete"
+                  onClick={handleDelete}
                 >
                   <i className="bi-trash" /> delete
                 </button>
@@ -216,6 +223,7 @@ const CourseTable = () => {
                   className="btn btn-danger btn-xs"
                   data-bs-toggle="modal"
                   data-bs-target="#delete"
+                  onClick={handleDelete}
                 >
                   <i className="bi-trash" /> delete
                 </button>

@@ -23,6 +23,7 @@ import FeeCollection from "./pages/feesPage/FeeCollection";
 import Invoice from "./pages/Invoice";
 import DemoClasses from "./pages/demoClassPage/DemoClasses";
 import ChangePassword from "./pages/profilePage/subPage/ChangePassword";
+import Passout from "./pages/passoutPage/Passout";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
               <Route index element={<Admissions />} />
               <Route path="newadmission" element={<NewAdmission />} />
             </Route>
+            <Route path="passout" element={<Passout/>} />
             {/* Student management routes end */}
             {/* Employee management routes start */}
             <Route path="employees" element={<TotalEmpolyees />} />

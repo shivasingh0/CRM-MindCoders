@@ -1,10 +1,17 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import ViewAddmission from "../../components/modals/View/ViewAddmission";
+import ViewFee from "../../components/modals/View/ViewFee";
+import { deleteAlert } from "../../components/alerts/deleteAlert";
 
 const TableComponent = () => {
 
   const [viewAddmission, setViewAddmission] = useState(false)
+  const [viewFee, setViewFee] = useState(false)
+
+  const handleDelete = async () => { 
+    await deleteAlert();
+  };
 
   return (
     <>
@@ -75,13 +82,7 @@ const TableComponent = () => {
                 <a href="/update_enrollement/d7e3b2bb-b0b0-4a87-b1a1-36a2b970ed75">
                   <i className="bi-pencil-square mr-2 text-secondary" />
                 </a>
-                <a
-                  href=""
-                  data-bs-toggle="modal"
-                  data-bs-target="#paymenthistoryd7e3b2bb-b0b0-4a87-b1a1-36a2b970ed75"
-                >
-                  <i className="bi-clipboard-data mr-2 text-primary" />
-                </a>{" "}
+                  <i className="bi-clipboard-data mr-2 text-primary pointer" onClick={()=>setViewFee(true)} />
                 <br />
                 <a
                   href=""
@@ -93,22 +94,19 @@ const TableComponent = () => {
                     title="Passout Student"
                   />
                 </a>
-                <a
-                  href=""
-                  data-bs-toggle="modal"
-                  data-bs-target="#deleted7e3b2bb-b0b0-4a87-b1a1-36a2b970ed75"
-                >
-                  <i className="bi-trash text-danger" />
-                </a>
+                  <i className="bi-trash text-danger pointer" onClick={handleDelete} />
               </td>
             </tr>
           </tbody>
         </table>
       </div>
       {/* --------------- Modals----------------- */}
+      {/* Adsmission modal */}
       <ViewAddmission show={viewAddmission}  onHide={() => setViewAddmission(false)} />
       {viewAddmission ? <div class="modal-backdrop fade show"></div> : ""}
-      {/* <Outlet /> */}
+      {/* View fee modal */}
+      <ViewFee show={viewFee} onHide={() => setViewFee(false)} />
+      {viewFee ? <div class="modal-backdrop fade show"></div> : ""}
     </>
   );
 };

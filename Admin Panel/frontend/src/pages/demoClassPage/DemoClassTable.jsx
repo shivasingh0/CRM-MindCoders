@@ -1,8 +1,15 @@
 import React, { useState } from "react";
 import AddDemoClass from "../../components/modals/Add/AddDemoClass";
+import EditDemoClass from "../../components/modals/Edit/EditDemoClass";
+import { deleteAlert } from "../../components/alerts/deleteAlert";
 
 const DemoClassTable = () => {
   const [addDemoModelShow, setAddDemoModelShow] = useState(false);
+  const [editDemoClass, setEditDemoClass] = useState(false)
+
+  const handleDelete = async () => { 
+    await deleteAlert();
+  };
 
   return (
     <>
@@ -67,7 +74,7 @@ const DemoClassTable = () => {
             </div>
           </div>
         </div>
-        <div
+        {/* <div
           className="modal fade"
           id="updatecourse8cb1edea-5d62-4b00-b5d0-2a2974584bd8"
         >
@@ -83,7 +90,6 @@ const DemoClassTable = () => {
               </div>
               <div className="modal-body">
                 <div className="widget-heading d-flex justify-content-between align-items-center">
-                  {/* <h5 /> */}
                   <div>
                     <h5 className="datetime">Date: 27/12/2023 18:2:12</h5>
                   </div>
@@ -230,7 +236,7 @@ const DemoClassTable = () => {
             </div>
           </div>
         </div>
-        <div className="modal fade" id="delete">
+         <div className="modal fade" id="delete">
           <div className="modal-dialog" role="document">
             <div className="modal-content">
               <div className="modal-header gradient-5">
@@ -435,7 +441,7 @@ const DemoClassTable = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
         <div id="example3_wrapper" className="dataTables_wrapper no-footer">
           <div className="dataTables_length" id="example3_length">
             <label>
@@ -572,18 +578,20 @@ const DemoClassTable = () => {
                     className="btn btn-secondary btn-xs"
                     data-bs-toggle="modal"
                     data-bs-target="#updatecourse8cb1edea-5d62-4b00-b5d0-2a2974584bd8"
+                    onClick={()=>setEditDemoClass(true)}
                   >
-                    <i className="bi-node-plus" />{" "}
+                    <i className="bi-node-plus" />
                   </button>
                   <button
                     className="btn btn-danger btn-xs"
                     data-bs-toggle="modal"
                     data-bs-target="#delete"
+                    onClick={handleDelete}
                   >
-                    <i className="bi-trash" />{" "}
+                    <i className="bi-trash" />
                   </button>
                   <a
-                    href="/add_enrollement/"
+                    href="#"
                     className="btn btn-primary btn-xs"
                   >
                     <i className="bi-binoculars-fill text-white" />
@@ -605,6 +613,7 @@ const DemoClassTable = () => {
                     className="btn btn-secondary btn-xs"
                     data-bs-toggle="modal"
                     data-bs-target="#updatecoursed59383c9-4de9-4071-88c0-e5f342dff34c"
+                    onClick={()=>setEditDemoClass(true)}
                   >
                     <i className="bi-node-plus" />{" "}
                   </button>
@@ -612,11 +621,12 @@ const DemoClassTable = () => {
                     className="btn btn-danger btn-xs"
                     data-bs-toggle="modal"
                     data-bs-target="#delete"
+                    onClick={handleDelete}
                   >
                     <i className="bi-trash" />{" "}
                   </button>
                   <a
-                    href="/add_enrollement/"
+                    href="#"
                     className="btn btn-primary btn-xs"
                   >
                     <i className="bi-binoculars-fill text-white" />
@@ -668,11 +678,16 @@ const DemoClassTable = () => {
           </div>
         </div>
       </div>
+      {/* ------------------Modals------------------- */}
+      {/* Add Demo class */}
       <AddDemoClass
         show={addDemoModelShow}
         onHide={() => setAddDemoModelShow(false)}
       />
       {addDemoModelShow ? <div class="modal-backdrop fade show"></div> : ""}
+      {/* Edit demo class */}
+      <EditDemoClass show={editDemoClass} onHide={()=>setEditDemoClass(false)} />
+      {editDemoClass ? <div class="modal-backdrop fade show"></div> : ""}
     </>
   );
 };

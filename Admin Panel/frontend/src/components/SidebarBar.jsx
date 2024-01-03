@@ -69,6 +69,16 @@ const SidebarBar = () => {
                 <span className="nav-text">Fee Collection</span>
               </Link>
             </li>
+            <li
+              className={
+                location.pathname === "/passout" ? "mm-active" : ""
+              }
+            >
+              <Link to="/passout" aria-expanded="false">
+                <i class="bi-calendar2-event text-color"></i>
+                <span className="nav-text">Passout</span>
+              </Link>
+            </li>
             {/* Students Management end */}
             {/* Employees Management start */}
             <li className="nav-divider ng-scope mt-10 text-th" translate="">

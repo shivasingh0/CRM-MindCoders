@@ -4,7 +4,7 @@ import Range from "../../components/rangeForPayment/Range";
 import ViewFee from "../../components/modals/View/ViewFee";
 
 const FeeTable = () => {
-  const [modalShow, setModalShow] = useState(false);
+  const [viewFee, setViewFee] = useState(false)
   const Navigate = useNavigate();
 
   function printInvoice() {
@@ -65,7 +65,7 @@ const FeeTable = () => {
               <td>13/06/2023 </td>
               <td>
                 <i
-                  onClick={() => setModalShow(true)}
+                  onClick={() => setViewFee(true)}
                   className="bi-clipboard-data mr-2 text-primary pointer"
                 />
                 <i className="bi-whatsapp mr-2" />
@@ -115,7 +115,7 @@ const FeeTable = () => {
               <td>13/06/2023 </td>
               <td>
                 <i
-                  onClick={() => setModalShow(true)}
+                  onClick={() => setViewFee(true)}
                   className="bi-clipboard-data mr-2 text-primary pointer"
                 />
                 <i className="bi-whatsapp mr-2" />
@@ -127,8 +127,8 @@ const FeeTable = () => {
           </tbody>
         </table>
       </div>
-      <ViewFee show={modalShow} onHide={() => setModalShow(false)} />
-      {modalShow ? <div class="modal-backdrop fade show"></div> : ""}
+      <ViewFee show={viewFee} onHide={() => setViewFee(false)} />
+      {viewFee ? <div class="modal-backdrop fade show"></div> : ""}
     </>
   );
 };

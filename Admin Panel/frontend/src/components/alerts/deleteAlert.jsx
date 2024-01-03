@@ -42,7 +42,7 @@ export const deleteAlert = async () => {
 
 // import { deleteAlert } from "../../components/alerts/deleteAlert";  --->    { first import from here }
 
-//   const handleButtonClick = async () => {        --->   { write this function }
+//   const handleDelete = async () => {        --->   { write this function }
 //     await deleteAlert();
 //   };
 

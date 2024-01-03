@@ -77,10 +77,10 @@ const Table = () => {
   };
 
   return (
-    <div className="container">
+    <div className="">
       <div>
         <div className="col-md-12">
-            {/* Table start */}
+          {/* Table start */}
           <table className="table">
             <thead>
               <tr>
@@ -97,6 +97,7 @@ const Table = () => {
                 <th scope="col">Email</th>
                 <th scope="col">Phone</th>
                 <th scope="col">Website</th>
+                <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -115,6 +116,11 @@ const Table = () => {
                   <td>{user.email}</td>
                   <td>{user.phone}</td>
                   <td>{user.website}</td>
+                  <td>
+                    <i className="bi-eye mr-2 text-dark pointer" />
+
+                    <i className="bi-clipboard-data mr-2 text-primary pointer" />
+                  </td>
                 </tr>
               ))}
             </tbody>

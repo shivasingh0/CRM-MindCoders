@@ -1,3 +1,7 @@
 export { default as ENQUIRY_PAGE } from "./enquiryPage/Enquiries"
 export { default as ADMISSION_PAGE } from "./admissionPage/Admissions"
 export { default as FEES_PAGE } from "./feesPage/FeeCollection"
+export { default as TOTAL_EMPLOYEES } from "./totalEmployeePage/TotalEmpolyees"
+export { default as LEAD_DISTRIBUTION } from "./leadDistributionPage/LeadDistribution"
+export { default as COURSES } from "./coursesPage/Courses"
+export { default as DEMO_CLASS } from "./demoClassPage/DemoClasses"

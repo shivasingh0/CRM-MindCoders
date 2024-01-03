@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import { useReactToPrint } from "react-to-print";
-// import Logo from "../../public/images/logo.webp"
 
 const Invoice = () => {
   const printRef = useRef();
@@ -23,7 +22,7 @@ const Invoice = () => {
         <div className="invoice-wrap" ref={printRef}>
           {/* Invoice Header start */}
           <header className="invoice-head">
-            <img className="text-center" src="" alt="logo" />
+            <img className="text-center" src="http://localhost:3000/public/images/logo.webp" alt="logo"  loading="lazy"/>
             <div className="contact-info text-info">
               <div className="number d-flex gap-2 align-items-center">
                 <i class="fa-solid fa-phone"></i>

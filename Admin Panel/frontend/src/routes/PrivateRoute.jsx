@@ -3,7 +3,7 @@ import { FullScreen, useFullScreenHandle } from "react-full-screen";
 
 // Components
 import NavbarHeader from "../components/NavbarHeader";
-import Header from "../components/Header";
+import Header from "../components/Header/Header";
 import SidebarBar from "../components/SidebarBar";
 
 function PrivateRoute() {
