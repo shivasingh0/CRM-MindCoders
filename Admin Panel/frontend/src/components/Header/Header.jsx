@@ -44,10 +44,10 @@ const Header = ({ fullscreenHandle }) => {
                 <div className="nav-item d-flex align-items-center">
                   <ul className="d-flex">
                     <li className="nav-item dropdown notification_dropdown">
-                      <Notifications/>
+                      <Notifications />
                     </li>
                     <li className="nav-item dropdown notification_dropdown">
-                      <Emails/>
+                      <Emails />
                     </li>
                     <li className="nav-item dropdown notification_dropdown">
                       <div className="nav-link bell-link" role="button">
@@ -105,13 +105,6 @@ const Header = ({ fullscreenHandle }) => {
                     </li>
                   </ul>
                 </div>
-                {/* <div className="dlab-side-menu">
-                  <div className="search-coundry d-flex align-items-center"></div>
-                  <div className="sidebar-social-link ">
-                    
-                  </div>
-                  
-                </div> */}
               </div>
             </div>
           </nav>

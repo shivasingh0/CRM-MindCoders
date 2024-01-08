@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import EditBtnComponent from "../EditBtnComponent";
 
 const EditProfile = () => {
+
+  const [userData, setUserData] = useState();
+
+  useEffect(()=>{
+    const userDetails = JSON.parse(localStorage.getItem('user'));
+    if (userDetails) {
+      setUserData(userDetails.data)
+    }
+  },[])
+
   return (
     <>
       <div className="container-fluid">
@@ -39,13 +49,13 @@ const EditProfile = () => {
                                       <div className="col-md-4 col-sm-6">
                                         <div className="input-group">
                                           <span className="input-group-text">
-                                            <i className="fa-light fa-envelope" />
+                                            <i className="fa fa-envelope" />
                                           </span>
                                           <input
                                             type="email"
                                             className="form-control"
                                             placeholder="Email"
-                                            defaultValue="example@mail.com"
+                                            defaultValue={userData?.email}
                                             disabled
                                           />
                                         </div>
@@ -59,7 +69,7 @@ const EditProfile = () => {
                                             type="text"
                                             className="form-control"
                                             placeholder="Full Name"
-                                            defaultValue="Mitchell C. Shay"
+                                            defaultValue={userData?.fullName}
                                           />
                                         </div>
                                       </div>
@@ -72,7 +82,7 @@ const EditProfile = () => {
                                             type="tel"
                                             className="form-control"
                                             placeholder="Phone"
-                                            defaultValue="+0 123 456 789"
+                                            defaultValue={userData?.mobile}
                                           />
                                         </div>
                                       </div>

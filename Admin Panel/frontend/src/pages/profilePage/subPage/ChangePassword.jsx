@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import EditBtnComponent from "../EditBtnComponent";
 
 const ChangePassword = () => {
+  const [showCurrentPassword, setShowCurrentPassword] = useState(false);
+  const [showNewPassword, setShowNewPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const handleTogglePasswordVisibility = (passwordType) => {
+    if (passwordType === "current") {
+      setShowCurrentPassword(!showCurrentPassword);
+    } else if (passwordType === "new") {
+      setShowNewPassword(!showNewPassword);
+    } else if (passwordType === "confirm") {
+      setShowConfirmPassword(!showConfirmPassword);
+    }
+  };
+
   return (
     <>
       <div className="container-fluid">
@@ -376,10 +390,20 @@ const ChangePassword = () => {
                               <i class="fa-solid fa-lock"></i>
                               </span>
                               <input
-                                type="password"
+                                 type={showCurrentPassword ? "text" : "password"}
                                 className="form-control"
                                 placeholder="Current Password"
                               />
+                              <span
+                                className="input-group-text show-pass"
+                                onClick={()=>handleTogglePasswordVisibility("current")}
+                              >
+                                {showCurrentPassword ? (
+                                  <i class="fa-solid fa-eye"></i>
+                                ) : (
+                                  <i className="fa-solid fa-eye-slash" />
+                                )}
+                              </span>
                             </div>
                           </div>
                           <div className="col-sm-6">
@@ -388,10 +412,20 @@ const ChangePassword = () => {
                               <i class="fa-solid fa-lock"></i>
                               </span>
                               <input
-                                type="url"
+                                 type={showNewPassword ? "text" : "password"}
                                 className="form-control"
                                 placeholder="New Password"
                               />
+                              <span
+                                className="input-group-text show-pass"
+                                onClick={() => handleTogglePasswordVisibility("new")}
+                              >
+                                {showNewPassword ? (
+                                  <i class="fa-solid fa-eye"></i>
+                                ) : (
+                                  <i className="fa-solid fa-eye-slash" />
+                                )}
+                              </span>
                             </div>
                           </div>
                           <div className="col-sm-6">
@@ -400,10 +434,20 @@ const ChangePassword = () => {
                               <i class="fa-solid fa-lock"></i>
                               </span>
                               <input
-                                type="url"
+                                 type={showConfirmPassword ? "text" : "password"}
                                 className="form-control"
                                 placeholder="Confirm Password"
                               />
+                              <span
+                                className="input-group-text show-pass"
+                                onClick={() => handleTogglePasswordVisibility("confirm")}
+                              >
+                                {showConfirmPassword ? (
+                                  <i class="fa-solid fa-eye"></i>
+                                ) : (
+                                  <i className="fa-solid fa-eye-slash" />
+                                )}
+                              </span>
                             </div>
                           </div>
                           <div className="col-12">

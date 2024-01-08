@@ -4,9 +4,10 @@ import ViewStudentDetails from "../../components/modals/View/ViewStudentDetails"
 import FollowUpActivity from "../../components/modals/FollowUpActivity";
 
 const TableComponent = () => {
-    const [addStudentModalShow, setAddStudentModalShow] = useState(false);
-    const [viewStudentDetailsModalShow, setViewStudentDetailsModalShow] = useState(false);
-    const [followUpModalShow, setFollowUpModalShow] = useState(false);
+  const [addStudentModalShow, setAddStudentModalShow] = useState(false);
+  const [viewStudentDetailsModalShow, setViewStudentDetailsModalShow] =
+    useState(false);
+  const [followUpModalShow, setFollowUpModalShow] = useState(false);
 
   return (
     <>
@@ -24,7 +25,7 @@ const TableComponent = () => {
             className="btn btn-secondary btn-sm mr-2"
             data-bs-toggle="modal"
             data-bs-target="#enquiries"
-              onClick={() => setAddStudentModalShow(true)}
+            onClick={() => setAddStudentModalShow(true)}
             variant="primary"
           >
             <i className="bi-person-lines-fill" /> Add Student
@@ -205,14 +206,12 @@ const TableComponent = () => {
                   <i
                     className="bi-eye mr-2 text-dark pointer"
                     title="view details"
-                      onClick={() =>
-                        setViewStudentDetailsModalShow(true)
-                      }
+                    onClick={() => setViewStudentDetailsModalShow(true)}
                   />
                   <i
                     className="bi-chat-right-dots text-primary mr-2 pointer"
                     title="followup message"
-                    onClick={()=> setFollowUpModalShow(true) }
+                    onClick={() => setFollowUpModalShow(true)}
                   />
                   {/* <a
                                   href=""
@@ -255,9 +254,7 @@ const TableComponent = () => {
                   <i
                     className="bi-eye mr-2 text-dark pointer"
                     title="view details"
-                      onClick={() =>
-                        setViewStudentDetailsModalShow(true)
-                      }
+                    onClick={() => setViewStudentDetailsModalShow(true)}
                   />
                   <i
                     className="bi-chat-right-dots text-primary mr-2 pointer"
@@ -335,8 +332,11 @@ const TableComponent = () => {
         ""
       )}
       {/* Follow-up message modal */}
-      <FollowUpActivity show={followUpModalShow} onHide={()=> setFollowUpModalShow(false) } />
-      {followUpModalShow ? <div class="modal-backdrop fade show"></div> : "" }
+      <FollowUpActivity
+        show={followUpModalShow}
+        onHide={() => setFollowUpModalShow(false)}
+      />
+      {followUpModalShow ? <div class="modal-backdrop fade show"></div> : ""}
     </>
   );
 };

@@ -12013,6 +12013,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
   .dlabnav .dlabnav-scroll {
     position: relative;
     height: 100%; 
+    overflow-y: scroll;
   }
   @media only screen and (max-width: 87.5rem) {
     .dlabnav {
@@ -13850,7 +13851,8 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 [data-layout="vertical"] .dlabnav {
   border-bottom-left-radius: 0;
-  border-bottom-right-radius: 1.25rem; }
+  /* border-bottom-right-radius: 1.25rem;  */
+}
 
 [data-sidebar-style="icon-hover"][data-layout="vertical"][data-container="wide-boxed"] .dlabnav,
 [data-sidebar-style="icon-hover"][data-layout="vertical"][data-container="boxed"] .dlabnav,
@@ -32952,6 +32954,33 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
 
 
       /*------------------------------------- Manual CSS ---------------------------------------*/
+      /* Sidebar scrollBar start */
+      
+.dlabnav-scroll {
+  --sb-track-color: #164863;
+  --sb-thumb-color: #e7f7ff;
+  --sb-size: 10px;
+
+  scrollbar-color: var(--sb-thumb-color) 
+                   var(--sb-track-color);
+}
+
+.dlabnav-scroll::-webkit-scrollbar {
+  width: var(--sb-size) 
+}
+
+.dlabnav-scroll::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  /* border-radius: 10px; */
+}
+
+.dlabnav-scroll::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 10px;
+  
+  }
+      /* Sidebar scrollBar end */
+      
       .hover-btn {
         --color: #560bad;
         font-family: inherit;

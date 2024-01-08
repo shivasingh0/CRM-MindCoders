@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import EditBtnComponent from "./EditBtnComponent";
 
 const MyProfile = () => {
+  const [userData, setUserData] = useState();
+
+  useEffect(() => {
+    const userDetails = JSON.parse(localStorage.getItem("user"));
+    if (userDetails) {
+      setUserData(userDetails.data);
+    }
+  }, []);
+
   return (
     <>
       <div className="container-fluid">
         <div className="row">
           <div className="col-xl-12 col-xxl-12">
             <div className="row">
-              <EditBtnComponent/>
+              <EditBtnComponent />
               <div className="d-flex gap-4">
                 <div className="col-md-4">
                   <div className="panel profile-card">
@@ -18,27 +27,6 @@ const MyProfile = () => {
                           <h4 className="profile-sidebar-title">
                             User Information
                           </h4>
-                          <div className="dropdown">
-                            <button
-                              className="btn btn-sm btn-icon btn-outline-primary"
-                              type="button"
-                              data-bs-toggle="dropdown"
-                              aria-expanded="false"
-                            >
-                              <i className="fa-solid fa-ellipsis" />
-                            </button>
-                            <ul className="dropdown-menu dropdown-menu-sm dropdown-menu-sm-end">
-                              <li>
-                                <a
-                                  className="dropdown-item"
-                                  href="edit-profile.html"
-                                >
-                                  <i className="fa-regular fa-pen-to-square" />{" "}
-                                  Edit Information
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
                         </div>
                         <div className="top">
                           <div className="image-wrap">
@@ -53,8 +41,8 @@ const MyProfile = () => {
                             </button>
                           </div>
                           <div className="part-txt">
-                            <h3 className="admin-name">Mitchell C. Shay</h3>
-                            <h5 className="admin-role">Graphic Designer</h5>
+                            <h3 className="admin-name">{userData?.fullName}</h3>
+                            <h5 className="admin-role">{userData?.role}</h5>
                           </div>
                         </div>
                         <div className="bottom">
@@ -65,20 +53,23 @@ const MyProfile = () => {
                           </h6>
                           <ul>
                             <li>
-                              <span>Full Name : </span>Anna Adame
+                              <span>Full Name : </span>
+                              {userData?.fullName}
                             </li>
                             <li>
-                              <span>Mobile : </span>+(1) 987 65433
+                              <span>Mobile : </span>(+91){userData?.mobile}
                             </li>
                             <li>
-                              <span>Mail : </span>example@mail.com
+                              <span>Mail : </span>
+                              {userData?.email}
                             </li>
                             <li>
-                              <span>Address : </span>California, United States
+                              <span>Address : </span>
+                              {userData?.address}
                             </li>
-                            <li>
+                            {/* <li>
                               <span>Joining Date : </span>24 Nov 2022
-                            </li>
+                            </li> */}
                           </ul>
                           <h6 className="profile-sidebar-subtitle">About Me</h6>
                           <p>
