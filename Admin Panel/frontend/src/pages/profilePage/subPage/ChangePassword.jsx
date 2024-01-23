@@ -1,10 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import EditBtnComponent from "../EditBtnComponent";
+import { useParams } from "react-router-dom";
+import { axiosClient } from "../../../webServices/Getway";
+import { webURLs } from "../../../webServices/WebURLs";
 
 const ChangePassword = () => {
+  const { adminId } = useParams()
+  console.log(adminId);
+  const [currentPassword, setCurrentPassword] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmNewPassword, setConfirmNewPassword] = useState('');
   const [showCurrentPassword, setShowCurrentPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [token, setToken] = useState()
+ 
+  useEffect(()=>{
+    const userData = JSON.parse(localStorage.getItem("user"))
+    const Token = userData?.data?.token;
+    setToken(Token)
+  },[])
 
   const handleTogglePasswordVisibility = (passwordType) => {
     if (passwordType === "current") {
@@ -16,6 +31,33 @@ const ChangePassword = () => {
     }
   };
 
+  // Change password API Integration
+  const handleChangePassword = async (e) => {
+    e.preventDefault()
+    if (!currentPassword || !newPassword || !newPassword !== confirmNewPassword) {
+      console.error('Password change failed. Please check your inputs.');
+    }
+
+    try {
+      const result = await axiosClient.put(`${webURLs.CHANGE_PASSWORD}${adminId}`, {password:currentPassword,new_password: newPassword},{
+        headers:{
+          "Authorization" : `Bearer ${token}`
+        },
+        
+      } )
+
+      if (result.data.success) {
+        console.log("Password Chnage");
+      } else {
+        console.log("Password change failed");
+      }
+
+    } catch (error) {
+      console.log('An error occurred during the password change request.', error);
+    }
+
+  };
+  
   return (
     <>
       <div className="container-fluid">
@@ -393,6 +435,7 @@ const ChangePassword = () => {
                                  type={showCurrentPassword ? "text" : "password"}
                                 className="form-control"
                                 placeholder="Current Password"
+                                onChange={(e) => setCurrentPassword(e.target.value)}
                               />
                               <span
                                 className="input-group-text show-pass"
@@ -415,6 +458,7 @@ const ChangePassword = () => {
                                  type={showNewPassword ? "text" : "password"}
                                 className="form-control"
                                 placeholder="New Password"
+                                onChange={(e) => setNewPassword(e.target.value)}
                               />
                               <span
                                 className="input-group-text show-pass"
@@ -437,6 +481,7 @@ const ChangePassword = () => {
                                  type={showConfirmPassword ? "text" : "password"}
                                 className="form-control"
                                 placeholder="Confirm Password"
+                                onChange={(e) => setConfirmNewPassword(e.target.value)}
                               />
                               <span
                                 className="input-group-text show-pass"
@@ -451,7 +496,7 @@ const ChangePassword = () => {
                             </div>
                           </div>
                           <div className="col-12">
-                            <button type="submit" className="btn btn-primary">
+                            <button type="submit" className="btn btn-primary" onClick={handleChangePassword}>
                               Save Changes
                             </button>
                           </div>

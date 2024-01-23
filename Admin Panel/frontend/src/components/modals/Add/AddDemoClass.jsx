@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Modal } from "react-bootstrap";
+import DateTime from "../../dateTime/DateTime";
 
 const AddDemoClass = (props) => {
   return (
@@ -18,9 +19,11 @@ const AddDemoClass = (props) => {
         <Modal.Body>
           <div className="modal-body">
             <div className="widget-heading d-flex justify-content-between align-items-center">
-              <h5 />
+              {/* <h5 /> */}
               <div>
-                <h5 className="datetime">Date: 27/12/2023 23:10:49</h5>
+                <h5 className="datetime">
+                  <DateTime/>
+                </h5>
               </div>
             </div>
             <form

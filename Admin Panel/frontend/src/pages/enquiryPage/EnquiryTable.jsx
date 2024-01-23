@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import AddStudents from "../../components/modals/Add/AddStudents";
-import ViewStudentDetails from "../../components/modals/View/ViewStudentDetails";
-import FollowUpActivity from "../../components/modals/FollowUpActivity";
+
+// Import Components
+import * as COMPONENT from '../../routes/ComponentRoute'
 
 const TableComponent = () => {
-  const [addStudentModalShow, setAddStudentModalShow] = useState(false);
+  const [addEnqueryModalShow, setAddEnqueryModalShow] = useState(false);
   const [viewStudentDetailsModalShow, setViewStudentDetailsModalShow] =
     useState(false);
   const [followUpModalShow, setFollowUpModalShow] = useState(false);
@@ -25,10 +25,10 @@ const TableComponent = () => {
             className="btn btn-secondary btn-sm mr-2"
             data-bs-toggle="modal"
             data-bs-target="#enquiries"
-            onClick={() => setAddStudentModalShow(true)}
+            onClick={() => setAddEnqueryModalShow(true)}
             variant="primary"
           >
-            <i className="bi-person-lines-fill" /> Add Student
+            <i className="bi-person-lines-fill" /> Add New Enquery
           </button>
         </div>
       </div>
@@ -71,106 +71,15 @@ const TableComponent = () => {
           >
             <thead>
               <tr className="text-center" role="row">
-                <th
-                  className="sorting_asc"
-                  tabIndex={0}
-                  aria-controls="example4"
-                  rowSpan={1}
-                  colSpan={1}
-                  aria-sort="ascending"
-                  aria-label="No.: activate to sort column descending"
-                  style={{ width: "33.2625px" }}
-                >
-                  No.
-                </th>
-                <th
-                  className="sorting"
-                  tabIndex={0}
-                  aria-controls="example4"
-                  rowSpan={1}
-                  colSpan={1}
-                  aria-label="Student Name: activate to sort column ascending"
-                  style={{ width: "117.275px" }}
-                >
-                  Student Name
-                </th>
-                <th
-                  className="sorting"
-                  tabIndex={0}
-                  aria-controls="example4"
-                  rowSpan={1}
-                  colSpan={1}
-                  aria-label="Done?: activate to sort column ascending"
-                  style={{ width: "54.925px" }}
-                >
-                  Done?
-                </th>
-                <th
-                  className="sorting"
-                  tabIndex={0}
-                  aria-controls="example4"
-                  rowSpan={1}
-                  colSpan={1}
-                  aria-label="Enquiry Date: activate to sort column ascending"
-                  style={{ width: "106.125px" }}
-                >
-                  Enquiry Date
-                </th>
-                <th
-                  className="sorting"
-                  tabIndex={0}
-                  aria-controls="example4"
-                  rowSpan={1}
-                  colSpan={1}
-                  aria-label="Status: activate to sort column ascending"
-                  style={{ width: "81.7125px" }}
-                >
-                  Status
-                </th>
-                <th
-                  className="sorting"
-                  tabIndex={0}
-                  aria-controls="example4"
-                  rowSpan={1}
-                  colSpan={1}
-                  aria-label="Next Call: activate to sort column ascending"
-                  style={{ width: "102.787px" }}
-                >
-                  Next Call
-                </th>
-                <th
-                  className="sorting"
-                  tabIndex={0}
-                  aria-controls="example4"
-                  rowSpan={1}
-                  colSpan={1}
-                  aria-label="Course Name : activate to sort column ascending"
-                  style={{ width: "189.137px" }}
-                >
-                  Course Name{" "}
-                </th>
-                <th
-                  className="sorting"
-                  tabIndex={0}
-                  aria-controls="example4"
-                  rowSpan={1}
-                  colSpan={1}
-                  aria-label="Finalized Fees : activate to sort column ascending"
-                  style={{ width: "112.85px" }}
-                >
-                  Finalized Fees{" "}
-                </th>
-                <th
-                  className="sorting"
-                  tabIndex={0}
-                  aria-controls="example4"
-                  rowSpan={1}
-                  colSpan={1}
-                  aria-label="Action : activate to sort column ascending"
-                  style={{ width: "137.15px" }}
-                >
-                  Action{" "}
-                </th>
+                <th style={{ width: "33.2625px" }}>No.</th>
+                <th style={{ width: "117.275px" }}>Student Name</th>
+                <th style={{ width: "54.925px" }}>Done?</th>
+                <th style={{ width: "106.125px" }}>Enquiry Date</th>
+                <th style={{ width: "81.7125px" }}>Status</th>
+                <th style={{ width: "102.787px" }}>Next Call</th>
+                <th style={{ width: "189.137px" }}>Course Name </th>
+                <th style={{ width: "112.85px" }}>Finalized Fees </th>
+                <th style={{ width: "137.15px" }}>Action </th>
               </tr>
             </thead>
             <tbody>
@@ -316,13 +225,13 @@ const TableComponent = () => {
       </div>
       {/* --------------------- Modals -------------------------- */}
       {/* Add students modal */}
-      <AddStudents
-        show={addStudentModalShow}
-        onHide={() => setAddStudentModalShow(false)}
+      <COMPONENT.ADD_ENQUIRIES
+        show={addEnqueryModalShow}
+        onHide={() => setAddEnqueryModalShow(false)}
       />
-      {addStudentModalShow ? <div class="modal-backdrop fade show"></div> : ""}
+      {addEnqueryModalShow ? <div class="modal-backdrop fade show"></div> : ""}
       {/* View details modal */}
-      <ViewStudentDetails
+      <COMPONENT.VIEW_STUDENT_DETAILS
         show={viewStudentDetailsModalShow}
         onHide={() => setViewStudentDetailsModalShow(false)}
       />
@@ -332,7 +241,7 @@ const TableComponent = () => {
         ""
       )}
       {/* Follow-up message modal */}
-      <FollowUpActivity
+      <COMPONENT.FOLLOW_UP_ACTIVITY
         show={followUpModalShow}
         onHide={() => setFollowUpModalShow(false)}
       />

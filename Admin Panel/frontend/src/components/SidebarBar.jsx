@@ -25,7 +25,7 @@ const SidebarBar = () => {
             {/* Dashboard end */}
             {/* Students Management start */}
             <li className="nav-divider ng-scope mt-10 text-th" translate="">
-              <u >Student Management</u>
+              <u>Student Management</u>
               <hr />
             </li>
             {/* <li
@@ -69,11 +69,7 @@ const SidebarBar = () => {
                 <span className="nav-text">Fee Collection</span>
               </Link>
             </li>
-            <li
-              className={
-                location.pathname === "/passout" ? "mm-active" : ""
-              }
-            >
+            <li className={location.pathname === "/passout" ? "mm-active" : ""}>
               <Link to="/passout" aria-expanded="false">
                 <i class="bi-calendar2-event text-color"></i>
                 <span className="nav-text">Passout</span>
@@ -119,7 +115,8 @@ const SidebarBar = () => {
               className={
                 location.pathname === "/courses" ||
                 location.pathname === "/courses/addnewcourse"
-                ? "mm-active" : ""
+                  ? "mm-active"
+                  : ""
               }
             >
               <Link to="/courses" aria-expanded="false">
@@ -128,9 +125,7 @@ const SidebarBar = () => {
               </Link>
             </li>
             <li
-              className={
-                location.pathname === "/democlass" ? "mm-active" : ""
-              }
+              className={location.pathname === "/democlass" ? "mm-active" : ""}
             >
               <Link to="/democlass" aria-expanded="false">
                 <i class="bi-input-cursor-text text-color"></i>

@@ -1,10 +1,8 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 
-// Components
-import NavbarHeader from "../components/NavbarHeader";
-import Header from "../components/Header/Header";
-import SidebarBar from "../components/SidebarBar";
+// Import Components
+import * as COMPONENT_ROUTES from "../routes/ComponentRoute";
 
 function PrivateRoute() {
   const handle = useFullScreenHandle();
@@ -13,9 +11,9 @@ function PrivateRoute() {
   return auth ? (
     <>
       <FullScreen handle={handle}>
-        <NavbarHeader />
-        <Header fullscreenHandle={handle} />
-        <SidebarBar />
+        <COMPONENT_ROUTES.NAV_BAR />
+        <COMPONENT_ROUTES.HEADER fullscreenHandle={handle} />
+        <COMPONENT_ROUTES.SIDE_BAR />
         <div className="content-body">
           <Outlet />
         </div>

@@ -1,10 +1,70 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
+import { axiosClient } from "../../../webServices/Getway";
+import { webURLs } from "../../../webServices/WebURLs";
+import { toast } from "react-toastify";
+import { saveAlert } from "../../alerts/saveAlert";
+import DateTime from "../../dateTime/DateTime";
+
+const initialFormState = {
+  fullName: "",
+  email: "",
+  mobile: "",
+  college_name: "",
+  course: "",
+  city: "",
+  batch_year: "",
+  alternative_No: "",
+  counselors: "",
+  priority: "",
+  lead_status: "",
+  final_price: "",
+};
 
 const AddEnquiries = (props) => {
+
+  const [formData, setFormData] = useState(initialFormState);
+
+  // API Integration
+  const addEnquery = async (e) => {
+    e.preventDefault();
+
+    try {
+      let userData = JSON.parse(localStorage.getItem("user"));
+      let token = userData.data.token;
+      let result = await axiosClient.post(webURLs.ADD_STUDENT, formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (result.data.status) {
+        localStorage.setItem("fullName", formData.fullName);
+        document.getElementById("close").click();
+        await saveAlert();
+      } else {
+        toast.error("Enter valid details", {
+          position: toast.POSITION.TOP_CENTER,
+        });
+      }
+    } catch (error) {
+      console.error("Login failed:", error);
+      toast.error("Login failed. Please try again.", {
+        position: toast.POSITION.TOP_CENTER,
+      });
+    }
+  };
+
+  // update state
+  const updateState = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
   return (
     <>
-       <Modal
+      <Modal
         {...props}
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
@@ -12,7 +72,7 @@ const AddEnquiries = (props) => {
       >
         <div className="gradient-5">
           <Modal.Header closeButton>
-            <h5 className="text-white">Add New Enquiry</h5>
+            <h5 className="text-white">Add New Enquery</h5>
           </Modal.Header>
         </div>
         <Modal.Body>
@@ -21,45 +81,12 @@ const AddEnquiries = (props) => {
               {/* <h5 /> */}
               <div>
                 <h5>
-                  <i className="bi-calendar2-event" /> Date: 12/03/2023 03:43 PM
+                  <DateTime />
                 </h5>
               </div>
             </div>
             <form>
               <div className="row">
-                <div className="col-md-4 mb-2 mt-2">
-                  <label className="mb-2 mt-2">
-                    <strong>Mention the Course You Wish to Join*</strong>
-                  </label>
-                  <select className="default-select  form-control wide">
-                    <option disabled="">Select Course</option>
-                    <option>MPPSC MAINS Hindi Medium</option>
-                    <option>MPPSC MAINS English Medium</option>
-                    <option>MPPSC Prelims Bilingual</option>
-                  </select>
-                </div>
-                <div className="col-md-4 mb-2">
-                  <label className="mb-1  mt-2">
-                    <strong>Course Fees*</strong>
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control mt-10"
-                    placeholder="INR.75000"
-                    defaultValue="INR.75000"
-                    disabled=""
-                  />
-                </div>
-                <div className="col-md-4 mb-2">
-                  <label className="mb-1  mt-2">
-                    <strong>Finalized Fees*</strong>
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control mt-10"
-                    placeholder="finalized fees"
-                  />
-                </div>
                 <div className="col-md-4 mb-2">
                   <label className="mb-1  mt-2">
                     <strong>Name of the Candidate*</strong>
@@ -67,7 +94,11 @@ const AddEnquiries = (props) => {
                   <input
                     type="text"
                     className="form-control mt-10"
-                    placeholder="student name"
+                    placeholder="Student name"
+                    value={formData.fullName}
+                    name="fullName"
+                    onChange={updateState}
+                    required
                   />
                 </div>
                 <div className="col-md-4 mb-2 mt-2">
@@ -75,9 +106,26 @@ const AddEnquiries = (props) => {
                     <strong>Mobile Number*</strong>
                   </label>
                   <input
-                    type="number"
+                    type="tel"
                     className="form-control mt-10"
-                    placeholder="+91 | Mobile Number"
+                    placeholder="Mobile Number"
+                    value={formData.mobile}
+                    name="mobile"
+                    onChange={updateState}
+                    required
+                  />
+                </div>
+                <div className="col-md-4 mb-2 mt-2">
+                  <label className="mb-1">
+                    <strong>Alternate Mobile Number*</strong>
+                  </label>
+                  <input
+                    type="tel"
+                    className="form-control mt-10"
+                    placeholder="Alternate Mobile Number"
+                    value={formData.alternative_No}
+                    name="alternative_No"
+                    onChange={updateState}
                   />
                 </div>
                 <div className="col-md-4 mb-2 mt-2">
@@ -87,150 +135,161 @@ const AddEnquiries = (props) => {
                   <input
                     type="text"
                     className="form-control mt-10"
-                    placeholder="email id"
+                    placeholder="Email id"
+                    value={formData.email}
+                    name="email"
+                    onChange={updateState}
+                    required
                   />
                 </div>
                 <div className="col-md-4 mb-2">
                   <label className="mb-1  mt-2">
-                    <strong>Parent's Name*</strong>
+                    <strong>City*</strong>
                   </label>
                   <input
                     type="text"
                     className="form-control mt-10"
-                    placeholder="parent's name"
-                  />
-                </div>
-                <div className="col-md-4 mb-2 mt-2">
-                  <label className="mb-1">
-                    <strong>Parent's Mobile Number*</strong>
-                  </label>
-                  <input
-                    type="number"
-                    className="form-control mt-10"
-                    placeholder="+91 | Mobile Number"
+                    placeholder="City"
+                    value={formData.city}
+                    name="city"
+                    onChange={updateState}
+                    required
                   />
                 </div>
                 <div className="col-md-4 mb-2">
                   <label className="mb-1  mt-2">
-                    <strong>Father's Occupation*</strong>
+                    <strong>College Name*</strong>
                   </label>
                   <input
                     type="text"
                     className="form-control mt-10"
-                    placeholder="father's occupation"
+                    placeholder="College"
+                    value={formData.college_name}
+                    name="college_name"
+                    onChange={updateState}
+                    required
+                  />
+                </div>
+                <div className="col-md-4 mb-2">
+                  <label className="mb-1  mt-2">
+                    <strong>Academic Qualification*</strong>
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control mt-10"
+                    placeholder="Qualification"
+                    value={formData.course}
+                    name="course"
+                    onChange={updateState}
+                  />
+                </div>
+                <div className="col-md-4 mb-2">
+                  <label className="mb-1  mt-2">
+                    <strong>Year of Passing*</strong>
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control mt-10"
+                    placeholder="Passing year"
+                    value={formData.batch_year}
+                    name="batch_year"
+                    onChange={updateState}
                   />
                 </div>
                 <div className="col-md-4 mb-2 mt-2">
                   <label className="mb-2 mt-2">
-                    <strong>Monthly Income</strong>
+                    <strong>Course Name*</strong>
                   </label>
                   <select className="default-select  form-control wide">
-                    <option disabled="">Select Income</option>
-                    <option>3 Lac to 4 Lac</option>
-                    <option>4 Lac to 6 Lac</option>
-                    <option>Above 6 Lac</option>
+                    <option disabled="">-Select Course-</option>
+                    <option>Frontend Development</option>
+                    <option>Backend Development</option>
+                    <option>MERN Stack</option>
+                    <option>Digital Marketing</option>
+                    <option>Data Analytics</option>
+                    <option>Data Science</option>
+                  </select>
+                </div>
+                <div className="col-md-4 mb-2 mt-2">
+                  <label className="mb-1">
+                    <strong>Course Price</strong>
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control mt-10"
+                    placeholder="Rs. 10000/-"
+                    disabled
+                  />
+                </div>
+                <div className="col-md-4 mb-2 mt-2">
+                  <label className="mb-1">
+                    <strong>Final Course Price</strong>
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control mt-10"
+                    placeholder="Final Price"
+                    value={formData.final_price}
+                    name="final_price"
+                    onChange={updateState}
+                    required
+                  />
+                </div>
+                <div className="col-md-4 mb-2 mt-2">
+                  <label className="mb-1">
+                    <strong>Referral Person Name*</strong>
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control mt-10"
+                    placeholder="Referral person name"
+                  />
+                </div>
+                <div className="col-md-4">
+                  <label className="">
+                    <strong>Counselor</strong>
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Counselor name"
+                  />
+                </div>
+                <div className="col-md-4 mb-2">
+                  <label className="mb-2">
+                    <strong>Priority</strong>
+                  </label>
+                  <select
+                    className="default-select form-control wide"
+                    value={formData.priority}
+                    name="priority"
+                    onChange={updateState}
+                    required
+                  >
+                    <option disabled="">-Select Status-</option>
+                    <option>High</option>
+                    <option>Medium</option>
+                    <option>Low</option>
+                    <option>None</option>
                   </select>
                 </div>
                 <div className="col-md-4 mb-2">
-                  <label className="mb-1  mt-2">
-                    <strong>Academic Qualification</strong>
+                  <label className="mb-2">
+                    <strong>Enquiry Status</strong>
                   </label>
-                  <input
-                    type="text"
-                    className="form-control mt-10"
-                    placeholder="qualification"
-                  />
-                </div>
-                <div className="col-md-4 mb-2">
-                  <label className="mb-1  mt-2">
-                    <strong>Year of Passing</strong>
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control mt-10"
-                    placeholder="passing yaer"
-                  />
-                </div>
-                <div className="col-md-4 mb-2">
-                  <label className="mb-1  mt-2">
-                    <strong>Marks Obtained</strong>
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control mt-10"
-                    placeholder="marks"
-                  />
-                </div>
-                <div className="col-md-4 mb-2 mt-2">
-                  <label className="mb-1">
-                    <strong>Source of Enquiry</strong>
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control mt-10"
-                    placeholder="source name"
-                  />
-                </div>
-                <div className="col-md-4 mb-2 mt-2">
-                  <label className="mb-1">
-                    <strong>Referral Person Name</strong>
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control mt-10"
-                    placeholder="person name"
-                  />
-                </div>
-                <div className="col-md-4 mb-2 mt-2">
-                  <label className="mb-2 mt-2">
-                    <strong>Enquiry Status*</strong>
-                  </label>
-                  <select className="default-select  form-control wide">
-                    <option disabled="">Select Status</option>
+                  <select
+                    className="default-select form-control wide"
+                    value={formData.lead_status}
+                    name="lead_status"
+                    onChange={updateState}
+                    required
+                  >
+                    <option disabled="">-Select Status-</option>
                     <option>Interested</option>
                     <option>Call Back</option>
+                    <option>Confused</option>
                     <option>Not Interested</option>
                   </select>
-                </div>
-                <div className="col-md-4 mb-2 mt-2">
-                  <label className="mb-1">
-                    <strong>City name</strong>
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control mt-10"
-                    placeholder="city name"
-                  />
-                </div>
-                <div className="col-md-4 mb-2 mt-2">
-                  <label className="mb-2 mt-2">
-                    <strong>Demo Class*</strong>
-                  </label>
-                  <select className="default-select  form-control wide">
-                    <option disabled="">Select Demo</option>
-                    <option>Yes</option>
-                    <option>No</option>
-                  </select>
-                </div>
-                <div className="mb-2 mt-2">
-                  <label className="mb-1">
-                    <strong>Full Address</strong>
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control mt-10"
-                    placeholder="full address"
-                  />
-                </div>
-                <div className="mb-2 mt-2">
-                  <label className="mb-1">
-                    <strong>Followup Massage</strong>
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control mt-10"
-                    placeholder=" followup massage"
-                  />
                 </div>
               </div>
               <div className="mt-4">
@@ -238,15 +297,18 @@ const AddEnquiries = (props) => {
                   href="enquiry.html"
                   type="submit"
                   className="btn btn-secondary"
+                  onClick={addEnquery}
                 >
-                  <i className="bi-binoculars-fill" /> Save Student
+                  <i className="bi-binoculars-fill" /> Save Student Details
                 </a>
               </div>
             </form>
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={props.onHide}>Close</Button>
+          <Button id="close" onClick={props.onHide}>
+            Close
+          </Button>
         </Modal.Footer>
       </Modal>
     </>

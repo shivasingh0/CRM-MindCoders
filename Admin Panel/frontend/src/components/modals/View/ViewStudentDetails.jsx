@@ -35,22 +35,44 @@ const ViewStudentDetails = (props) => {
                     <div className="col-md-8">
                       <ul className="list-group list-group-flush">
                         <li className="list-group-item d-flex px-0 justify-content-between">
-                          <span>Course Name</span>
-                          <span className="mb-0 text-secondary">
-                            MPPSC MAINS 2023
-                          </span>
-                        </li>
-                        <li className="list-group-item d-flex px-0 justify-content-between">
                           <span>Student Name</span>
-                          <span className="mb-0">Student Name</span>
+                          <span className="mb-0">Shiv Rajawat</span>
                         </li>
                         <li className="list-group-item d-flex px-0 justify-content-between">
                           <span>Mobile</span>
-                          <span className="mb-0">+919876543210</span>
+                          <span className="mb-0">+917007094154</span>
+                        </li>
+                        <li className="list-group-item d-flex px-0 justify-content-between">
+                          <span>Alternate Mobile No.</span>
+                          <span className="mb-0">+917007094154</span>
                         </li>
                         <li className="list-group-item d-flex px-0 justify-content-between">
                           <span>Email</span>
-                          <span className="mb-0">studentname@gmail.com</span>
+                          <span className="mb-0">shiva2003rajawat@gmail.com</span>
+                        </li>
+                        <li className="list-group-item d-flex px-0 justify-content-between">
+                          <span>City</span>
+                          <span className="mb-0">
+                            Indore
+                          </span>
+                        </li>
+                        <li className="list-group-item d-flex px-0 justify-content-between">
+                          <span>College Name</span>
+                          <span className="mb-0">
+                          AITR
+                          </span>
+                        </li>
+                        <li className="list-group-item d-flex px-0 justify-content-between">
+                          <span>Academic Qualification</span>
+                          <span className="mb-0">
+                          B.Tech
+                          </span>
+                        </li>
+                        <li className="list-group-item d-flex px-0 justify-content-between">
+                          <span>Year of Passing</span>
+                          <span className="mb-0">
+                          2023
+                          </span>
                         </li>
                         <li className="list-group-item d-flex px-0 justify-content-between">
                           <span>Enquiry Date</span>
@@ -78,33 +100,49 @@ const ViewStudentDetails = (props) => {
                           <span>Finalized Fee</span>
                           <span className="mb-0 text-secondary">25000</span>
                         </li>
-                        <li className="list-group-item d-flex px-0 justify-content-between">
-                          <span>Parent's Name</span>
-                          <span className="mb-0">Parent Name</span>
+                        {/* <li className="list-group-item d-flex px-0 justify-content-between">
+                          <span>Referral Person Name</span>
+                          <span className="mb-0 text-secondary">KK Patil</span>
                         </li>
                         <li className="list-group-item d-flex px-0 justify-content-between">
+                          <span>Counselor</span>
+                          <span className="mb-0">KK Patil</span>
+                        </li> */}
+                        {/* <li className="list-group-item d-flex px-0 justify-content-between">
                           <span>Parent's Mobile</span>
                           <span className="mb-0">9876543210</span>
                         </li>
                         <li className="list-group-item d-flex px-0 justify-content-between">
                           <span>Father's Occupation</span>
                           <span className="mb-0">Business</span>
-                        </li>
-                        <li className="list-group-item d-flex px-0 justify-content-between">
+                        </li> */}
+                        {/* <li className="list-group-item d-flex px-0 justify-content-between">
                           <span>Monthly Income</span>
                           <span className="mb-0">3Lac to 4 Lac</span>
-                        </li>
-                        <li className="list-group-item d-flex px-0 justify-content-between">
+                        </li> */}
+                        {/* <li className="list-group-item d-flex px-0 justify-content-between">
                           <span>City Name</span>
                           <span className="mb-0">Indore</span>
-                        </li>
-                        <li className="list-group-item d-flex px-0 justify-content-between">
+                        </li> */}
+                        {/* <li className="list-group-item d-flex px-0 justify-content-between">
                           <span className="text-start" style={{ width: 80 }}>
                             Address
                           </span>
                           <span className="mb-0 text-end">
                             128, Near HDS Hospital, Vijay Nagar, Bhopal 456000
                           </span>
+                        </li> */}
+                        <li className="list-group-item d-flex px-0 justify-content-between">
+                          <span>Source of Enquiry</span>
+                          <span className="mb-0">Direct Walkin</span>
+                        </li>
+                        <li className="list-group-item d-flex px-0 justify-content-between">
+                          <span>Referral Person Name</span>
+                          <span className="mb-0">Pankaj Sir</span>
+                        </li>
+                        <li className="list-group-item d-flex px-0 justify-content-between">
+                          <span>Enquiry Status</span>
+                          <span className="mb-0">Interested</span>
                         </li>
                       </ul>
                     </div>
@@ -126,18 +164,7 @@ const ViewStudentDetails = (props) => {
                           <span>Marks Obtained</span>
                           <span className="mb-0">200</span>
                         </li>
-                        <li className="list-group-item d-flex px-0 justify-content-between">
-                          <span>Source of Enquiry</span>
-                          <span className="mb-0">Direct Walkin</span>
-                        </li>
-                        <li className="list-group-item d-flex px-0 justify-content-between">
-                          <span>Referral Person Name</span>
-                          <span className="mb-0">Pankaj Sir</span>
-                        </li>
-                        <li className="list-group-item d-flex px-0 justify-content-between">
-                          <span>Enquiry Status</span>
-                          <span className="mb-0">Interested</span>
-                        </li>
+                        
                         <li className="list-group-item d-flex px-0 justify-content-between">
                           <span className="text-start" style={{ width: 80 }}>
                             Followup{" "}

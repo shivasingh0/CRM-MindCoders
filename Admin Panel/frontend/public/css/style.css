@@ -9259,10 +9259,14 @@ svg.pulse-svg {
   .header-left .dashboard_bar {
     font-size: 1.188rem;
     font-weight: 600;
-    color: #000; }
+    color: #000;
+    margin-top: 15px;
+  }
     @media only screen and (max-width: 74.9375rem) {
       .header-left .dashboard_bar {
-        font-size: 2.125rem; } }
+        font-size: 2.125rem; 
+        margin-top: 100px;
+      } }
     @media only screen and (max-width: 47.9375rem) {
       .header-left .dashboard_bar {
         display: none; } }
@@ -12600,7 +12604,8 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
     display: block; }
   [data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .dlabnav .slimScrollDiv,
   [data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .dlabnav .dlabnav-scroll {
-    overflow: visible !important; }
+    /* overflow: visible !important;  */
+  }
   [data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .dlabnav .header-info2 {
     padding: 0; }
   [data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .dlabnav .sidebar-info {

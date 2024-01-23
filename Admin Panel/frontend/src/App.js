@@ -1,73 +1,106 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 
-// Pages
-import Dashboard from "./pages/Dashboard";
-import Enquiries from "./pages/enquiryPage/Enquiries";
-import Admissions from "./pages/admissionPage/Admissions";
-import NewAdmission from "./pages/admissionPage/subPage/NewAdmission";
-import TotalEmpolyees from "./pages/totalEmployeePage/TotalEmpolyees";
-import LeadDistribution from "./pages/leadDistributionPage/LeadDistribution";
-import Login from "./pages/Login";
-import PrivateRoute from "./routes/PrivateRoute";
-import Support from "./pages/Support";
-import ErrorPage from "./pages/ErrorPage";
-import MyProfile from "./pages/profilePage/MyProfile";
-import Layout from "./components/Layout";
-import ForgotPassword from "./pages/ForgotPassword";
-import VarifyOtp from "./pages/VarifyOtp";
-import EditProfile from "./pages/profilePage/subPage/EditProfile";
-import Courses from "./pages/coursesPage/Courses";
-import AddNewCourse from "./pages/coursesPage/subPage/AddNewCourse";
-import FeeCollection from "./pages/feesPage/FeeCollection";
-import Invoice from "./pages/Invoice";
-import DemoClasses from "./pages/demoClassPage/DemoClasses";
-import ChangePassword from "./pages/profilePage/subPage/ChangePassword";
-import Passout from "./pages/passoutPage/Passout";
+// Import Path-Routes
+import { PathRoutes } from "./routes/PathRoutes";
+
+// Import Pages
+import * as PAGE_ROUTES from "./routes/PageRoutes";
+
+// Import Components
+import * as COMPONENT_ROUTES from './routes/ComponentRoute'
 
 function App() {
   return (
     <>
       <div className="App">
         <Routes>
-          <Route path="/" element={<PrivateRoute />}>
-            <Route index element={<Dashboard />} />
+          <Route
+            path={PathRoutes.DASHBOARD}
+            element={<PAGE_ROUTES.PRIVATE_ROUTE />}
+          >
+            <Route index element={<PAGE_ROUTES.DASHBOARD />} />
             {/* Student management routes start */}
-            <Route path="enquiries" element={<Enquiries />} />
-            <Route path="feecollection" element={<FeeCollection />} />
-            <Route path="admissions" element={<Layout />}>
-              <Route index element={<Admissions />} />
-              <Route path="newadmission" element={<NewAdmission />} />
+            <Route
+              path={PathRoutes.ENQUIRIES}
+              element={<PAGE_ROUTES.ENQUIRIES />}
+            />
+            <Route
+              path={PathRoutes.FEE_COLLECTION}
+              element={<PAGE_ROUTES.FEE_COLLECTION />}
+            />
+            <Route
+              path={PathRoutes.ADMISSIONS}
+              element={<COMPONENT_ROUTES.LAYOUT />}
+            >
+              <Route index element={<PAGE_ROUTES.ADMISSIONS />} />
+              <Route
+                path={PathRoutes.NEW_ADMISSION}
+                element={<PAGE_ROUTES.NEW_ADMISSIONS />}
+              />
             </Route>
-            <Route path="passout" element={<Passout/>} />
+            <Route
+              path={PathRoutes.PASSOUT}
+              element={<PAGE_ROUTES.PASSOUT />}
+            />
             {/* Student management routes end */}
             {/* Employee management routes start */}
-            <Route path="employees" element={<TotalEmpolyees />} />
-            <Route path="lead-distribution" element={<LeadDistribution />} />
+            <Route
+              path={PathRoutes.EMPLOYEES}
+              element={<PAGE_ROUTES.TOTAL_EMPLOYEES />}
+            />
+            <Route
+              path={PathRoutes.LEAD_DISTRIBUTION}
+              element={<PAGE_ROUTES.LEAD_DISTRIBUTION />}
+            />
             {/* Employee management routes end */}
             {/* Course routes start */}
-            <Route path="courses" element={<Courses/>} >
-              <Route path="addnewcourse" element={<AddNewCourse/>} />
+            <Route path={PathRoutes.COURSES} element={<PAGE_ROUTES.COURSES />}>
+              <Route
+                path={PathRoutes.ADD_NEW_COURSE}
+                element={<PAGE_ROUTES.ADD_NEW_COURSE />}
+              />
             </Route>
-            <Route path="democlass" element={<DemoClasses/>} />
+            <Route
+              path={PathRoutes.DEMO_CLASS}
+              element={<PAGE_ROUTES.DEMO_CLASS />}
+            />
             {/* Course routes end */}
             {/* Other routes start */}
-            <Route path="profile" element={<Layout />}>
-              <Route index element={<MyProfile />} />
-              <Route path="editprofile" element={<EditProfile />} />
-              <Route path="changepassword" element={<ChangePassword />} />
+            <Route path={PathRoutes.PROFILE} element={<COMPONENT_ROUTES.LAYOUT />}>
+              <Route index element={<PAGE_ROUTES.PROFILE />} />
+              <Route
+                path={PathRoutes.EDIT_PROFILE}
+                element={<PAGE_ROUTES.EDIT_PROFILE />}
+              />
+              <Route
+                path={PathRoutes.CHANGE_PASSWORD}
+                element={<PAGE_ROUTES.CHANGE_PASSWORD />}
+              />
             </Route>
-            <Route path="support" element={<Support />} />
+            <Route
+              path={PathRoutes.SUPPORT}
+              element={<PAGE_ROUTES.SUPPORT />}
+            />
             {/* Other routes end */}
             {/* PageNot Found start */}
-            <Route path="*" element={<ErrorPage />}></Route>
+            <Route
+              path={PathRoutes.ERROR_PAGE}
+              element={<PAGE_ROUTES.ERROR />}
+            />
             {/* PageNot Found end */}
           </Route>
 
-          <Route path="/invoice" element={<Invoice />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/forgotpassword" element={<ForgotPassword />} />
-          <Route path="/varifyotp" element={<VarifyOtp />} />
+          <Route path={PathRoutes.INVOICE} element={<PAGE_ROUTES.INVOICE />} />
+          <Route path={PathRoutes.LOGIN} element={<PAGE_ROUTES.LOGIN />} />
+          <Route
+            path={PathRoutes.FORGOT_PASSWORD}
+            element={<PAGE_ROUTES.FORGOT_PASSWORD />}
+          />
+          <Route
+            path={PathRoutes.VARIFY_OTP}
+            element={<PAGE_ROUTES.VARIFY_OTP />}
+          />
         </Routes>
       </div>
     </>

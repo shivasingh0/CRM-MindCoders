@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
-import EditCourse from "../../components/modals/Edit/EditCourse";
-import { deleteAlert } from "../../components/alerts/deleteAlert";
+
+// Import Components
+import * as COMPONENT from "../../routes/ComponentRoute";
+import {deleteAlert} from "../../components/alerts/deleteAlert";
 
 const CourseTable = () => {
   const [editModalShow, setEditModalShow] = useState(false);
@@ -135,12 +137,6 @@ const CourseTable = () => {
             </tr>
           </thead>
           <tbody>
-            {/* Modal for updatecourse*/}
-            {/* Modal for delete*/}
-            {/* Modal for updatecourse*/}
-            {/* Modal for delete*/}
-            {/* Modal for updatecourse*/}
-            {/* Modal for delete*/}
             <tr role="row" className="odd">
               <td className="sorting_1">1</td>
               <td>MPPSC MAINS </td>
@@ -233,7 +229,7 @@ const CourseTable = () => {
         </table>
       </div>
       {/* --------------- Modals----------------- */}
-      <EditCourse show={editModalShow} onHide={() => setEditModalShow(false)} />
+      <COMPONENT.EDIT_COURSE show={editModalShow} onHide={() => setEditModalShow(false)} />
       {editModalShow ? <div class="modal-backdrop fade show"></div> : ""}
       <Outlet />
     </>

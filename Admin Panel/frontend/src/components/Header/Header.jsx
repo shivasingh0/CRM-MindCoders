@@ -1,7 +1,8 @@
-import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useRef, useState } from "react";
 import Notifications from "./subComponents/Notifications";
 import Emails from "./subComponents/Emails";
+import DateTime from "../dateTime/DateTime";
 
 const Header = ({ fullscreenHandle }) => {
   const [isProfileShow, setIsProfileShow] = useState(false);
@@ -9,7 +10,26 @@ const Header = ({ fullscreenHandle }) => {
   const [isFullScreen, setIsFullScreen] = useState(
     !!document.fullscreenElement
   );
+  const dropdownRef = useRef(null);
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        // Clicked outside the dropdown, close it
+        setIsProfileShow(false);
+      }
+    };
+
+    // Attach the event listener to the document
+    document.addEventListener('click', handleClickOutside);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
+
+  // For fullscreen Toggle
   const handleFullscreenToggle = () => {
     if (isFullScreen) {
       fullscreenHandle.exit();
@@ -25,6 +45,7 @@ const Header = ({ fullscreenHandle }) => {
     setIsFullScreen(!isFullScreen);
   };
 
+  // Navigate to login page
   const Login = () => {
     localStorage.removeItem("user");
     Navigate("/login");
@@ -38,15 +59,17 @@ const Header = ({ fullscreenHandle }) => {
             <div className="collapse navbar-collapse justify-content-between">
               <div className="header-left">
                 <h2 className="crm-heading"> CRM </h2>
-                <div className="dashboard_bar"> 11/04/2023 03:20 PM </div>
+                <div className="dashboard_bar"> 
+                <DateTime/>
+                 </div>
               </div>
               <div className="navbar-nav header-right">
                 <div className="nav-item d-flex align-items-center">
                   <ul className="d-flex">
-                    <li className="nav-item dropdown notification_dropdown">
+                    <li className="nav-item dropdown notification_dropdown" ref={dropdownRef}>
                       <Notifications />
                     </li>
-                    <li className="nav-item dropdown notification_dropdown">
+                    <li className="nav-item dropdown notification_dropdown" ref={dropdownRef}>
                       <Emails />
                     </li>
                     <li className="nav-item dropdown notification_dropdown">
@@ -64,7 +87,7 @@ const Header = ({ fullscreenHandle }) => {
                     </li>
                   </ul>
                   <ul>
-                    <li className="nav-item dropdown header-profile">
+                    <li className="nav-item dropdown header-profile" ref={dropdownRef}>
                       <Link
                         className={isProfileShow ? "nav-link show" : "nav-link"}
                         // to=""

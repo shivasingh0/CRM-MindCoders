@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Modal } from "react-bootstrap";
+import DateTime from "../../dateTime/DateTime";
 
 const AddEmployees = (props) => {
   return (
@@ -21,7 +22,7 @@ const AddEmployees = (props) => {
               {/* <h5 /> */}
               <div>
                 <h5>
-                  <i className="bi-calendar2-event" /> Date: 12/03/2023 03:43 PM
+                  <DateTime/>
                 </h5>
               </div>
             </div>

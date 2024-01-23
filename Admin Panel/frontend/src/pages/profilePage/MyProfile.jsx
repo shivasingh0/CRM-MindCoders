@@ -36,9 +36,6 @@ const MyProfile = () => {
                                 alt="admin"
                               />
                             </div>
-                            <button className="image-change">
-                              <i class="fa-solid fa-camera"></i>
-                            </button>
                           </div>
                           <div className="part-txt">
                             <h3 className="admin-name">{userData?.fullName}</h3>
