@@ -1,5 +1,6 @@
 export const webURLs = {
     LOGIN : "/v1/admin/login",
     ADD_STUDENT : "/v2/customer/register",
-    CHANGE_PASSWORD : "/v2/admin/chngepass/"
+    CHANGE_PASSWORD : "/v2/admin/chngepass/",
+    ENQUIRIES: "/v2/customer/getall"
 }
