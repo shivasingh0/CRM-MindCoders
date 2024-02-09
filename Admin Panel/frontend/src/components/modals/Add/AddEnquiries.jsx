@@ -40,7 +40,10 @@ const AddEnquiries = (props) => {
       if (result.data.status) {
         localStorage.setItem("fullName", formData.fullName);
         document.getElementById("close").click();
-        await saveAlert();
+        toast.success("Enquiry added", {
+          position: toast.POSITION.TOP_CENTER,
+        });
+        // await saveAlert();
       } else {
         toast.error("Enter valid details", {
           position: toast.POSITION.TOP_CENTER,

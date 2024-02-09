@@ -16,6 +16,7 @@ const TableComponent = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [selectedCustomer, setSelectedCustomer] = useState(null);
+  const [totalEnquiries, setTotalEnquiries] = useState(0);
 
   useEffect(() => {
     getEnquiries();
@@ -30,8 +31,9 @@ const TableComponent = (props) => {
 
       // Check if response is successful
       if (response && response.data) {
-        setGetAllData(response.data.data);
+        setGetAllData(response?.data?.data);
         // console.log(response.data);
+        setTotalEnquiries(response?.data?.data?.length)
       } else {
         throw new Error("No data received from the server");
       }
@@ -83,7 +85,7 @@ const TableComponent = (props) => {
       <div className="widget-heading p-2 d-flex justify-content-between align-items-center">
         <h4>
           <span className="badge badge-primary mr-2">
-            Total Enquiries- 20 Students{" "}
+           {`Total Enquiries :- ${totalEnquiries}`}
           </span>
           <span className="badge badge-secondary">
             Today Enquiries- 5 Students{" "}
