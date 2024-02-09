@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import EditBtnComponent from "./EditBtnComponent";
+import { getDataFromSessionStorage } from "../../helpers/Helpers";
 
 const MyProfile = () => {
   const [userData, setUserData] = useState();
 
   useEffect(() => {
-    const userDetails = JSON.parse(localStorage.getItem("user"));
+    const userDetails = getDataFromSessionStorage()
+
     if (userDetails) {
       setUserData(userDetails.data);
     }

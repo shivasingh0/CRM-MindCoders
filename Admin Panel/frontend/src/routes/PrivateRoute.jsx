@@ -3,10 +3,11 @@ import { FullScreen, useFullScreenHandle } from "react-full-screen";
 
 // Import Components
 import * as COMPONENT_ROUTES from "../routes/ComponentRoute";
+import { getDataFromSessionStorage } from "../helpers/Helpers";
 
 function PrivateRoute() {
   const handle = useFullScreenHandle();
-  let auth = localStorage.getItem("user");
+  let auth = getDataFromSessionStorage();
 
   return auth ? (
     <>

@@ -1,68 +1,25 @@
 import React, { useEffect, useState } from "react";
-import { Modal } from "react-bootstrap";
-import { axiosClient } from "../../../webServices/Getway";
-import { webURLs } from "../../../webServices/WebURLs";
-import { toast } from "react-toastify";
-import { saveAlert } from "../../alerts/saveAlert";
 import DateTime from "../../dateTime/DateTime";
-import { getToken } from "../../../helpers/Helpers";
+import { Modal } from "react-bootstrap";
 
+const EditStudentDetails = (props) => {
+  const { customer } = props;
+  // const [formData, setFormData] = useState(customer);
+  const [formData, setFormData] = useState({});
 
-
-const AddEnquiries = (props) => {
-
-  const initialFormState = {
-    fullName: "",
-    email: "",
-    mobile: "",
-    college_name: "",
-    qualification: "",
-    course: "",
-    city: "",
-    batch_year: "",
-    alternative_No: "",
-    counselors: "",
-    priority: "",
-    lead_status: "",
-    final_price: "",
-  };
-
-  const [formData, setFormData] = useState(initialFormState);
-
-  // Add Enquiry API Integration
-  const addEnquery = async (e) => {
-    // e.preventDefault();
-
-    try {
-      
-      let result = await axiosClient.post(webURLs.ADD_STUDENT, formData);
-
-      if (result.data.status) {
-        localStorage.setItem("fullName", formData.fullName);
-        document.getElementById("close").click();
-        await saveAlert();
-      } else {
-        toast.error("Enter valid details", {
-          position: toast.POSITION.TOP_CENTER,
-        });
-      }
-    } catch (error) {
-      console.error("Enquiry failed:", error);
-      toast.error("Failed. Please try again.", {
-        position: toast.POSITION.TOP_CENTER,
-      });
+  useEffect(() => {
+    if (customer) {
+      setFormData(customer);
     }
-  };
+  }, [customer]);
 
-  // update state
-  const updateState = (e) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value
+    }));
   };
-
-  useEffect(()=>{
-    addEnquery()
-  },[])
 
   return (
     <>
@@ -74,7 +31,7 @@ const AddEnquiries = (props) => {
       >
         <div className="gradient-5">
           <Modal.Header closeButton>
-            <h5 className="text-white">Add New Enquery</h5>
+            <h5 className="text-white">Update Student Details</h5>
           </Modal.Header>
         </div>
         <Modal.Body>
@@ -97,10 +54,9 @@ const AddEnquiries = (props) => {
                     type="text"
                     className="form-control mt-10"
                     placeholder="Student name"
-                    value={formData.fullName}
+                    value={formData?.fullName}
                     name="fullName"
-                    onChange={updateState}
-                    required
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="col-md-4 mb-2 mt-2">
@@ -111,10 +67,9 @@ const AddEnquiries = (props) => {
                     type="tel"
                     className="form-control mt-10"
                     placeholder="Mobile Number"
-                    value={formData.mobile}
+                    value={formData?.mobile}
                     name="mobile"
-                    onChange={updateState}
-                    required
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="col-md-4 mb-2 mt-2">
@@ -125,9 +80,9 @@ const AddEnquiries = (props) => {
                     type="tel"
                     className="form-control mt-10"
                     placeholder="Alternate Mobile Number"
-                    value={formData.alternative_No}
+                    value={formData?.alternative_No}
                     name="alternative_No"
-                    onChange={updateState}
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="col-md-4 mb-2 mt-2">
@@ -138,10 +93,9 @@ const AddEnquiries = (props) => {
                     type="text"
                     className="form-control mt-10"
                     placeholder="Email id"
-                    value={formData.email}
+                    value={formData?.email}
                     name="email"
-                    onChange={updateState}
-                    required
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="col-md-4 mb-2">
@@ -152,10 +106,9 @@ const AddEnquiries = (props) => {
                     type="text"
                     className="form-control mt-10"
                     placeholder="City"
-                    value={formData.city}
+                    value={formData?.city}
                     name="city"
-                    onChange={updateState}
-                    required
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="col-md-4 mb-2">
@@ -166,10 +119,9 @@ const AddEnquiries = (props) => {
                     type="text"
                     className="form-control mt-10"
                     placeholder="College"
-                    value={formData.college_name}
+                    value={formData?.college_name}
                     name="college_name"
-                    onChange={updateState}
-                    required
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="col-md-4 mb-2">
@@ -180,9 +132,9 @@ const AddEnquiries = (props) => {
                     type="text"
                     className="form-control mt-10"
                     placeholder="Qualification"
-                    value={formData.qualification}
+                    value={formData?.qualification}
                     name="qualification"
-                    onChange={updateState}
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="col-md-4 mb-2">
@@ -193,23 +145,28 @@ const AddEnquiries = (props) => {
                     type="text"
                     className="form-control mt-10"
                     placeholder="Passing year"
-                    value={formData.batch_year}
+                    value={formData?.batch_year}
                     name="batch_year"
-                    onChange={updateState}
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="col-md-4 mb-2 mt-2">
                   <label className="mb-2 mt-2">
                     <strong>Course Name*</strong>
                   </label>
-                  <select className="default-select  form-control wide">
-                    <option disabled="">-Select Course-</option>
-                    <option >Frontend Development</option>
-                    <option>Backend Development</option>
-                    <option>MERN Stack</option>
-                    <option>Digital Marketing</option>
-                    <option>Data Analytics</option>
-                    <option>Data Science</option>
+                  <select
+                    className="default-select  form-control wide"
+                    value={formData?.course}
+                    name="course"
+                    onChange={handleChange}
+                  >
+                    <option>-Select Course-</option>
+                    <option value="Frontend Development">Frontend Development</option>
+                    <option value="Backend Development">Backend Development</option>
+                    <option value="MERN Stack">MERN Stack</option>
+                    <option value="Digital Marketing">Digital Marketing</option>
+                    <option value="Data Analytics">Data Analytics</option>
+                    <option value="Data Science">Data Science</option>
                   </select>
                 </div>
                 <div className="col-md-4 mb-2 mt-2">
@@ -223,20 +180,6 @@ const AddEnquiries = (props) => {
                     disabled
                   />
                 </div>
-                {/* <div className="col-md-4 mb-2 mt-2">
-                  <label className="mb-1">
-                    <strong>Final Course Price</strong>
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control mt-10"
-                    placeholder="Final Price"
-                    value={formData.final_price}
-                    name="final_price"
-                    onChange={updateState}
-                    required
-                  />
-                </div> */}
                 <div className="col-md-4 mb-2 mt-2">
                   <label className="mb-1">
                     <strong>Referral Person Name*</strong>
@@ -263,9 +206,9 @@ const AddEnquiries = (props) => {
                   </label>
                   <select
                     className="default-select form-control wide"
-                    value={formData.priority}
+                    // value={formData.priority}
                     name="priority"
-                    onChange={updateState}
+                    // onChange={updateState}
                     required
                   >
                     <option disabled="">-Select Status-</option>
@@ -281,9 +224,9 @@ const AddEnquiries = (props) => {
                   </label>
                   <select
                     className="default-select form-control wide"
-                    value={formData.lead_status}
+                    // value={formData.lead_status}
                     name="lead_status"
-                    onChange={updateState}
+                    // onChange={updateState}
                     required
                   >
                     <option disabled="">-Select Status-</option>
@@ -297,7 +240,7 @@ const AddEnquiries = (props) => {
               <div
                 type="submit"
                 className="mt-4 btn btn-secondary"
-                onClick={addEnquery}
+                // onClick={addEnquery}
               >
                 <i className="bi-binoculars-fill" /> Save Student Details
               </div>
@@ -314,4 +257,4 @@ const AddEnquiries = (props) => {
   );
 };
 
-export default AddEnquiries;
+export default EditStudentDetails;

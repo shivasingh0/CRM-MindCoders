@@ -18,6 +18,7 @@ export { default as ADD_TEAM } from '../components/modals/Add/AddTeam'
 
 export { default as EDIT_COURSE } from '../components/modals/Edit/EditCourse'
 export { default as EDIT_DEMO } from '../components/modals/Edit/EditDemoClass'
+export { default as EDIT_STUDENT_DETAILS } from '../components/modals/Edit/EditStudentDetails'
 
 export { default as VIEW_ADDMISSION } from '../components/modals/View/ViewAddmission'
 export { default as VIEW_FEE } from '../components/modals/View/ViewFee'

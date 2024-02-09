@@ -28,16 +28,6 @@ const SidebarBar = () => {
               <u>Student Management</u>
               <hr />
             </li>
-            {/* <li
-              className={
-                location.pathname === "/students" ? "mt-10 mm-active" : "mt-10"
-              }
-            >
-              <Link to="/students" aria-expanded="false">
-                <i className="bi-person-lines-fill text-color" />
-                <span className="nav-text">Total Students</span>
-              </Link>
-            </li> */}
             <li
               className={location.pathname === "/enquiries" ? "mm-active" : ""}
             >
@@ -91,12 +81,6 @@ const SidebarBar = () => {
                 <span className="nav-text"> Total Employees</span>
               </Link>
             </li>
-            {/* <li className={location.pathname === "/teams" ? "mm-active" : ""}>
-              <Link to="/teams" aria-expanded="false">
-                <i class="bi bi-people-fill text-color"></i>
-                <span className="nav-text">Teams</span>
-              </Link>
-            </li> */}
             <li
               className={
                 location.pathname === "/lead-distribution" ? "mm-active" : ""

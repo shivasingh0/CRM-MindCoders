@@ -4,15 +4,18 @@ import React, { useEffect, useState } from "react";
 import * as COMPONENT from "../../routes/ComponentRoute";
 import { axiosClient } from "../../webServices/Getway";
 import { webURLs } from "../../webServices/WebURLs";
+import { dateFormat, getDataFromSessionStorage, getToken } from "../../helpers/Helpers";
 
 const TableComponent = (props) => {
   const [addEnqueryModalShow, setAddEnqueryModalShow] = useState(false);
   const [viewStudentDetailsModalShow, setViewStudentDetailsModalShow] =
     useState(false);
   const [followUpModalShow, setFollowUpModalShow] = useState(false);
+  const [editStudentDetails, setEditStudentDetails] = useState(false);
   const [getAllData, setGetAllData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [selectedCustomer, setSelectedCustomer] = useState(null);
 
   useEffect(() => {
     getEnquiries();
@@ -22,20 +25,13 @@ const TableComponent = (props) => {
     setIsLoading(true);
 
     try {
-      let userData = JSON.parse(localStorage.getItem("user"));
-      let token = userData.data.token;
-      let response = await axiosClient.get(webURLs.ENQUIRIES, {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-      });
+  
+      let response = await axiosClient.get(webURLs.ENQUIRIES);
 
       // Check if response is successful
       if (response && response.data) {
         setGetAllData(response.data.data);
-        console.log(response.data);
+        // console.log(response.data);
       } else {
         throw new Error("No data received from the server");
       }
@@ -46,6 +42,40 @@ const TableComponent = (props) => {
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const openViewStudentDetailsModal = (customer) => {
+    setSelectedCustomer(customer);
+    setViewStudentDetailsModalShow(true);
+  };
+
+  const folloupMessage = (customer) => {
+    setSelectedCustomer(customer);
+    setFollowUpModalShow(true);
+  };
+
+  // const editStudentsDetails = (customer) => {
+  //   setSelectedCustomer(customer);
+  //   setEditStudentDetails(true);
+  // };
+
+  const editStudentsDetails = (customerId) => {
+    // Find the selected customer using the ID
+    const selectedCustomer = getAllData.find(customer => customer.id === customerId);
+    
+    // Update the selected customer in the state
+    setSelectedCustomer(selectedCustomer);
+  
+    // Show the edit student details modal
+    setEditStudentDetails(true);
+  };
+
+  // Function to refresh data after saving details
+  const refreshData = () => {
+    // You can call the getEnquiries function to fetch updated data
+    getEnquiries();
+    // You can also close the addEnqueryModalShow modal if needed
+    setAddEnqueryModalShow(false);
   };
 
   return (
@@ -81,7 +111,7 @@ const TableComponent = (props) => {
           <div id="example4_wrapper" className="dataTables_wrapper no-footer">
             <div className="dataTables_length" id="example4_length">
               <label>
-                Show{" "}
+                Show
                 <select
                   name="example4_length"
                   aria-controls="example4"
@@ -91,7 +121,7 @@ const TableComponent = (props) => {
                   <option value={25}>25</option>
                   <option value={50}>50</option>
                   <option value={100}>100</option>
-                </select>{" "}
+                </select>
                 entries
               </label>
             </div>
@@ -115,48 +145,51 @@ const TableComponent = (props) => {
             >
               <thead>
                 <tr className="text-center" role="row">
-                  <th style={{ width: "33.2625px" }}>No.</th>
-                  <th style={{ width: "117.275px" }}>Student Name</th>
-                  <th style={{ width: "54.925px" }}>Done?</th>
-                  <th style={{ width: "106.125px" }}>Enquiry Date</th>
-                  <th style={{ width: "81.7125px" }}>Status</th>
-                  <th style={{ width: "102.787px" }}>Next Call</th>
-                  <th style={{ width: "189.137px" }}>Course Name </th>
-                  <th style={{ width: "112.85px" }}>Finalized Fees </th>
-                  <th style={{ width: "137.15px" }}>Action </th>
+                  <th>No.</th>
+                  <th>Student Name</th>
+                  <th>Mobile</th>
+                  <th>Enquiry Date</th>
+                  <th>Status</th>
+                  <th>Next Call</th>
+                  <th>Course Name </th>
+                  <th>Priority </th>
+                  <th>Action </th>
                 </tr>
               </thead>
               <tbody>
-                {getAllData.length > 0 ? (
+                {getAllData?.length > 0 ? (
                   getAllData.map((customer, index) => (
-                    <tr key={index}>
+                    <tr className="text-center" key={index}>
                       <td>{index + 1}</td>
                       <td>{customer.fullName}</td>
-                      <td>{customer.done ? "Yes" : "No"}</td>{" "}
+                      <td>{customer.mobile}</td>
                       {/* Assuming done is a boolean field */}
-                      <td>{customer.updatedAt}</td>
+                      <td>{dateFormat(customer?.createdAt)}</td>
                       <td>{customer.lead_status}</td>
                       <td>{customer.nextCall}</td>
-                      <td>{customer.courseName}</td>
-                      <td>{customer.finalizedFees}</td>
+                      <td>{customer.course}</td>
+                      <td>{customer.priority}</td>
                       <td>
-                  <i
-                    className="bi-eye mr-2 text-dark pointer"
-                    title="view details"
-                    onClick={() => setViewStudentDetailsModalShow(true)}
-                  />
-                  <i
-                    className="bi-chat-right-dots text-primary mr-2 pointer"
-                    title="followup message"
-                    // onClick={()=> setFollowUpModalShow(true) }
-                  />
-                  <a href="" data-bs-toggle="modal" data-bs-target="#enquiries">
-                    <i className="bi-pencil-square mr-2 text-danger" />
-                  </a>
-                  <a href="add_enrollement.html">
-                    <i className="bi-binoculars-fill text-secondary mr-2" />
-                  </a>
-                </td>
+                        <i
+                          className="bi-eye mr-2 text-dark pointer"
+                          title="view details"
+                          onClick={() => openViewStudentDetailsModal(customer)}
+                        />
+                        <i
+                          className="bi-chat-right-dots text-primary mr-2 pointer"
+                          title="followup message"
+                          onClick={() => folloupMessage(customer)}
+                        />
+                        <i
+                          className="bi-pencil-square mr-2 text-danger pointer"
+                          title="edit details"
+                          onClick={() => editStudentsDetails(customer.id)}
+                        />
+                        <i
+                          className="bi-binoculars-fill text-secondary mr-2"
+                          title="Addmission"
+                        />
+                      </td>
                     </tr>
                   ))
                 ) : (
@@ -221,6 +254,7 @@ const TableComponent = (props) => {
       <COMPONENT.VIEW_STUDENT_DETAILS
         show={viewStudentDetailsModalShow}
         onHide={() => setViewStudentDetailsModalShow(false)}
+        customer={selectedCustomer}
       />
       {viewStudentDetailsModalShow ? (
         <div class="modal-backdrop fade show"></div>
@@ -231,8 +265,17 @@ const TableComponent = (props) => {
       <COMPONENT.FOLLOW_UP_ACTIVITY
         show={followUpModalShow}
         onHide={() => setFollowUpModalShow(false)}
+        // onAddEnquirySuccess={refreshData} // Pass the function to be called after successful save
+        customer={selectedCustomer}
       />
       {followUpModalShow ? <div class="modal-backdrop fade show"></div> : ""}
+      {/* Edit student details modal */}
+      <COMPONENT.EDIT_STUDENT_DETAILS
+        show={editStudentDetails}
+        onHide={() => setEditStudentDetails(false)}
+        customer={selectedCustomer}
+      />
+      {editStudentDetails ? <div class="modal-backdrop fade show"></div> : ""}
     </>
   );
 };

@@ -1,95 +1,94 @@
-import React from "react";
-import { Button, Modal } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Modal } from "react-bootstrap";
+import { webURLs } from "../../../webServices/WebURLs";
+import { axiosClient } from "../../../webServices/Getway";
+import { dateFormat } from "../../../helpers/Helpers";
 
 const ViewStudentDetails = (props) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [getAllData, setGetAllData] = useState([]);
+  const {customer} = props
+ 
   return (
     <>
-     <Modal
+      <Modal
         {...props}
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
-      {/* <div
-        className="modal fade show"
-        id="studentdetails"
-        style={{ display: "block", paddingRight: 17 }}
-        aria-modal="true"
-        role="dialog"
-      > */}
-        {/* <div className="modal-dialog modal-lg" role="document"> */}
-          {/* <div className="modal-content"> */}
-            <div className="gradient-5">
-              <Modal.Header closeButton>
-            <h5 className="text-white">Student Name (Enquiry Details)</h5>
+        <div className="gradient-5">
+          <Modal.Header closeButton>
+            <h5 className="text-white">{customer?.fullName} (Enquiry Details)</h5>
           </Modal.Header>
-            </div>
-            <Modal.Body>
+        </div>
+        {isLoading ? (
+          <div>Loading...</div>
+        ) : error ? (
+          <div>Error: {error}</div>
+        ) : (
+          <Modal.Body>
             <div className="card-body">
-              <div className="instructors-media mt-3">
+              <div className="instructors-media">
                 <div className="instructors-media-info text-center">
                   <div className="row">
-                    <div className="col-md-4 mt-4">
-                      <img className="view-student-profile" src="images/profile.png" alt="" height={200} />
-                    </div>
-                    <div className="col-md-8">
+                    <div className="col-md-6">
                       <ul className="list-group list-group-flush">
                         <li className="list-group-item d-flex px-0 justify-content-between">
                           <span>Student Name</span>
-                          <span className="mb-0">Shiv Rajawat</span>
+                          <span className="mb-0">{customer?.fullName}</span>
                         </li>
                         <li className="list-group-item d-flex px-0 justify-content-between">
                           <span>Mobile</span>
-                          <span className="mb-0">+917007094154</span>
+                          <span className="mb-0">{customer?.mobile}</span>
                         </li>
                         <li className="list-group-item d-flex px-0 justify-content-between">
                           <span>Alternate Mobile No.</span>
-                          <span className="mb-0">+917007094154</span>
+                          <span className="mb-0">{customer?.alternative_No}</span>
                         </li>
                         <li className="list-group-item d-flex px-0 justify-content-between">
                           <span>Email</span>
-                          <span className="mb-0">shiva2003rajawat@gmail.com</span>
+                          <span className="mb-0">
+                            {customer?.email}
+                          </span>
                         </li>
                         <li className="list-group-item d-flex px-0 justify-content-between">
                           <span>City</span>
-                          <span className="mb-0">
-                            Indore
-                          </span>
+                          <span className="mb-0">{customer?.city}</span>
                         </li>
                         <li className="list-group-item d-flex px-0 justify-content-between">
                           <span>College Name</span>
                           <span className="mb-0">
-                          AITR
+                            {customer?.college_name}
                           </span>
                         </li>
                         <li className="list-group-item d-flex px-0 justify-content-between">
                           <span>Academic Qualification</span>
                           <span className="mb-0">
-                          B.Tech
+                            {customer?.qualification}
                           </span>
                         </li>
                         <li className="list-group-item d-flex px-0 justify-content-between">
                           <span>Year of Passing</span>
                           <span className="mb-0">
-                          2023
+                        {customer?.batch_year}
                           </span>
                         </li>
                         <li className="list-group-item d-flex px-0 justify-content-between">
                           <span>Enquiry Date</span>
                           <span className="mb-0 text-left">
-                            12/05/2023 02:30 PM
+                            {dateFormat(customer?.createdAt)}
                           </span>
                         </li>
                       </ul>
                     </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-md-6 p-4">
+                    <div className="col-md-6">
                       <ul className="list-group list-group-flush">
                         <li className="list-group-item d-flex px-0 justify-content-between">
                           <span>Course Name</span>
                           <span className="mb-0 text-secondary">
-                            MPPSC MAINS 2023
+                            {customer?.course}
                           </span>
                         </li>
                         <li className="list-group-item d-flex px-0 justify-content-between">
@@ -101,70 +100,25 @@ const ViewStudentDetails = (props) => {
                           <span className="mb-0 text-secondary">25000</span>
                         </li>
                         {/* <li className="list-group-item d-flex px-0 justify-content-between">
-                          <span>Referral Person Name</span>
-                          <span className="mb-0 text-secondary">KK Patil</span>
-                        </li>
-                        <li className="list-group-item d-flex px-0 justify-content-between">
-                          <span>Counselor</span>
-                          <span className="mb-0">KK Patil</span>
-                        </li> */}
-                        {/* <li className="list-group-item d-flex px-0 justify-content-between">
-                          <span>Parent's Mobile</span>
-                          <span className="mb-0">9876543210</span>
-                        </li>
-                        <li className="list-group-item d-flex px-0 justify-content-between">
-                          <span>Father's Occupation</span>
-                          <span className="mb-0">Business</span>
-                        </li> */}
-                        {/* <li className="list-group-item d-flex px-0 justify-content-between">
-                          <span>Monthly Income</span>
-                          <span className="mb-0">3Lac to 4 Lac</span>
-                        </li> */}
-                        {/* <li className="list-group-item d-flex px-0 justify-content-between">
-                          <span>City Name</span>
-                          <span className="mb-0">Indore</span>
-                        </li> */}
-                        {/* <li className="list-group-item d-flex px-0 justify-content-between">
-                          <span className="text-start" style={{ width: 80 }}>
-                            Address
-                          </span>
-                          <span className="mb-0 text-end">
-                            128, Near HDS Hospital, Vijay Nagar, Bhopal 456000
-                          </span>
-                        </li> */}
-                        <li className="list-group-item d-flex px-0 justify-content-between">
                           <span>Source of Enquiry</span>
                           <span className="mb-0">Direct Walkin</span>
-                        </li>
+                        </li> */}
                         <li className="list-group-item d-flex px-0 justify-content-between">
                           <span>Referral Person Name</span>
-                          <span className="mb-0">Pankaj Sir</span>
+                          <span className="mb-0">
+                            {customer?.refrence_name}
+                          </span>
                         </li>
                         <li className="list-group-item d-flex px-0 justify-content-between">
                           <span>Enquiry Status</span>
-                          <span className="mb-0">Interested</span>
+                          <span className="mb-0">
+                            {customer?.lead_status}
+                          </span>
                         </li>
-                      </ul>
-                    </div>
-                    <div className="col-md-6 p-4">
-                      <ul className="list-group list-group-flush">
                         <li className="list-group-item d-flex px-0 justify-content-between">
                           <span>Demo Classes</span>
                           <span className="mb-0">No</span>
                         </li>
-                        <li className="list-group-item d-flex px-0 justify-content-between">
-                          <span>Academic Qualification</span>
-                          <span className="mb-0">BBA </span>
-                        </li>
-                        <li className="list-group-item d-flex px-0 justify-content-between">
-                          <span>Passing Year </span>
-                          <span className="mb-0">2022</span>
-                        </li>
-                        <li className="list-group-item d-flex px-0 justify-content-between">
-                          <span>Marks Obtained</span>
-                          <span className="mb-0">200</span>
-                        </li>
-                        
                         <li className="list-group-item d-flex px-0 justify-content-between">
                           <span className="text-start" style={{ width: 80 }}>
                             Followup{" "}
@@ -185,13 +139,8 @@ const ViewStudentDetails = (props) => {
                 </div>
               </div>
             </div>
-            </Modal.Body>
-            <Modal.Footer>
-          <Button onClick={props.onHide}>Close</Button>
-        </Modal.Footer>
-          {/* </div> */}
-        {/* </div> */}
-       {/* </div> */}
+          </Modal.Body>
+        )}
       </Modal>
     </>
   );

@@ -39,6 +39,11 @@ const schema = new Schema({
         // },
         default:""
     },
+    qualification: {
+        type: String,
+        trim: true,
+        default:""
+    },
     course: {
         type: String,
         trim: true,
@@ -92,7 +97,7 @@ const schema = new Schema({
             values: ["Low", "Medium", "High", "None"],
             message: ({value}) => `${value} is a valid key entry`
         },
-        default:""
+        default:"None"
     },
     isActive: {
         type: Boolean,
@@ -132,6 +137,10 @@ const schema = new Schema({
         trim: true,
         default : ""
     },
+    isAdmission: {
+        type: Boolean,
+        default: false
+    }
     
 }, { timestamps: true })
 

@@ -1,7 +1,10 @@
 import React from "react";
-import { Button, Modal } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
+import { dateFormat } from "../../helpers/Helpers";
 
 const FollowUpActivity = (props) => {
+  const { customer } = props;
+
   return (
     <>
       <Modal
@@ -21,8 +24,8 @@ const FollowUpActivity = (props) => {
               <h5>Student Name</h5>
               <div>
                 <h5>
-                  <i className="bi-calendar2-event" /> Enquiry Date: 12/03/2023
-                  03:43 PM
+                  <i className="bi-calendar2-event" />
+                  {dateFormat(customer?.createdAt)}
                 </h5>
               </div>
             </div>
@@ -32,38 +35,12 @@ const FollowUpActivity = (props) => {
                   <label className="mb-2 mt-2">
                     <strong>Lead Status*</strong>
                   </label>
-                  <select
-                    className="default-select  form-control wide"
-                    style={{ display: "none" }}
-                  >
-                    <option disabled="">Select Status</option>
+                  <select className="default-select  form-control wide">
+                    <option value=""> {customer?.lead_status} </option>
                     <option>Interested</option>
                     <option>Call Back</option>
                     <option>Not Interested</option>
                   </select>
-                  <div
-                    className="nice-select default-select form-control wide"
-                    tabIndex={0}
-                  >
-                    <span className="current">Interested</span>
-                    <ul className="list">
-                      <li
-                        data-value="Select Status"
-                        className="option disabled"
-                      >
-                        Select Status
-                      </li>
-                      <li data-value="Interested" className="option selected">
-                        Interested
-                      </li>
-                      <li data-value="Call Back" className="option">
-                        Call Back
-                      </li>
-                      <li data-value="Not Interested" className="option">
-                        Not Interested
-                      </li>
-                    </ul>
-                  </div>
                 </div>
                 <div className="col-md-3 mb-2">
                   <label className="mb-1  mt-2">
@@ -99,7 +76,7 @@ const FollowUpActivity = (props) => {
                     >
                       <h4 className="mb-0">
                         <button className="btn btn-secondary mr-2">
-                          Interested{" "}
+                          {customer?.lead_status}
                         </button>
                         Student is interested but need to some time. Next Call:
                         20/05/2023
@@ -128,7 +105,10 @@ const FollowUpActivity = (props) => {
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={props.onHide}>Close</Button>
+          {/* <Button onClick={props.onHide}>Close</Button> */}
+          <div type="submit" class="mt-4 btn btn-secondary">
+            <i class="bi-binoculars-fill"></i> Add Followup message
+          </div>
         </Modal.Footer>
       </Modal>
     </>

@@ -4,6 +4,7 @@ import { axiosClient } from "../webServices/Getway";
 import { webURLs } from "../webServices/WebURLs";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Cookies from "js-cookie";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -12,7 +13,7 @@ const Login = () => {
   const Navigate = useNavigate();
 
   useEffect(() => {
-    localStorage.removeItem("user");
+    sessionStorage.removeItem("user");
   }, []);
 
   // Login API Integration
@@ -25,12 +26,15 @@ const Login = () => {
       });
       return;
     }
+
     try {
       let result = await axiosClient.post(webURLs.LOGIN, { email, password });
 
       if (result.data.status) {
-        localStorage.setItem("user", JSON.stringify(result.data));
+        sessionStorage.setItem("user", JSON.stringify(result.data));
+        Cookies.set('token',result?.data?.data?.token)
         Navigate("/");
+
       } else {
         toast.error("Enter valid details",{
           position: toast.POSITION.TOP_CENTER
