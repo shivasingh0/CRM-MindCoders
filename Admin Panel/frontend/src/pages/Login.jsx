@@ -14,6 +14,7 @@ const Login = () => {
 
   useEffect(() => {
     sessionStorage.removeItem("user");
+    Cookies.remove("token")
   }, []);
 
   // Login API Integration
@@ -32,7 +33,7 @@ const Login = () => {
 
       if (result.data.status) {
         sessionStorage.setItem("user", JSON.stringify(result.data));
-        Cookies.set('token',result?.data?.data?.token)
+        Cookies.set('token',result.data.data.token)
         Navigate("/");
 
       } else {

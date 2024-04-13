@@ -27,7 +27,13 @@ const TableComponent = (props) => {
 
     try {
   
-      let response = await axiosClient.get(webURLs.ENQUIRIES);
+      let response = await axiosClient.get(webURLs.ENQUIRIES,{
+        headers : {
+          "Content-Type" : "Application/JSON",
+          "Authorization" : `Bearer ${getToken()}`,
+          "Accept" : "*/*"
+      }
+      });
 
       // Check if response is successful
       if (response && response.data) {

@@ -28,11 +28,6 @@ const schema = new Schema({
         type: Boolean,
         default: true
     },
-    attender: {
-        type: String,
-        trim: true,
-        default : ""
-    },
     employee: {
         type: mongoose.Schema.Types.ObjectId,
         trim: true,

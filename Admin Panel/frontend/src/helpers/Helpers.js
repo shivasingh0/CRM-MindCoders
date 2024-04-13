@@ -11,5 +11,5 @@ export function dateFormat(date){
 
   export function getToken() {
     const token = Cookies.get('token')
-    return token
+    return token;
   }

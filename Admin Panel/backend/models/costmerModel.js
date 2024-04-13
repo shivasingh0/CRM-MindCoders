@@ -117,19 +117,15 @@ const schema = new Schema({
         },
         default :""
     },
-    password : {
-        type : String,
-        trim : true,
-        default:""
-    },
     adder : {
         type : mongoose.Schema.Types.ObjectId,
         trim : true,
         // default:""
     },
-    Buy_course : {
+    buy_course : {
         type : mongoose.Schema.Types.ObjectId,
         trim : true,
+        ref:"Course"
         // default:""
     },
     discription: {

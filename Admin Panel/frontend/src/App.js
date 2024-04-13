@@ -8,7 +8,7 @@ import { PathRoutes } from "./routes/PathRoutes";
 import * as PAGE_ROUTES from "./routes/PageRoutes";
 
 // Import Components
-import * as COMPONENT_ROUTES from './routes/ComponentRoute'
+import * as COMPONENT_ROUTES from "./routes/ComponentRoute";
 
 function App() {
   return (
@@ -67,7 +67,10 @@ function App() {
             />
             {/* Course routes end */}
             {/* Other routes start */}
-            <Route path={PathRoutes.PROFILE} element={<COMPONENT_ROUTES.LAYOUT />}>
+            <Route
+              path={PathRoutes.PROFILE}
+              element={<COMPONENT_ROUTES.LAYOUT />}
+            >
               <Route index element={<PAGE_ROUTES.PROFILE />} />
               <Route
                 path={PathRoutes.EDIT_PROFILE}

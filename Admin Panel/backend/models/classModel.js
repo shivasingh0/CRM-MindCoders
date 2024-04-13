@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const { model, Schema } = mongoose
 
 const schema = new Schema({
-    Batch_name: {
+    batch_name: {
         type: String,
         trim: true,
         required: [true, "course_category required"],
@@ -20,6 +20,7 @@ const schema = new Schema({
     course_name: {
         type: mongoose.Schema.Types.ObjectId,
         trim: true,
+        ref:"Course",
         default:""
     },
     isActive: {
