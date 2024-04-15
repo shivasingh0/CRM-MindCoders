@@ -18,7 +18,6 @@ customerRouter.get("/getall", async (req, res) => {
     } catch (error) {
         res.json(new ApiResponse(false, null, error.message))
     }
-
 })
 
 // for add to new student in application

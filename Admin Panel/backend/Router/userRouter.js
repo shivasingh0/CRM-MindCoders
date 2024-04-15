@@ -2,6 +2,8 @@ const express = require('express')
 const userRouter = express.Router()
 const User = require('../models/userModel')
 const { verifyPassword, encyptPassword } = require('../utils/Password')
+const errorHendlar = require('../utils/errorHendler')
+const { ApiResponse } = require("../Response/apiResponse");
 
 
 
@@ -11,11 +13,11 @@ userRouter.get("/", (req, res) => {
 
 
 // for normal edit user details 
-userRouter.put("/edituser/",async (req, res) => {
-    const id = req.data._id
-    const { fullName, mobile, discription } = req.body
+userRouter.put("/edituser/:id",async (req, res) => {
+    const {id} = req.params
+    // const { fullName, mobile, discription } = req.body
 	try {
-			let data = await User.findByIdAndUpdate(id,{fullName, city, mobile,discription})
+			let data = await User.findByIdAndUpdate(id,req.body,{new:true})
 			if (data !== null) {
 				let resultObj = data.toObject()
 				delete resultObj.password
@@ -29,17 +31,22 @@ userRouter.put("/edituser/",async (req, res) => {
 })
 
 userRouter.put("/changepassword/:id", async(req,res)=>{
-    const id = req.params
+    const {id} = req.params
     const {password,new_password} = req.body
     let newHashPass = null
     try {
-        const resData = await User.find({id})
+        const resData = await User.findById(id)
+        console.log(resData );
         if(resData!==null){
           const oldPass = resData.password
-          let isMatch = await verifyPassword(oldPass,password)
+          console.log(oldPass)
+          let isMatch = await bcrypt.compare(oldPass, password);;
+          console.log
+          console.log(isMatch);
           if(isMatch){
-             newHashPass = await encyptPassword(new_password)
-             let updatePass = User.findByIdAndUpdate(id,{password:newHashPass})
+            console.log("is match block");
+             newHashPass = await encyptPassword(new_password);
+             let updatePass = User.findByIdAndUpdate(id,{password:newHashPass});
              if(updatePass){
                 res.json(updatePass)
              }

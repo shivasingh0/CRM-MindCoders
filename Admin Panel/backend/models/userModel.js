@@ -45,7 +45,7 @@ const schema = new Schema({
         trim: true,
         required: [true, "Please define User Role"],
         enum: {
-            values: ['HR', 'BDE','DEVOLOPER'],
+            values: ['HR', 'BDE','DEVELOPER'],
             message: ({ value }) => `${value} is not supported`
         }
     },

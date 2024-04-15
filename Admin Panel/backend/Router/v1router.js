@@ -6,6 +6,8 @@ const userModel = require('../models/userModel')
 const adminModel = require('../models/adminModel')
 const { generateAccessToken } = require('../config/tokenManager')
 const customerModel = require('../models/costmerModel')
+const { RegisterAdmin } = require('../controller/adminController')
+const { RegiseterUser } = require('../controller/userConroller')
 require('dotenv').config()
 const v1router = express.Router()
 
@@ -14,40 +16,16 @@ v1router.get("/", (req, res) => {
     res.status(404).json("cant not found")
 })
 
-v1router.post("/mindadmin", async (req, res) => {
-    const { fullName, email, password, mobile } = req.body
-    let hashPassword = null
-    try {
-        if (/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,15}$/.test(password)) {
-            hashPassword = await encyptPassword(password)
-        } else {
-            res.json(new ApiResponse(false, null, "use strong password and minimum 6 character "))
+///register admi
+v1router.post("/mindadmin",RegisterAdmin);
 
-        }
-        if (hashPassword !== null) {
-            let response = await adminModel.create({
-                fullName,
-                password: hashPassword,
-                email,
-                mobile
-            })
+//register user
 
-            if (response !== null) {
-                let Obj = response.toObject()
-                delete Obj.__v
-                delete Obj.password
-                res.status(200).json("register successfully")
-            }
-        }
+v1router.post("/minduser",RegiseterUser);
 
-    } catch (error) {
-        let err = errorHendlar(error)
-        res.json(new ApiResponse(false, null, err ? err : error.message))
-    }
-})
+
 
 // user login 
-
 v1router.post("/user/login", async (req, res) => {
     const { email, password } = req.body
     try {
