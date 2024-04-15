@@ -11,7 +11,7 @@ userRouter.get("/", (req, res) => {
 
 
 // for normal edit user details 
-userRouter.put("/edituser/",async (req, res) => {
+userRouter.put("/edituser/:id",async (req, res) => {
     const id = req.data._id
     const { fullName, mobile, discription } = req.body
 	try {
